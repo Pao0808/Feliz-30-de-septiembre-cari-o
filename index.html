@@ -9,9 +9,9 @@
 
 <style>
 
-/* =====================================================
+/* =========================================================
    BASE
-===================================================== */
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -19,13 +19,14 @@
     padding:0;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
-    background:#010208;
-    font-family:Arial,Helvetica,sans-serif;
+    background:#01030a;
     color:white;
+    font-family:Arial,Helvetica,sans-serif;
     touch-action:none;
 }
 
@@ -34,8 +35,8 @@ body{
         radial-gradient(
             circle at 50% 50%,
             #071b35 0%,
-            #020713 38%,
-            #010208 80%
+            #020713 42%,
+            #010208 82%
         );
 }
 
@@ -46,14 +47,14 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    INTRO
-===================================================== */
+========================================================= */
 
 .intro{
     position:fixed;
     inset:0;
-    z-index:2000;
+    z-index:3000;
 
     display:flex;
     align-items:center;
@@ -64,8 +65,8 @@ body{
     background:
         radial-gradient(
             circle at 50% 45%,
-            rgba(0,80,180,.20),
-            transparent 32%
+            rgba(0,90,220,.22),
+            transparent 35%
         ),
         #010208;
 
@@ -157,12 +158,8 @@ body{
     transition:.3s ease;
 }
 
-.enter-button:hover{
-    transform:scale(1.05);
-
-    box-shadow:
-        0 0 25px rgba(0,140,255,.8),
-        0 0 50px rgba(0,100,255,.3);
+.enter-button:active{
+    transform:scale(.97);
 }
 
 .intro-small{
@@ -173,32 +170,33 @@ body{
 }
 
 
-/* =====================================================
-   NEBULAS
-===================================================== */
+/* =========================================================
+   NEBULOSAS
+========================================================= */
 
 .nebula{
     position:absolute;
     border-radius:50%;
-    filter:blur(75px);
-    opacity:.28;
+    filter:blur(80px);
     pointer-events:none;
 }
 
 .nebula.one{
-    width:450px;
-    height:300px;
+    width:430px;
+    height:280px;
     background:#0066ff;
     left:-150px;
     top:10%;
+    opacity:.18;
 }
 
 .nebula.two{
-    width:500px;
-    height:350px;
+    width:470px;
+    height:320px;
     background:#174cff;
     right:-180px;
     bottom:5%;
+    opacity:.16;
 }
 
 .nebula.three{
@@ -207,13 +205,13 @@ body{
     background:#008cff;
     left:35%;
     top:35%;
-    opacity:.12;
+    opacity:.08;
 }
 
 
-/* =====================================================
+/* =========================================================
    ESTRELLAS
-===================================================== */
+========================================================= */
 
 .stars{
     position:absolute;
@@ -231,9 +229,11 @@ body{
 
     border-radius:50%;
 
-    box-shadow:0 0 7px #5aa9ff;
+    box-shadow:
+        0 0 7px #5aa9ff;
 
-    animation:twinkle 2s infinite alternate;
+    animation:
+        twinkle 2s infinite alternate;
 }
 
 .big-star{
@@ -247,11 +247,12 @@ body{
     background:white;
 
     box-shadow:
-        0 0 8px #fff,
+        0 0 8px white,
         0 0 20px #168cff,
         0 0 35px #168cff;
 
-    animation:bigTwinkle 3s infinite alternate;
+    animation:
+        bigTwinkle 3s infinite alternate;
 }
 
 @keyframes twinkle{
@@ -283,9 +284,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    ESTRELLAS FUGACES
-===================================================== */
+========================================================= */
 
 .shooting-star{
     position:absolute;
@@ -306,7 +307,8 @@ body{
 
     opacity:0;
 
-    animation:shoot 7s linear infinite;
+    animation:
+        shoot 8s linear infinite;
 }
 
 @keyframes shoot{
@@ -334,9 +336,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    TITULO
-===================================================== */
+========================================================= */
 
 .title{
     position:absolute;
@@ -348,16 +350,15 @@ body{
 
     z-index:100;
 
-    text-align:center;
-
     width:100%;
+
+    text-align:center;
 
     pointer-events:none;
 }
 
 .title h1{
     font-size:clamp(22px,5vw,42px);
-
     letter-spacing:6px;
 
     text-shadow:
@@ -371,53 +372,54 @@ body{
     color:#9acbff;
 
     font-size:12px;
-
     letter-spacing:2px;
 }
 
 
-/* =====================================================
+/* =========================================================
    FRASES FLOTANTES
-===================================================== */
+========================================================= */
 
 .phrase{
     position:absolute;
 
-    color:rgba(174,215,255,.7);
+    color:rgba(174,215,255,.62);
 
     font-size:10px;
 
     letter-spacing:1px;
 
-    text-shadow:0 0 8px #168cff;
+    text-shadow:
+        0 0 8px #168cff;
 
     pointer-events:none;
 
-    animation:floatPhrase 6s ease-in-out infinite;
-
     white-space:nowrap;
+
+    animation:
+        floatPhrase 7s ease-in-out infinite;
 }
 
 .phrase.one{
-    left:8%;
-    top:32%;
+    left:7%;
+    top:31%;
 }
 
 .phrase.two{
-    right:7%;
+    right:6%;
     top:28%;
     animation-delay:2s;
 }
 
 .phrase.three{
-    left:12%;
+    left:9%;
     bottom:27%;
     animation-delay:1s;
 }
 
 .phrase.four{
-    right:9%;
-    bottom:31%;
+    right:8%;
+    bottom:30%;
     animation-delay:3s;
 }
 
@@ -436,24 +438,25 @@ body{
     }
 
     50%{
-        opacity:.8;
+        opacity:.75;
         transform:translateY(-8px);
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    UNIVERSO
-===================================================== */
+========================================================= */
 
 .universe{
     position:absolute;
 
-    width:100%;
-    height:100%;
+    inset:0;
 
     perspective:1100px;
+
+    overflow:hidden;
 }
 
 .world{
@@ -464,19 +467,22 @@ body{
 
     transform-style:preserve-3d;
 
-    transition:
-        transform .12s ease-out;
+    /*
+       IMPORTANTE:
+       no usamos transition aquí.
+       Eso elimina el retraso/vibración al arrastrar.
+    */
 }
 
 
-/* =====================================================
+/* =========================================================
    MOTOS
-===================================================== */
+========================================================= */
 
 .motorcycle{
     position:absolute;
 
-    width:clamp(115px,17vw,230px);
+    width:clamp(105px,15vw,215px);
 
     cursor:pointer;
 
@@ -486,9 +492,7 @@ body{
 
     -webkit-user-drag:none;
 
-    transition:
-        filter .35s ease,
-        opacity .35s ease;
+    z-index:10;
 }
 
 .motorcycle img{
@@ -498,21 +502,31 @@ body{
 
     object-fit:contain;
 
+    pointer-events:none;
+
+    /*
+       El blend ayuda a integrar algunos PNG que
+       tienen un fondo azulado incorporado.
+    */
+    mix-blend-mode:screen;
+
     filter:
         drop-shadow(
-            0 0 8px
+            0 0 7px
             rgba(0,130,255,.55)
         )
         drop-shadow(
-            0 0 22px
-            rgba(0,100,255,.25)
+            0 0 18px
+            rgba(0,100,255,.22)
         );
 
     transition:
-        filter .3s ease,
-        transform .3s ease;
+        filter .25s ease,
+        transform .25s ease;
+}
 
-    pointer-events:none;
+.motorcycle:active img{
+    transform:scale(.97);
 }
 
 .motorcycle:hover img{
@@ -522,61 +536,63 @@ body{
             rgba(50,160,255,.9)
         )
         drop-shadow(
-            0 0 35px
-            rgba(0,100,255,.7)
+            0 0 28px
+            rgba(0,100,255,.65)
         );
-
-    transform:scale(1.05);
 }
 
 
-/* =====================================================
-   8 MOTOS PRINCIPALES
-===================================================== */
+/* =========================================================
+   MOTOS PRINCIPALES
+========================================================= */
 
-.motorcycle.special-bike img{
+.special-bike{
+    z-index:20;
+}
+
+.special-bike img{
     filter:
         drop-shadow(
             0 0 10px
-            #168cff
+            rgba(22,140,255,.8)
         )
         drop-shadow(
-            0 0 28px
-            rgba(0,110,255,.8)
+            0 0 25px
+            rgba(0,110,255,.55)
         );
 }
 
 
-/* =====================================================
+/* =========================================================
    CB190R
-===================================================== */
+========================================================= */
 
-.motorcycle.main-bike{
-    width:clamp(150px,22vw,290px);
+.main-bike{
+    width:clamp(135px,19vw,250px);
 
-    z-index:30;
+    z-index:40;
 }
 
-.motorcycle.main-bike img{
+.main-bike img{
     filter:
         drop-shadow(
             0 0 12px
             #168cff
         )
         drop-shadow(
-            0 0 35px
+            0 0 30px
             #0066ff
         )
         drop-shadow(
-            0 0 60px
-            rgba(0,130,255,.6)
+            0 0 50px
+            rgba(0,130,255,.5)
         );
 }
 
 
-/* =====================================================
+/* =========================================================
    RAMO
-===================================================== */
+========================================================= */
 
 .bouquet{
     position:absolute;
@@ -587,13 +603,14 @@ body{
     transform:
         translate(-50%,-50%);
 
-    width:clamp(180px,25vw,310px);
+    width:clamp(165px,23vw,280px);
 
     z-index:50;
 
     cursor:pointer;
 
-    animation:bloom 4s ease-in-out infinite;
+    animation:
+        bloom 4s ease-in-out infinite;
 }
 
 .bouquet img{
@@ -629,15 +646,14 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    PROGRESO
-===================================================== */
+========================================================= */
 
 .progress{
     position:absolute;
 
     top:88px;
-
     left:50%;
 
     transform:translateX(-50%);
@@ -650,21 +666,21 @@ body{
 
     letter-spacing:2px;
 
-    text-shadow:0 0 8px #168cff;
+    text-shadow:
+        0 0 8px #168cff;
 
     pointer-events:none;
 }
 
 
-/* =====================================================
-   INSTRUCCION
-===================================================== */
+/* =========================================================
+   INSTRUCCIÓN
+========================================================= */
 
 .instruction{
     position:absolute;
 
     bottom:20px;
-
     left:50%;
 
     transform:translateX(-50%);
@@ -679,15 +695,16 @@ body{
 
     text-align:center;
 
-    text-shadow:0 0 8px #168cff;
+    text-shadow:
+        0 0 8px #168cff;
 
     pointer-events:none;
 }
 
 
-/* =====================================================
+/* =========================================================
    MODAL
-===================================================== */
+========================================================= */
 
 .modal{
     position:fixed;
@@ -695,14 +712,13 @@ body{
     inset:0;
 
     background:
-        rgba(0,0,8,.80);
+        rgba(0,0,8,.82);
 
     backdrop-filter:blur(10px);
 
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     z-index:500;
@@ -745,7 +761,8 @@ body{
         inset 0 0 30px
         rgba(0,90,255,.12);
 
-    animation:modalIn .35s ease;
+    animation:
+        modalIn .35s ease;
 
     touch-action:auto;
 }
@@ -754,6 +771,7 @@ body{
 
     from{
         opacity:0;
+
         transform:
             scale(.8)
             translateY(20px);
@@ -761,6 +779,7 @@ body{
 
     to{
         opacity:1;
+
         transform:
             scale(1)
             translateY(0);
@@ -814,20 +833,10 @@ body{
     cursor:pointer;
 }
 
-.final-button{
-    border-color:#319dff;
 
-    color:#b7e0ff;
-
-    box-shadow:
-        0 0 15px
-        rgba(0,120,255,.3);
-}
-
-
-/* =====================================================
+/* =========================================================
    SECRETO
-===================================================== */
+========================================================= */
 
 .secret-overlay{
     position:fixed;
@@ -835,14 +844,13 @@ body{
     inset:0;
 
     background:
-        rgba(0,0,8,.90);
+        rgba(0,0,8,.93);
 
     backdrop-filter:blur(12px);
 
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     z-index:900;
@@ -879,7 +887,8 @@ body{
         inset 0 0 40px
         rgba(0,80,255,.1);
 
-    animation:secretIn .7s ease;
+    animation:
+        secretIn .7s ease;
 }
 
 @keyframes secretIn{
@@ -916,9 +925,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    FINAL
-===================================================== */
+========================================================= */
 
 .final-overlay{
     position:fixed;
@@ -930,7 +939,6 @@ body{
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
@@ -953,7 +961,8 @@ body{
 .final-content{
     width:min(90%,720px);
 
-    animation:finalAppear 2s ease;
+    animation:
+        finalAppear 2s ease;
 }
 
 @keyframes finalAppear{
@@ -973,7 +982,7 @@ body{
 .final-content h1{
     font-size:clamp(25px,6vw,50px);
 
-    color:#fff;
+    color:white;
 
     line-height:1.25;
 
@@ -1020,10 +1029,24 @@ body{
     letter-spacing:1px;
 }
 
+.final-button{
+    display:none;
 
-/* =====================================================
-   ULTIMA SORPRESA
-===================================================== */
+    margin-top:30px;
+
+    border-color:#319dff;
+
+    color:#b7e0ff;
+
+    box-shadow:
+        0 0 18px
+        rgba(0,120,255,.35);
+}
+
+
+/* =========================================================
+   ÚLTIMA SORPRESA
+========================================================= */
 
 .last-surprise{
     position:fixed;
@@ -1035,7 +1058,6 @@ body{
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
@@ -1058,13 +1080,15 @@ body{
 .last-content{
     width:min(90%,650px);
 
-    animation:lastAppear 2s ease;
+    animation:
+        lastAppear 2s ease;
 }
 
 @keyframes lastAppear{
 
     from{
         opacity:0;
+
         transform:
             scale(.7)
             translateY(20px);
@@ -1072,6 +1096,7 @@ body{
 
     to{
         opacity:1;
+
         transform:
             scale(1)
             translateY(0);
@@ -1084,7 +1109,8 @@ body{
 
     margin-bottom:25px;
 
-    animation:heartBeat 2s infinite;
+    animation:
+        heartBeat 2s infinite;
 
     filter:
         drop-shadow(
@@ -1138,9 +1164,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    MOVIL
-===================================================== */
+========================================================= */
 
 @media(max-width:600px){
 
@@ -1168,15 +1194,15 @@ body{
     }
 
     .motorcycle{
-        width:115px;
+        width:105px;
     }
 
-    .motorcycle.main-bike{
-        width:150px;
+    .main-bike{
+        width:145px;
     }
 
     .bouquet{
-        width:180px;
+        width:170px;
     }
 
     .phrase{
@@ -1184,682 +1210,880 @@ body{
     }
 
     .phrase.one{
-        left:3%;
+        left:2%;
     }
 
     .phrase.two{
-        right:3%;
+        right:2%;
     }
 
     .phrase.three{
-        left:3%;
+        left:2%;
     }
 
     .phrase.four{
-        right:3%;
+        right:2%;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      UNIVERSO
-===================================================== -->
+========================================================= -->
 
 <div class="space">
 
 
-    <!-- INTRO -->
+<!-- =========================================================
+     INTRO
+========================================================= -->
 
-    <div
-        class="intro"
-        id="intro">
+<div
+    class="intro"
+    id="intro">
 
-        <div class="intro-content">
+    <div class="intro-content">
 
-            <div class="intro-date">
-                30 DE SEPTIEMBRE
-            </div>
+        <div class="intro-date">
+            30 DE SEPTIEMBRE
+        </div>
 
-            <h2>
-                PARA TI, SEBAS ❤️
-            </h2>
+        <h2>
+            PARA TI, SEBAS ❤️
+        </h2>
 
-            <div class="intro-text">
+        <div class="intro-text">
 
-                Hay millones de estrellas en el universo...
-                <br>
+            Hay millones de estrellas en el universo...
+            <br>
 
-                pero yo siempre termino encontrándote a ti.
+            pero yo siempre termino encontrándote a ti.
 
-                <br><br>
+            <br><br>
 
-                Hice este pequeño lugar para que no solamente lo mires.
-                <br>
+            Hice este pequeño lugar para que no solamente lo mires.
+            <br>
 
-                Quiero que lo recorras.
-
-            </div>
-
-            <button
-                class="enter-button"
-                onclick="enterUniverse()">
-
-                ✦ TOCA PARA ENTRAR ✦
-
-            </button>
-
-            <div class="intro-small">
-
-                Hay cosas aquí que tendrás que descubrir tú mismo...
-
-            </div>
+            Quiero que lo recorras.
 
         </div>
 
-    </div>
+        <button
+            class="enter-button"
+            onclick="enterUniverse()">
 
+            ✦ TOCA PARA ENTRAR ✦
 
-    <!-- NEBULAS -->
+        </button>
 
-    <div class="nebula one"></div>
-    <div class="nebula two"></div>
-    <div class="nebula three"></div>
+        <div class="intro-small">
 
-
-    <!-- ESTRELLAS -->
-
-    <div
-        class="stars"
-        id="stars">
-    </div>
-
-
-    <!-- ESTRELLAS GRANDES -->
-
-    <div
-        class="big-star"
-        style="left:18%;top:13%;">
-    </div>
-
-    <div
-        class="big-star"
-        style="left:82%;top:18%;">
-    </div>
-
-    <div
-        class="big-star"
-        style="left:12%;top:58%;">
-    </div>
-
-    <div
-        class="big-star"
-        style="left:89%;top:63%;">
-    </div>
-
-
-    <!-- ESTRELLAS FUGACES -->
-
-    <div
-        class="shooting-star"
-        style="animation-delay:1s;">
-    </div>
-
-    <div
-        class="shooting-star"
-        style="animation-delay:5s;">
-    </div>
-
-
-    <!-- TITULO -->
-
-    <div class="title">
-
-        <h1>
-            NUESTRO UNIVERSO
-        </h1>
-
-        <p>
-            Un pequeño lugar hecho para ti ❤️
-        </p>
-
-    </div>
-
-
-    <!-- FRASES FLOTANTES -->
-
-    <div class="phrase one">
-        Qué suerte la mía haberte encontrado
-    </div>
-
-    <div class="phrase two">
-        De todas las coincidencias de mi vida, tú eres mi favorita
-    </div>
-
-    <div class="phrase three">
-        No necesito otro universo si puedo encontrarte en este
-    </div>
-
-    <div class="phrase four">
-        Tú haces que mis días normales tengan algo extraordinario
-    </div>
-
-    <div class="phrase five">
-        Si el destino tuviera una forma, se parecería a haberte conocido.
-    </div>
-
-
-    <!-- UNIVERSO 3D -->
-
-    <div
-        class="universe"
-        id="universe">
-
-        <div
-            class="world"
-            id="world">
-
-
-            <!-- =================================================
-                 RAMO
-            ================================================== -->
-
-            <div
-                class="bouquet"
-                onclick="openBouquet()">
-
-                <img
-                    src="ramo.png"
-                    alt="Nuestro ramo">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 1
-                 CFMOTO 675SR-R
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:4%;
-                    top:20%;
-                    transform:
-                        translateZ(100px)
-                        rotate(-8deg);
-                "
-                onclick="
-                    openBike(
-                        1,
-                        'CFMOTO',
-                        '675SR-R',
-                        'Me encanta escucharte cuando empiezas a hablar de las motos que sueñas tener. Me gusta cómo cambia tu manera de hablar, cómo empiezas a explicar cada detalle y cómo, casi sin darte cuenta, se te iluminan los ojos. Quizás para alguien más solamente sea una moto, pero para mí también es una pequeña ventana a esa parte de ti que sueña, imagina y se emociona. Y creo que una de las cosas más bonitas de quererte es poder conocer esa parte de ti.'
-                    )
-                ">
-
-                <img
-                    src="cf moto 675.png"
-                    alt="CFMOTO 675SR-R">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 2
-                 CFMOTO 750SR-R
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:70%;
-                    top:15%;
-                    transform:
-                        translateZ(-250px)
-                        rotate(7deg);
-                "
-                onclick="
-                    openBike(
-                        2,
-                        'CFMOTO',
-                        '750SR-R',
-                        'Sé cuánto te ilusiona algún día poder tener las motos que tanto has imaginado. Y hay algo que me parece precioso en eso: que no solamente quieres cosas, tienes sueños que te hacen ilusión de verdad. Ojalá algún día puedas mirar hacia atrás y ver que muchas de esas cosas que hoy me cuentas con tanta emoción terminaron convirtiéndose en realidad. Y cuando llegue ese momento, quiero acordarme de todas esas veces en las que me hablaste de ellas antes de tenerlas.'
-                    )
-                ">
-
-                <img
-                    src="cf moto 750.png"
-                    alt="CFMOTO 750SR-R">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 3
-                 CBR500R
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:18%;
-                    top:62%;
-                    transform:
-                        translateZ(-180px)
-                        rotate(-5deg);
-                "
-                onclick="
-                    openBike(
-                        3,
-                        'Honda',
-                        'CBR500R',
-                        'Hay una parte de ti que admiro mucho: esa capacidad de encontrar algo que realmente te apasiona y dejarte emocionar por ello. Me gusta escucharte comparar modelos, hablar de características y contarme qué te gusta de una y qué cambiarías de otra. Incluso cuando no entiendo cada detalle, me gusta escucharte, porque sé que detrás de todas esas palabras hay algo que te hace feliz. Y me gusta poder ser la persona a la que quieres contárselo.'
-                    )
-                ">
-
-                <img
-                    src="cbr500r.png"
-                    alt="Honda CBR500R">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 4
-                 NX500
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:76%;
-                    top:65%;
-                    transform:
-                        translateZ(180px)
-                        rotate(8deg);
-                "
-                onclick="
-                    openBike(
-                        4,
-                        'Honda',
-                        'NX500 E-Clutch',
-                        'Esta me hace pensar en todos los lugares que todavía no conocemos. En carreteras que todavía no hemos recorrido, viajes que todavía no hemos planeado y fotografías que todavía no existen. Me gusta pensar que algún día tendremos recuerdos que hoy solamente podemos imaginar. Porque todavía nos quedan muchísimas cosas por vivir, cariño, y me encanta saber que el futuro todavía guarda lugares en los que nunca hemos estado.'
-                    )
-                ">
-
-                <img
-                    src="nx500.png"
-                    alt="Honda NX500">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 5
-                 NINJA 300
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:3%;
-                    top:43%;
-                    transform:
-                        translateZ(-350px)
-                        rotate(-12deg);
-                "
-                onclick="
-                    openBike(
-                        5,
-                        'Kawasaki',
-                        'Ninja 300 ABS',
-                        'Quizás algunos sueños empiezan siendo pequeños, pero eso no los hace menos importantes. Me gusta pensar que cada cosa que alguna vez deseaste tuvo un motivo para hacerte ilusión. Y quiero que nunca tengas miedo de seguir soñando solamente porque algo parezca lejano. Si algo consigue hacerte sonreír de esa manera tan tuya, entonces para mí ya merece un lugar especial.'
-                    )
-                ">
-
-                <img
-                    src="ninja300.png"
-                    alt="Kawasaki Ninja 300">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 6
-                 NINJA 500
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:82%;
-                    top:40%;
-                    transform:
-                        translateZ(-100px)
-                        rotate(10deg);
-                "
-                onclick="
-                    openBike(
-                        6,
-                        'Kawasaki',
-                        'Ninja 500 SE ABS',
-                        'Me gusta esa versión de ti que se imagina conduciendo una moto que todavía no tiene. Esa versión que hace planes, compara posibilidades y piensa en qué vendrá después. No sé cuáles de todos esos sueños vas a conseguir primero, pero sí sé que quiero verte seguir teniendo ilusiones. Porque hay algo muy bonito en mirar a alguien que quieres y pensar: todavía tiene muchísimas cosas por descubrir y conseguir.'
-                    )
-                ">
-
-                <img
-                    src="ninja500.png"
-                    alt="Kawasaki Ninja 500">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 7
-                 YAMAHA R3
-            ================================================== -->
-
-            <div
-                class="motorcycle special-bike"
-                style="
-                    left:42%;
-                    top:9%;
-                    transform:
-                        translateZ(-300px)
-                        rotate(-3deg);
-                "
-                onclick="
-                    openBike(
-                        7,
-                        'Yamaha',
-                        'R3',
-                        'Hay algo que quizá no te digo lo suficiente: me encanta verte ilusionado. No solamente por las motos, sino por cualquier cosa que realmente te importa. Cuando algo consigue despertar esa emoción en ti, yo también termino sonriendo. Porque con el tiempo aprendí que querer a alguien también significa aprender a reconocer esas pequeñas cosas que lo hacen feliz y guardarlas con cariño en el corazón.'
-                    )
-                ">
-
-                <img
-                    src="r3.png"
-                    alt="Yamaha R3">
-
-            </div>
-
-
-            <!-- =================================================
-                 CB190R
-                 LA MÁS ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:42%;
-                    top:73%;
-                    transform:
-                        translateZ(300px);
-                "
-                onclick="
-                    openBike(
-                        15,
-                        'Honda',
-                        'CB190R ❤️',
-                        ''
-                    )
-                ">
-
-                <img
-                    src="cb190r.png"
-                    alt="Honda CB190R">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 8
-                 R1
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:27%;
-                    top:16%;
-                    transform:
-                        translateZ(250px)
-                        rotate(-5deg);
-                "
-                onclick="
-                    openBike(
-                        8,
-                        'Yamaha',
-                        'YZF-R1',
-                        'Hay sueños que parecen enormes cuando apenas comienzan. Quizás hoy algunas cosas estén lejos, pero eso no significa que siempre lo estarán. Me gusta imaginarte algún día cumpliendo todo aquello que alguna vez me contaste con tanta ilusión. Y cuando llegue ese día, espero poder mirarte y decirte: yo recuerdo cuando esto todavía era solamente un sueño.'
-                    )
-                ">
-
-                <img
-                    src="r1.png"
-                    alt="Yamaha R1">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 9
-                 ZX6R
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:58%;
-                    top:24%;
-                    transform:
-                        translateZ(150px)
-                        rotate(6deg);
-                "
-                onclick="
-                    openBike(
-                        9,
-                        'Kawasaki',
-                        'Ninja ZX-6R',
-                        'Hay algo muy tuyo en la manera en que puedes emocionarte hablando de una máquina. Es esa mezcla entre curiosidad, ilusión y admiración que aparece cuando algo realmente te gusta. Y aunque quizá nunca llegue a entender todos los detalles técnicos como tú, sí aprendí a reconocer ese brillo en tus ojos. Y creo que ese brillo es una de mis cosas favoritas de ti.'
-                    )
-                ">
-
-                <img
-                    src="zx6r.png"
-                    alt="Kawasaki ZX-6R">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 10
-                 GSXR
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:25%;
-                    top:42%;
-                    transform:
-                        translateZ(-250px)
-                        rotate(-7deg);
-                "
-                onclick="
-                    openBike(
-                        10,
-                        'Suzuki',
-                        'GSX-R1000',
-                        'Hay algo que deseo para ti incluso más que cualquier moto: que nunca pierdas esa parte de ti que todavía sabe ilusionarse. Que sigas encontrando cosas que te emocionen, metas que te hagan levantarte con ganas y sueños que te hagan mirar hacia adelante. Porque me gusta la persona que eres cuando algo realmente te apasiona.'
-                    )
-                ">
-
-                <img
-                    src="gsxr1000.png"
-                    alt="Suzuki GSX-R1000">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 11
-                 S1000RR
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:63%;
-                    top:47%;
-                    transform:
-                        translateZ(-350px)
-                        rotate(8deg);
-                "
-                onclick="
-                    openBike(
-                        11,
-                        'BMW',
-                        'S 1000 RR',
-                        'Hay cosas que simplemente llaman la atención. Algunas por su belleza, otras por su fuerza y otras porque tienen algo difícil de explicar. Supongo que por eso esta terminó aquí. Aunque, pensándolo bien, quizá se parece un poquito a ti: una de esas cosas que llegaron sin avisar y terminaron ocupando mucho más espacio del que uno esperaba.'
-                    )
-                ">
-
-                <img
-                    src="s1000rr.png"
-                    alt="BMW S1000RR">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 12
-                 PANIGALE
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:8%;
-                    top:73%;
-                    transform:
-                        translateZ(50px)
-                        rotate(-6deg);
-                "
-                onclick="
-                    openBike(
-                        12,
-                        'Ducati',
-                        'Panigale V4',
-                        'A veces las cosas que admiramos no necesitan ninguna explicación. Simplemente nos hacen detenernos y mirar. Y creo que contigo me pasa algo parecido: hay momentos en los que te observo y pienso en lo curioso que es que, entre tantas personas que existen en el mundo, haya terminado encontrándote a ti.'
-                    )
-                ">
-
-                <img
-                    src="panigalev4.png"
-                    alt="Ducati Panigale V4">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 13
-                 FIREBLADE
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:70%;
-                    top:76%;
-                    transform:
-                        translateZ(-250px)
-                        rotate(5deg);
-                "
-                onclick="
-                    openBike(
-                        13,
-                        'Honda',
-                        'CBR1000RR-R Fireblade',
-                        'Todavía hay demasiadas cosas que no sabemos cómo serán. Y, curiosamente, eso no me da miedo. Me gusta pensar que todavía existen capítulos que ninguno de los dos conoce, lugares donde nunca hemos estado y recuerdos que todavía no hemos creado. Quizás esa sea una de las partes más bonitas de estar vivos: saber que todavía queda muchísimo por descubrir.'
-                    )
-                ">
-
-                <img
-                    src="fireblade.png"
-                    alt="Honda Fireblade">
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 14
-                 RSV4
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:48%;
-                    top:55%;
-                    transform:
-                        translateZ(-400px)
-                        rotate(-4deg);
-                "
-                onclick="
-                    openBike(
-                        14,
-                        'Aprilia',
-                        'RSV4',
-                        'Y si algún día sientes que ya cumpliste todos tus sueños, espero que encuentres otros nuevos. Porque quiero que siempre tengas algo que te emocione, algo que esperar y alguna razón para mirar hacia adelante. Y si alguna vez necesitas que alguien te recuerde que todavía puedes soñar más, espero estar ahí para hacerlo.'
-                    )
-                ">
-
-                <img
-                    src="rsv4.png"
-                    alt="Aprilia RSV4">
-
-            </div>
-
+            Hay cosas aquí que tendrás que descubrir tú mismo...
 
         </div>
-
-    </div>
-
-
-    <!-- PROGRESO -->
-
-    <div
-        class="progress"
-        id="progress">
-
-        0 / 15 estrellas descubiertas
-
-    </div>
-
-
-    <!-- INSTRUCCION -->
-
-    <div class="instruction">
-
-        ✦ DESLIZA PARA VIAJAR POR NUESTRO UNIVERSO ✦
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     FONDO
+========================================================= -->
+
+<div class="nebula one"></div>
+<div class="nebula two"></div>
+<div class="nebula three"></div>
+
+<div
+    class="stars"
+    id="stars">
+</div>
+
+
+<div
+    class="big-star"
+    style="left:18%;top:13%;">
+</div>
+
+<div
+    class="big-star"
+    style="left:82%;top:18%;">
+</div>
+
+<div
+    class="big-star"
+    style="left:12%;top:58%;">
+</div>
+
+<div
+    class="big-star"
+    style="left:89%;top:63%;">
+</div>
+
+
+<div
+    class="shooting-star"
+    style="animation-delay:1s;">
+</div>
+
+<div
+    class="shooting-star"
+    style="animation-delay:5s;">
+</div>
+
+
+<!-- =========================================================
+     TITULO
+========================================================= -->
+
+<div class="title">
+
+    <h1>
+        NUESTRO UNIVERSO
+    </h1>
+
+    <p>
+        Un pequeño lugar hecho para ti ❤️
+    </p>
+
+</div>
+
+
+<!-- =========================================================
+     FRASES FLOTANTES
+========================================================= -->
+
+<div class="phrase one">
+    Qué suerte la mía haberte encontrado
+</div>
+
+<div class="phrase two">
+    De todas las coincidencias de mi vida, tú eres mi favorita
+</div>
+
+<div class="phrase three">
+    No necesito otro universo si puedo encontrarte en este
+</div>
+
+<div class="phrase four">
+    Tú haces que hasta mis días normales tengan algo extraordinario
+</div>
+
+<div class="phrase five">
+    Si el destino tuviera una forma, probablemente se parecería a haberte conocido.
+</div>
+
+
+<!-- =========================================================
+     UNIVERSO 3D
+========================================================= -->
+
+<div
+    class="universe"
+    id="universe">
+
+    <div
+        class="world"
+        id="world">
+
+
+<!-- =========================================================
+     RAMO
+========================================================= -->
+
+<div
+    class="bouquet"
+    onclick="openBouquet()">
+
+    <img
+        src="ramo.png"
+        alt="Nuestro ramo">
+
+</div>
+
+
+<!-- =========================================================
+     1 — CFMOTO 675
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:5%;
+        top:20%;
+        transform:
+            translateZ(100px)
+            rotate(-8deg);
+    "
+    onclick="
+        openBike(
+            1,
+            'CFMOTO',
+            '675SR-R',
+            `Me encanta escucharte cuando empiezas a hablar de las motos que sueñas tener.
+
+Me gusta cómo cambia tu manera de hablar, cómo empiezas a contarme cada detalle y cómo, casi sin darte cuenta, se te iluminan los ojos.
+
+Quizás para alguien más solamente sea una moto.
+
+Pero para mí también es una pequeña ventana a esa parte de ti que sueña, imagina y se emociona.
+
+Y creo que una de las cosas más bonitas de quererte es poder conocer esa parte de ti.
+
+Porque cuando te emocionas hablando de algo que amas, yo también termino sonriendo.
+
+No porque entienda cada detalle de las motos...
+
+sino porque me encanta verte feliz. ❤️`
+        )
+    ">
+
+    <img
+        src="cf moto 675.png"
+        alt="CFMOTO 675SR-R">
+
+</div>
+
+
+<!-- =========================================================
+     2 — CFMOTO 750
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:72%;
+        top:16%;
+        transform:
+            translateZ(-250px)
+            rotate(7deg);
+    "
+    onclick="
+        openBike(
+            2,
+            'CFMOTO',
+            '750SR-R',
+            `Sé cuánto te ilusiona algún día poder tener las motos que tantas veces has imaginado.
+
+Y hay algo que me parece precioso en eso.
+
+No solamente quieres cosas.
+
+Tienes sueños que realmente te hacen ilusión.
+
+Me gusta escucharte hablar de ellos y pensar que quizás algún día uno de esos sueños deje de ser solamente una imagen en tu cabeza y se convierta en algo que puedas tocar.
+
+Ojalá algún día puedas mirar hacia atrás y recordar todas esas veces en las que me hablaste de tus motos soñadas.
+
+Y cuando llegue ese momento, quiero estar cerca para verte sonreír y decirte:
+
+"¿Te acuerdas cuando solamente soñabas con ella?" ❤️`
+        )
+    ">
+
+    <img
+        src="cf moto 750.png"
+        alt="CFMOTO 750SR-R">
+
+</div>
+
+
+<!-- =========================================================
+     3 — CBR500R
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:18%;
+        top:63%;
+        transform:
+            translateZ(-180px)
+            rotate(-5deg);
+    "
+    onclick="
+        openBike(
+            3,
+            'Honda',
+            'CBR500R',
+            `Hay una parte de ti que admiro muchísimo.
+
+Esa capacidad de encontrar algo que realmente te apasiona y dejarte emocionar por ello.
+
+Me gusta escucharte comparar modelos, hablar de características, contarme qué te gusta de una y qué cambiarías de otra.
+
+Incluso cuando no entiendo cada detalle, me gusta escucharte.
+
+Porque sé que detrás de todas esas palabras hay algo que te hace feliz.
+
+Y me gusta ser esa persona a la que quieres contarle tus cosas.
+
+Tal vez no siempre pueda hablar de motos contigo al mismo nivel...
+
+pero siempre voy a querer escuchar cuando se trata de algo que hace brillar tus ojos. ❤️`
+        )
+    ">
+
+    <img
+        src="cbr500r.png"
+        alt="Honda CBR500R">
+
+</div>
+
+
+<!-- =========================================================
+     4 — NX500
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:77%;
+        top:65%;
+        transform:
+            translateZ(180px)
+            rotate(8deg);
+    "
+    onclick="
+        openBike(
+            4,
+            'Honda',
+            'NX500 E-Clutch',
+            `Esta me hace pensar en todos los lugares que todavía no conocemos.
+
+En carreteras que todavía no hemos recorrido.
+
+En viajes que todavía no hemos planeado.
+
+En fotografías que todavía no existen.
+
+Y en recuerdos que todavía no sabemos que algún día serán importantes para nosotros.
+
+Me gusta pensar que el futuro todavía tiene muchas cosas guardadas.
+
+Quizás algún día podamos subirnos a una moto, tomar una carretera y simplemente irnos a conocer algún lugar nuevo.
+
+Porque todavía nos quedan muchísimas cosas por vivir, cariño.
+
+Y me encanta saber que hay recuerdos que todavía no existen y que algún día podrían convertirse en nuestros favoritos. ❤️`
+        )
+    ">
+
+    <img
+        src="nx500.png"
+        alt="Honda NX500">
+
+</div>
+
+
+<!-- =========================================================
+     5 — NINJA 300
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:3%;
+        top:44%;
+        transform:
+            translateZ(-350px)
+            rotate(-12deg);
+    "
+    onclick="
+        openBike(
+            5,
+            'Kawasaki',
+            'Ninja 300 ABS',
+            `Quizás algunos sueños empiezan siendo pequeños.
+
+Pero eso nunca significa que sean menos importantes.
+
+Me gusta pensar que cada cosa que alguna vez deseaste tuvo una razón para hacerte ilusión.
+
+Y quiero que nunca tengas miedo de seguir soñando solamente porque algo parezca lejano.
+
+Si algo consigue hacerte sonreír de esa manera tan tuya, entonces para mí ya merece un lugar especial.
+
+Porque tus sueños también forman parte de la persona que eres.
+
+Y me gusta conocerlos. ❤️`
+        )
+    ">
+
+    <img
+        src="ninja300.png"
+        alt="Kawasaki Ninja 300">
+
+</div>
+
+
+<!-- =========================================================
+     6 — NINJA 500
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:82%;
+        top:41%;
+        transform:
+            translateZ(-100px)
+            rotate(10deg);
+    "
+    onclick="
+        openBike(
+            6,
+            'Kawasaki',
+            'Ninja 500 SE ABS',
+            `Me gusta esa versión de ti que se imagina conduciendo una moto que todavía no tiene.
+
+Esa versión que hace planes, compara posibilidades y piensa en qué vendrá después.
+
+No sé cuáles de todos esos sueños vas a conseguir primero.
+
+Pero sí sé que quiero verte seguir teniendo ilusiones.
+
+Porque hay algo muy bonito en mirar a alguien que quieres y pensar:
+
+"Todavía tiene muchísimas cosas por descubrir."
+
+"Todavía tiene sueños que cumplir."
+
+"Todavía tiene caminos por recorrer."
+
+Y espero que nunca dejes de ser esa persona que mira hacia adelante con ilusión. ❤️`
+        )
+    ">
+
+    <img
+        src="ninja500.png"
+        alt="Kawasaki Ninja 500">
+
+</div>
+
+
+<!-- =========================================================
+     7 — R3
+========================================================= -->
+
+<div
+    class="motorcycle special-bike"
+    style="
+        left:43%;
+        top:9%;
+        transform:
+            translateZ(-300px)
+            rotate(-3deg);
+    "
+    onclick="
+        openBike(
+            7,
+            'Yamaha',
+            'R3',
+            `Hay algo que quizá no te digo lo suficiente:
+
+me encanta verte ilusionado.
+
+No solamente por las motos.
+
+Por cualquier cosa que realmente te importa.
+
+Cuando algo consigue despertar esa emoción en ti, yo también termino sonriendo.
+
+Porque con el tiempo aprendí que querer a alguien también significa aprender a reconocer esas pequeñas cosas que lo hacen feliz.
+
+Y guardarlas con cariño.
+
+Me gusta esa parte de ti que puede emocionarse con un sueño, con una moto, con un proyecto o con cualquier cosa que realmente te apasione.
+
+Y espero que nunca pierdas eso.
+
+Porque esa ilusión también es una de las cosas que hacen especial a la persona que eres. ❤️`
+        )
+    ">
+
+    <img
+        src="r3.png"
+        alt="Yamaha R3">
+
+</div>
+
+
+<!-- =========================================================
+     8 — CB190R
+========================================================= -->
+
+<div
+    class="motorcycle main-bike"
+    style="
+        left:43%;
+        top:74%;
+        transform:
+            translateZ(300px);
+    "
+    onclick="
+        openBike(
+            15,
+            'Honda',
+            'CB190R ❤️',
+            ''
+        )
+    ">
+
+    <img
+        src="cb190r.png"
+        alt="Honda CB190R">
+
+</div>
+
+
+<!-- =========================================================
+     9 — R1
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:28%;
+        top:17%;
+        transform:
+            translateZ(250px)
+            rotate(-5deg);
+    "
+    onclick="
+        openBike(
+            8,
+            'Yamaha',
+            'YZF-R1',
+            `Hay sueños que parecen enormes cuando apenas comienzan.
+
+Quizás hoy algunas cosas estén lejos.
+
+Pero eso no significa que siempre estarán lejos.
+
+Me gusta imaginarte algún día cumpliendo todo aquello que alguna vez me contaste con tanta ilusión.
+
+Y cuando llegue ese momento, espero poder mirarte y decirte:
+
+"Yo recuerdo cuando esto todavía era solamente un sueño."
+
+Porque me gustaría estar ahí para ver cómo algunos de tus "algún día" se convierten en "lo conseguí". ❤️`
+        )
+    ">
+
+    <img
+        src="r1.png"
+        alt="Yamaha R1">
+
+</div>
+
+
+<!-- =========================================================
+     10 — ZX6R
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:59%;
+        top:24%;
+        transform:
+            translateZ(150px)
+            rotate(6deg);
+    "
+    onclick="
+        openBike(
+            9,
+            'Kawasaki',
+            'Ninja ZX-6R',
+            `Hay algo muy tuyo en la manera en que puedes emocionarte hablando de una máquina.
+
+Es esa mezcla entre curiosidad, ilusión y admiración que aparece cuando algo realmente te gusta.
+
+Y aunque quizá nunca llegue a entender todos los detalles técnicos como tú...
+
+sí aprendí a reconocer ese brillo en tus ojos.
+
+Ese momento en el que dejas de simplemente hablar y empiezas a emocionarte.
+
+Y creo que ese brillo es una de mis cosas favoritas de ti.
+
+Porque me recuerda que todavía existe una parte de ti capaz de emocionarse profundamente por las cosas que ama. ❤️`
+        )
+    ">
+
+    <img
+        src="zx6r.png"
+        alt="Kawasaki ZX-6R">
+
+</div>
+
+
+<!-- =========================================================
+     11 — GSXR
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:25%;
+        top:43%;
+        transform:
+            translateZ(-250px)
+            rotate(-7deg);
+    "
+    onclick="
+        openBike(
+            10,
+            'Suzuki',
+            'GSX-R1000',
+            `Hay algo que deseo para ti incluso más que cualquier moto:
+
+que nunca pierdas esa parte de ti que todavía sabe ilusionarse.
+
+Que sigas encontrando cosas que te emocionen.
+
+Metas que te hagan levantarte con ganas.
+
+Sueños que te hagan mirar hacia adelante.
+
+Y pequeños motivos para sentir orgullo de ti mismo.
+
+Porque me gusta la persona que eres cuando algo realmente te apasiona.
+
+Y quiero que siempre tengas algo que te haga decir:
+
+"Algún día voy a conseguirlo." ❤️`
+        )
+    ">
+
+    <img
+        src="gsxr1000.png"
+        alt="Suzuki GSX-R1000">
+
+</div>
+
+
+<!-- =========================================================
+     12 — S1000RR
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:64%;
+        top:48%;
+        transform:
+            translateZ(-350px)
+            rotate(8deg);
+    "
+    onclick="
+        openBike(
+            11,
+            'BMW',
+            'S 1000 RR',
+            `Hay cosas que simplemente llaman la atención.
+
+Algunas por su belleza.
+
+Otras por su fuerza.
+
+Y otras porque tienen algo difícil de explicar.
+
+Supongo que por eso esta terminó aquí.
+
+Aunque, pensándolo bien...
+
+quizás se parece un poquito a ti.
+
+Porque tú también llegaste sin avisar y terminaste ocupando muchísimo más espacio del que yo imaginaba.
+
+Y ahora, cuando pienso en muchas de mis cosas favoritas, inevitablemente apareces tú. ❤️`
+        )
+    ">
+
+    <img
+        src="s1000rr.png"
+        alt="BMW S1000RR">
+
+</div>
+
+
+<!-- =========================================================
+     13 — PANIGALE
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:7%;
+        top:74%;
+        transform:
+            translateZ(50px)
+            rotate(-6deg);
+    "
+    onclick="
+        openBike(
+            12,
+            'Ducati',
+            'Panigale V4',
+            `A veces las cosas que admiramos no necesitan ninguna explicación.
+
+Simplemente nos hacen detenernos y mirar.
+
+Y creo que contigo me pasa algo parecido.
+
+Hay momentos en los que te observo y pienso en lo curioso que es que, entre tantas personas que existen en el mundo, haya terminado encontrándote a ti.
+
+De todas las personas.
+
+De todas las historias posibles.
+
+De todos los caminos.
+
+El mío terminó cruzándose con el tuyo.
+
+Y esa coincidencia siempre va a tener un lugar especial en mi corazón. ❤️`
+        )
+    ">
+
+    <img
+        src="panigalev4.png"
+        alt="Ducati Panigale V4">
+
+</div>
+
+
+<!-- =========================================================
+     14 — FIREBLADE
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:71%;
+        top:76%;
+        transform:
+            translateZ(-250px)
+            rotate(5deg);
+    "
+    onclick="
+        openBike(
+            13,
+            'Honda',
+            'CBR1000RR-R Fireblade',
+            `Todavía hay demasiadas cosas que no sabemos cómo serán.
+
+Y curiosamente, eso no me da miedo.
+
+Me gusta pensar que todavía existen capítulos que ninguno de los dos conoce.
+
+Lugares donde nunca hemos estado.
+
+Personas que todavía no conocemos.
+
+Viajes que todavía no hemos planeado.
+
+Y recuerdos que todavía no hemos creado.
+
+Quizás esa sea una de las partes más bonitas de la vida:
+
+saber que todavía queda muchísimo por descubrir.
+
+Y quién sabe cuántas cosas bonitas nos estarán esperando más adelante. ❤️`
+        )
+    ">
+
+    <img
+        src="fireblade.png"
+        alt="Honda Fireblade">
+
+</div>
+
+
+<!-- =========================================================
+     15 — RSV4
+========================================================= -->
+
+<div
+    class="motorcycle"
+    style="
+        left:49%;
+        top:56%;
+        transform:
+            translateZ(-400px)
+            rotate(-4deg);
+    "
+    onclick="
+        openBike(
+            14,
+            'Aprilia',
+            'RSV4',
+            `Y si algún día sientes que ya cumpliste todos tus sueños...
+
+espero que encuentres otros nuevos.
+
+Porque quiero que siempre tengas algo que te emocione.
+
+Algo que esperar.
+
+Algo por lo que levantarte con ilusión.
+
+Alguna meta que te haga sentir que todavía queda mucho por vivir.
+
+Y si alguna vez necesitas que alguien te recuerde que todavía puedes soñar más...
+
+espero estar ahí para recordártelo.
+
+Porque tus sueños también son parte de la persona que amo. ❤️`
+        )
+    ">
+
+    <img
+        src="rsv4.png"
+        alt="Aprilia RSV4">
+
+</div>
+
+
+    </div>
+</div>
+
+
+<!-- =========================================================
+     PROGRESO
+========================================================= -->
+
+<div
+    class="progress"
+    id="progress">
+
+    0 / 15 estrellas descubiertas
+
+</div>
+
+
+<div class="instruction">
+
+    ✦ DESLIZA PARA VIAJAR POR NUESTRO UNIVERSO ✦
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
      MODAL
-===================================================== -->
+========================================================= -->
 
 <div
     class="modal"
@@ -1886,9 +2110,9 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SECRETO
-===================================================== -->
+========================================================= -->
 
 <div
     class="secret-overlay"
@@ -1922,11 +2146,11 @@ Pero si alguna vez te preguntas qué lugar ocupas en mi mundo...
 
 mira todo este pequeño universo.
 
-Porque cada detalle comenzó con una sola persona en mi cabeza:
+Cada detalle comenzó pensando en una sola persona.
 
-tú.
+Tú.
 
-Y ese era el secreto que quería que encontraras. ❤️
+Y ese era el secreto que quería que encontraras.
 
         </p>
 
@@ -1943,9 +2167,9 @@ Y ese era el secreto que quería que encontraras. ❤️
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FINAL
-===================================================== -->
+========================================================= -->
 
 <div
     class="final-overlay"
@@ -1961,18 +2185,19 @@ Y ese era el secreto que quería que encontraras. ❤️
 
 ¿Sabes qué descubrí?
 
-Que todo esto era demasiado grande
-para decir algo que en realidad era muy sencillo.
+Que no necesitaba 15 motos.
 
-No necesitaba 15 motos.
+Ni millones de estrellas.
 
-No necesitaba millones de estrellas.
+Ni siquiera un universo entero.
 
-Ni siquiera necesitaba construirte un universo entero.
+Porque mi parte favorita de todo esto siempre fuiste tú.
 
-Porque al final, lo que quería regalarte era algo mucho más sencillo:
+Todo lo que viste aquí solamente fue una pequeña forma de decirte algo que muchas veces las palabras no alcanzan a explicar.
 
-un pequeño pedacito de todo lo que siento por ti.
+Te quiero.
+
+Y me hace feliz saber que existes en mi vida.
 
         </p>
 
@@ -2002,8 +2227,7 @@ un pequeño pedacito de todo lo que siento por ti.
         <button
             class="final-button"
             id="lastButton"
-            onclick="showLastSurprise()"
-            style="display:none;">
+            onclick="showLastSurprise()">
 
             ✦ ¿CREÍAS QUE ERA EL FINAL? ✦
 
@@ -2014,9 +2238,9 @@ un pequeño pedacito de todo lo que siento por ti.
 </div>
 
 
-<!-- =====================================================
-     ÚLTIMA SORPRESA
-===================================================== -->
+<!-- =========================================================
+     ULTIMA SORPRESA
+========================================================= -->
 
 <div
     class="last-surprise"
@@ -2050,17 +2274,28 @@ Pero hay una cosa que nunca pude esconder.
 
 Lo mucho que te quiero.
 
-Porque puedo esconder una frase,
-una estrella,
-una sorpresa...
+Porque puedo esconder una frase.
 
-pero no puedo esconder lo que siento
+Una estrella.
+
+Una sorpresa.
+
+Pero no puedo esconder lo que siento
 cuando pienso en ti.
 
 Gracias por ser tú, Sebas.
 
-Y gracias por formar parte
-de mi historia.
+Gracias por cada momento.
+
+Gracias por formar parte de mi historia.
+
+Y si este pequeño universo pudiera quedarse contigo
+mucho después de cerrar esta página...
+
+me gustaría que te recordara algo:
+
+eres y siempre serás una parte muy especial
+de mi universo. ❤️
 
         </p>
 
@@ -2077,9 +2312,9 @@ de mi historia.
 
 <script>
 
-/* =====================================================
+/* =========================================================
    ESTRELLAS
-===================================================== */
+========================================================= */
 
 const stars =
     document.getElementById("stars");
@@ -2110,11 +2345,11 @@ for(let i=0;i<180;i++){
 }
 
 
-/* =====================================================
+/* =========================================================
    SONIDO
-===================================================== */
+========================================================= */
 
-let audioContext;
+let audioContext=null;
 
 function sound(){
 
@@ -2130,6 +2365,14 @@ function sound(){
 
         }
 
+        if(
+            audioContext.state==="suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
         const oscillator =
             audioContext.createOscillator();
 
@@ -2139,7 +2382,7 @@ function sound(){
         oscillator.type="sine";
 
         oscillator.frequency.setValueAtTime(
-            500,
+            520,
             audioContext.currentTime
         );
 
@@ -2154,7 +2397,7 @@ function sound(){
         );
 
         gain.gain.exponentialRampToValueAtTime(
-            .08,
+            .07,
             audioContext.currentTime+.03
         );
 
@@ -2180,9 +2423,9 @@ function sound(){
 }
 
 
-/* =====================================================
+/* =========================================================
    ENTRAR
-===================================================== */
+========================================================= */
 
 function enterUniverse(){
 
@@ -2195,27 +2438,100 @@ function enterUniverse(){
 }
 
 
-/* =====================================================
-   MUNDO 3D
-===================================================== */
+/* =========================================================
+   SISTEMA DE MOVIMIENTO
+   SUAVE — SIN TRANSITION
+========================================================= */
 
 const world =
     document.getElementById("world");
 
 let rotationX=0;
-
 let rotationY=0;
+
+let velocityX=0;
+let velocityY=0;
 
 let dragging=false;
 
 let lastX=0;
-
 let lastY=0;
 
+let animationFrame=null;
 
-/* =====================================================
-   ARRASTRAR
-===================================================== */
+
+/* =========================================================
+   ACTUALIZAR UNIVERSO
+========================================================= */
+
+function renderWorld(){
+
+    world.style.transform =
+        "rotateX("+
+        rotationX+
+        "deg) rotateY("+
+        rotationY+
+        "deg)";
+
+}
+
+
+/* =========================================================
+   ANIMACION DE INERCIA
+========================================================= */
+
+function animate(){
+
+    if(!dragging){
+
+        rotationY += velocityX;
+
+        rotationX += velocityY;
+
+        velocityX *= .94;
+        velocityY *= .94;
+
+        /*
+           Rotación automática MUY suave
+           solamente cuando ya no hay inercia.
+        */
+
+        if(
+            Math.abs(velocityX)<.002 &&
+            Math.abs(velocityY)<.002
+        ){
+
+            velocityX=0;
+            velocityY=0;
+
+            rotationY += .008;
+
+        }
+
+        rotationX =
+            Math.max(
+                -28,
+                Math.min(
+                    28,
+                    rotationX
+                )
+            );
+
+    }
+
+    renderWorld();
+
+    animationFrame =
+        requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+/* =========================================================
+   TOUCH / POINTER
+========================================================= */
 
 document.addEventListener(
     "pointerdown",
@@ -2238,9 +2554,23 @@ document.addEventListener(
 
         dragging=true;
 
-        lastX=e.clientX;
+        velocityX=0;
+        velocityY=0;
 
+        lastX=e.clientX;
         lastY=e.clientY;
+
+        if(
+            e.target.setPointerCapture
+        ){
+
+            try{
+                e.target.setPointerCapture(
+                    e.pointerId
+                );
+            }catch(err){}
+
+        }
 
     }
 );
@@ -2258,50 +2588,81 @@ document.addEventListener(
         const dy =
             e.clientY-lastY;
 
-        rotationY += dx*.35;
+        /*
+           Movimiento directo al dedo.
+           Sin transición.
+        */
 
-        rotationX -= dy*.18;
+        rotationY += dx*.38;
+
+        rotationX -= dy*.20;
 
         rotationX =
             Math.max(
-                -30,
-                Math.min(30,rotationX)
+                -28,
+                Math.min(
+                    28,
+                    rotationX
+                )
             );
 
-        world.style.transform =
-            `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+        /*
+           Velocidad para una pequeña
+           inercia al soltar.
+        */
+
+        velocityX =
+            dx*.018;
+
+        velocityY =
+            -dy*.009;
 
         lastX=e.clientX;
-
         lastY=e.clientY;
+
+        renderWorld();
 
     }
 );
+
+
+function stopDragging(){
+
+    dragging=false;
+
+}
 
 
 document.addEventListener(
     "pointerup",
-    function(){
-
-        dragging=false;
-
-    }
+    stopDragging
 );
-
 
 document.addEventListener(
     "pointercancel",
-    function(){
+    stopDragging
+);
 
-        dragging=false;
+document.addEventListener(
+    "pointerleave",
+    function(e){
+
+        if(
+            dragging &&
+            e.pointerType==="mouse"
+        ){
+
+            dragging=false;
+
+        }
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    DESCUBRIMIENTO
-===================================================== */
+========================================================= */
 
 const discovered =
     new Set();
@@ -2311,9 +2672,9 @@ let secretClicks=0;
 let secretTimer=null;
 
 
-/* =====================================================
+/* =========================================================
    ABRIR MOTO
-===================================================== */
+========================================================= */
 
 function openBike(
     number,
@@ -2346,14 +2707,16 @@ function openBike(
     let message;
 
 
-    /* ==============================
+    /* =====================================================
        CB190R
-    ============================== */
+    ===================================================== */
 
     if(number===15){
 
         message =
-`Esta no pertenece a mis sueños.
+`ESPERA...
+
+Esta no pertenece a mis sueños.
 
 Esta pertenece a tu historia.
 
@@ -2383,12 +2746,17 @@ Esta no representa un sueño que todavía está lejos.
 
 Representa uno que ya alcanzaste.
 
-Y yo tuve la suerte de poder verlo. ❤️`;
+Y yo tuve la suerte de poder verlo.
+
+Por eso tenía que estar aquí.
+
+No como una moto soñada.
+
+Sino como una parte de ti. ❤️`;
 
     }else{
 
-        message =
-            extra;
+        message=extra;
 
     }
 
@@ -2403,9 +2771,10 @@ Y yo tuve la suerte de poder verlo. ❤️`;
         .classList.add("active");
 
 
-    /* =================================================
-       SECRETO CB190R
-    ================================================= */
+    /* =====================================================
+       SECRETO
+       3 TOQUES A LA CB190R
+    ===================================================== */
 
     if(number===15){
 
@@ -2437,15 +2806,18 @@ Y yo tuve la suerte de poder verlo. ❤️`;
                         function(){
 
                             document
-                                .getElementById("secretOverlay")
-                                .classList.add("active");
+                                .getElementById(
+                                    "secretOverlay"
+                                )
+                                .classList
+                                .add("active");
 
                         },
                         400
                     );
 
                 },
-                500
+                400
             );
 
         }
@@ -2453,9 +2825,9 @@ Y yo tuve la suerte de poder verlo. ❤️`;
     }
 
 
-    /* =================================================
-       TODAS LAS MOTOS DESCUBIERTAS
-    ================================================= */
+    /* =====================================================
+       FINAL AL DESCUBRIR LAS 15
+    ===================================================== */
 
     if(discovered.size===15){
 
@@ -2474,7 +2846,7 @@ Y yo tuve la suerte de poder verlo. ❤️`;
                 );
 
             },
-            1200
+            900
         );
 
     }
@@ -2482,9 +2854,9 @@ Y yo tuve la suerte de poder verlo. ❤️`;
 }
 
 
-/* =====================================================
-   RAMO
-===================================================== */
+/* =========================================================
+   RAMO — CARTA
+========================================================= */
 
 function openBouquet(){
 
@@ -2492,12 +2864,14 @@ function openBouquet(){
 
     document
         .getElementById("modalBrand")
-        .textContent="PARA TI ❤️";
+        .textContent=
+        "PARA TI ❤️";
 
 
     document
         .getElementById("modalModel")
-        .textContent="Una carta para ti";
+        .textContent=
+        "Una carta para ti";
 
 
     document
@@ -2506,7 +2880,7 @@ function openBouquet(){
 
 `Mi amor:
 
-No sé si existe una cantidad suficiente de palabras para explicar todo lo que una persona puede llegar a significar para otra.
+No sé si existe una cantidad suficiente de palabras para explicar cuánto puede llegar a significar una persona.
 
 Por eso hice esto.
 
@@ -2530,6 +2904,18 @@ Quizás esto no sea el regalo más grande que alguien pueda hacer.
 
 Pero sí está hecho pensando completamente en ti.
 
+Cada moto.
+
+Cada estrella.
+
+Cada palabra.
+
+Cada pequeño detalle.
+
+Todo comenzó con una sola persona en mi cabeza:
+
+tú.
+
 Y quería que cuando lo vieras supieras que detrás de cada detalle hubo alguien que se sentó a construirlo pensando:
 
 "Esto le gustaría."
@@ -2546,7 +2932,13 @@ No sé qué lugares vamos a conocer.
 
 Ni cuántas cosas todavía nos quedan por aprender.
 
-Pero sí sé que hay recuerdos que todavía no existen y que algún día podrían convertirse en nuestros favoritos.
+Pero sí sé que todavía existen recuerdos que no hemos vivido.
+
+Lugares que no conocemos.
+
+Fotografías que todavía no existen.
+
+Conversaciones que todavía no hemos tenido.
 
 Y eso me parece bonito.
 
@@ -2560,6 +2952,8 @@ quédate con mi amor.
 
 Porque ese sí es completamente tuyo. ❤️
 
+Gracias por ser parte de mi vida.
+
 Con todo mi cariño,
 
 yo.`;
@@ -2567,53 +2961,57 @@ yo.`;
 
     document
         .getElementById("modal")
-        .classList.add("active");
+        .classList
+        .add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CERRAR MODAL
-===================================================== */
+========================================================= */
 
 function closeModal(){
 
     document
         .getElementById("modal")
-        .classList.remove("active");
+        .classList
+        .remove("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    CERRAR SECRETO
-===================================================== */
+========================================================= */
 
 function closeSecret(){
 
     document
         .getElementById("secretOverlay")
-        .classList.remove("active");
+        .classList
+        .remove("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    FINAL
-===================================================== */
+========================================================= */
 
 function showFinal(){
 
     document
         .getElementById("finalOverlay")
-        .classList.add("active");
+        .classList
+        .add("active");
 
     sound();
 
 
     /*
-       Después de unos segundos aparece
-       la posibilidad de descubrir la última sorpresa.
+       El botón aparece después de varios segundos.
+       Así primero parece realmente que terminó.
     */
 
     setTimeout(
@@ -2621,7 +3019,8 @@ function showFinal(){
 
             document
                 .getElementById("lastButton")
-                .style.display="inline-block";
+                .style.display=
+                "inline-block";
 
         },
         6500
@@ -2630,9 +3029,9 @@ function showFinal(){
 }
 
 
-/* =====================================================
+/* =========================================================
    ULTIMA SORPRESA
-===================================================== */
+========================================================= */
 
 function showLastSurprise(){
 
@@ -2640,7 +3039,8 @@ function showLastSurprise(){
 
     document
         .getElementById("finalOverlay")
-        .classList.remove("active");
+        .classList
+        .remove("active");
 
 
     setTimeout(
@@ -2648,7 +3048,8 @@ function showLastSurprise(){
 
             document
                 .getElementById("lastSurprise")
-                .classList.add("active");
+                .classList
+                .add("active");
 
         },
         700
@@ -2657,9 +3058,9 @@ function showLastSurprise(){
 }
 
 
-/* =====================================================
-   CERRAR MODAL TOCANDO FUERA
-===================================================== */
+/* =========================================================
+   CERRAR MODAL TOCANDO AFUERA
+========================================================= */
 
 document
     .getElementById("modal")
@@ -2667,7 +3068,9 @@ document
         "click",
         function(e){
 
-            if(e.target.id==="modal"){
+            if(
+                e.target.id==="modal"
+            ){
 
                 closeModal();
 
@@ -2676,46 +3079,6 @@ document
         }
     );
 
-
-/* =====================================================
-   ROTACION AUTOMATICA
-===================================================== */
-
-let autoRotation=true;
-
-setInterval(
-    function(){
-
-        if(
-            autoRotation &&
-
-            !document
-                .getElementById("modal")
-                .classList.contains("active") &&
-
-            !document
-                .getElementById("secretOverlay")
-                .classList.contains("active") &&
-
-            !document
-                .getElementById("finalOverlay")
-                .classList.contains("active") &&
-
-            !document
-                .getElementById("lastSurprise")
-                .classList.contains("active")
-        ){
-
-            rotationY += .025;
-
-            world.style.transform =
-                `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
-
-        }
-
-    },
-    30
-);
 
 </script>
 
