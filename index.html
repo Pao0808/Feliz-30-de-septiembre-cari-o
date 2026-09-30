@@ -3,16 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nuestro Universo ❤️</title>
 
 <style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -22,27 +29,42 @@ html,body{
     touch-action:none;
 }
 
-/* =========================
-   UNIVERSO
-========================= */
-
 body{
     background:
-        radial-gradient(circle at 50% 50%, #071b35 0%, #020713 35%, #010208 75%);
+        radial-gradient(
+            circle at 50% 50%,
+            #071b35 0%,
+            #020713 35%,
+            #010208 75%
+        );
 }
+
+
+/* =========================================================
+   UNIVERSO
+========================================================= */
 
 .space{
     position:fixed;
     inset:0;
     overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(0,100,255,.12),
+            transparent 42%
+        );
 }
 
-/* Nebulosas */
+
+/* =========================================================
+   NEBULOSAS
+========================================================= */
 
 .nebula{
     position:absolute;
     border-radius:50%;
-    filter:blur(70px);
+    filter:blur(75px);
     opacity:.28;
     pointer-events:none;
 }
@@ -64,17 +86,27 @@ body{
 }
 
 .nebula.three{
-    width:300px;
-    height:300px;
+    width:350px;
+    height:350px;
     background:#008cff;
     left:35%;
     top:35%;
     opacity:.12;
 }
 
-/* =========================
+.nebula.four{
+    width:280px;
+    height:280px;
+    background:#003cff;
+    left:65%;
+    top:5%;
+    opacity:.10;
+}
+
+
+/* =========================================================
    ESTRELLAS
-========================= */
+========================================================= */
 
 .stars{
     position:absolute;
@@ -88,237 +120,1344 @@ body{
     height:2px;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 7px #5aa9ff;
-    animation:twinkle 2s infinite alternate;
+
+    box-shadow:
+        0 0 7px #5aa9ff;
+
+    animation:
+        twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle{
-    from{opacity:.2; transform:scale(.7);}
-    to{opacity:1; transform:scale(1.5);}
+
+    from{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
 }
 
-/* =========================
-   TITULO
-========================= */
+
+/* =========================================================
+   ESTRELLAS GRANDES
+========================================================= */
+
+.big-star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px #168cff,
+        0 0 18px #168cff;
+
+    animation:
+        bigTwinkle 3s infinite ease-in-out;
+}
+
+@keyframes bigTwinkle{
+
+    0%,100%{
+        opacity:.25;
+        transform:scale(.6);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
+
+/* =========================================================
+   ESTRELLAS FUGACES
+========================================================= */
+
+.shooting-star{
+    position:absolute;
+    width:100px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            transparent
+        );
+
+    opacity:0;
+
+    transform:rotate(-25deg);
+
+    animation:
+        shooting 7s linear infinite;
+}
+
+@keyframes shooting{
+
+    0%{
+        opacity:0;
+        transform:
+            translate(0,0)
+            rotate(-25deg);
+    }
+
+    5%{
+        opacity:1;
+    }
+
+    15%{
+        opacity:0;
+        transform:
+            translate(350px,180px)
+            rotate(-25deg);
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .title{
     position:absolute;
     top:18px;
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     z-index:100;
+
     text-align:center;
+
     width:100%;
+
     pointer-events:none;
+
+    transition:
+        opacity .8s ease;
 }
 
 .title h1{
-    font-size:clamp(22px,5vw,42px);
+    font-size:
+        clamp(22px,5vw,42px);
+
     letter-spacing:6px;
+
     text-shadow:
         0 0 10px #168cff,
-        0 0 25px #006cff;
+        0 0 25px #006cff,
+        0 0 45px rgba(0,100,255,.5);
 }
 
 .title p{
     margin-top:5px;
+
     color:#9acbff;
+
     font-size:12px;
+
     letter-spacing:2px;
 }
 
-/* =========================
+
+/* =========================================================
+   PROGRESO SECRETO
+========================================================= */
+
+.progress{
+    position:absolute;
+
+    top:78px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:100;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:
+        rgba(160,210,255,.65);
+
+    pointer-events:none;
+
+    transition:
+        opacity .5s ease;
+}
+
+
+/* =========================================================
+   FRASES FLOTANTES
+========================================================= */
+
+.phrase{
+    position:absolute;
+
+    z-index:90;
+
+    max-width:260px;
+
+    text-align:center;
+
+    color:
+        rgba(190,225,255,.75);
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    line-height:1.5;
+
+    pointer-events:none;
+
+    text-shadow:
+        0 0 8px #006cff;
+
+    opacity:0;
+
+    animation:
+        phraseFloat 6s ease forwards;
+}
+
+@keyframes phraseFloat{
+
+    0%{
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.9);
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    75%{
+        opacity:.8;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translateY(-35px)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
    UNIVERSO 3D
-========================= */
+========================================================= */
 
 .universe{
     position:absolute;
+
     width:100%;
     height:100%;
+
     perspective:1100px;
 }
 
 .world{
     position:absolute;
+
     width:100%;
     height:100%;
+
     transform-style:preserve-3d;
-    transition:transform .12s ease-out;
+
+    transition:
+        transform .15s ease-out;
 }
 
-/* =========================
+
+/* =========================================================
    MOTOS
-========================= */
+========================================================= */
 
 .motorcycle{
     position:absolute;
-    width:clamp(115px,17vw,230px);
+
+    width:
+        clamp(115px,17vw,230px);
+
     cursor:pointer;
+
     transform-style:preserve-3d;
+
     transition:
-        transform .35s ease,
         filter .35s ease,
-        opacity .35s ease;
+        opacity .8s ease;
+
     user-select:none;
+
     -webkit-user-drag:none;
+
+    animation:
+        bikeAppear 1.5s ease backwards;
+
 }
 
 .motorcycle img{
+
     width:100%;
+
     display:block;
+
     object-fit:contain;
+
     filter:
-        drop-shadow(0 0 8px rgba(0,130,255,.55))
-        drop-shadow(0 0 22px rgba(0,100,255,.25));
-    transition:filter .3s ease;
+        drop-shadow(
+            0 0 8px
+            rgba(0,130,255,.55)
+        )
+        drop-shadow(
+            0 0 22px
+            rgba(0,100,255,.25)
+        );
+
+    transition:
+        filter .3s ease,
+        transform .3s ease;
+
     pointer-events:none;
 }
 
 .motorcycle:hover img{
+
     filter:
-        drop-shadow(0 0 12px rgba(50,160,255,.9))
-        drop-shadow(0 0 35px rgba(0,100,255,.7));
+        drop-shadow(
+            0 0 12px
+            rgba(50,160,255,.9)
+        )
+        drop-shadow(
+            0 0 35px
+            rgba(0,100,255,.7)
+        );
+
+    transform:
+        scale(1.05);
 }
 
-/* MOTO ESPECIAL */
+@keyframes bikeAppear{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* =========================================================
+   MOTO ESPECIAL
+========================================================= */
 
 .motorcycle.special{
-    width:clamp(150px,22vw,290px);
+
+    width:
+        clamp(150px,22vw,290px);
+
     z-index:20;
 }
 
 .motorcycle.special img{
+
     filter:
-        drop-shadow(0 0 10px #168cff)
-        drop-shadow(0 0 30px #0066ff)
-        drop-shadow(0 0 55px rgba(0,130,255,.55));
+        drop-shadow(
+            0 0 10px #168cff
+        )
+        drop-shadow(
+            0 0 30px #0066ff
+        )
+        drop-shadow(
+            0 0 55px
+            rgba(0,130,255,.55)
+        );
+
 }
 
-/* =========================
-   RAMO CENTRAL
-========================= */
+.motorcycle.special::after{
 
-.bouquet{
+    content:"";
+
     position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:clamp(180px,25vw,310px);
-    z-index:50;
-    cursor:pointer;
-    animation:bloom 4s ease-in-out infinite;
-}
 
-.bouquet img{
-    width:100%;
-    display:block;
-    filter:
-        drop-shadow(0 0 12px #168cff)
-        drop-shadow(0 0 35px rgba(0,110,255,.75));
-}
+    inset:-20px;
 
-@keyframes bloom{
-    0%,100%{transform:translate(-50%,-50%) scale(1);}
-    50%{transform:translate(-50%,-50%) scale(1.035);}
-}
+    border-radius:50%;
 
-/* =========================
-   INSTRUCCIÓN
-========================= */
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,120,255,.22),
+            transparent 65%
+        );
 
-.instruction{
-    position:absolute;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:100;
-    color:#8fc8ff;
-    font-size:11px;
-    letter-spacing:2px;
-    text-align:center;
-    text-shadow:0 0 8px #168cff;
+    z-index:-1;
+
+    animation:
+        specialGlow 3s infinite ease-in-out;
+
     pointer-events:none;
 }
 
-/* =========================
+@keyframes specialGlow{
+
+    0%,100%{
+        opacity:.4;
+        transform:scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.1);
+    }
+
+}
+
+
+/* =========================================================
+   RAMO CENTRAL
+========================================================= */
+
+.bouquet{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:
+        clamp(180px,25vw,310px);
+
+    z-index:50;
+
+    cursor:pointer;
+
+    animation:
+        bloom 4s ease-in-out infinite;
+}
+
+.bouquet img{
+
+    width:100%;
+
+    display:block;
+
+    filter:
+        drop-shadow(
+            0 0 12px #168cff
+        )
+        drop-shadow(
+            0 0 35px
+            rgba(0,110,255,.75)
+        )
+        drop-shadow(
+            0 0 70px
+            rgba(0,100,255,.25)
+        );
+
+}
+
+@keyframes bloom{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.035);
+    }
+
+}
+
+
+/* =========================================================
+   TEXTO CENTRAL
+========================================================= */
+
+.center-hint{
+
+    position:absolute;
+
+    left:50%;
+    top:calc(50% + 150px);
+
+    transform:
+        translateX(-50%);
+
+    z-index:80;
+
+    width:100%;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    color:
+        rgba(160,210,255,.7);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    opacity:.8;
+}
+
+
+/* =========================================================
+   INSTRUCCIÓN
+========================================================= */
+
+.instruction{
+
+    position:absolute;
+
+    bottom:20px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:100;
+
+    color:#8fc8ff;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    text-shadow:
+        0 0 8px #168cff;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   ENTRADA
+========================================================= */
+
+.intro{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #06172d 0%,
+            #01030a 55%,
+            #000 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+.intro.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+}
+
+.intro-content{
+
+    max-width:550px;
+
+    animation:
+        introAppear 2s ease;
+}
+
+@keyframes introAppear{
+
+    from{
+        opacity:0;
+        transform:
+            scale(.85)
+            translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+.intro-date{
+
+    color:#70bdff;
+
+    font-size:12px;
+
+    letter-spacing:7px;
+
+    margin-bottom:22px;
+}
+
+.intro h2{
+
+    font-size:
+        clamp(28px,8vw,58px);
+
+    letter-spacing:5px;
+
+    text-shadow:
+        0 0 12px #168cff,
+        0 0 35px #006cff;
+
+    margin-bottom:20px;
+}
+
+.intro-text{
+
+    color:#cfe7ff;
+
+    font-size:
+        clamp(13px,3vw,17px);
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+.enter-button{
+
+    border:1px solid #168cff;
+
+    background:
+        rgba(3,20,45,.8);
+
+    color:#a8d9ff;
+
+    padding:
+        14px 32px;
+
+    border-radius:40px;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,120,255,.35);
+
+    transition:
+        .3s ease;
+}
+
+.enter-button:hover{
+
+    background:#062044;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,120,255,.75);
+
+    transform:
+        scale(1.05);
+}
+
+.intro-small{
+
+    margin-top:22px;
+
+    color:
+        rgba(150,200,255,.45);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 .modal{
+
     position:fixed;
+
     inset:0;
-    background:rgba(0,0,8,.78);
-    backdrop-filter:blur(10px);
+
+    background:
+        rgba(0,0,8,.78);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
     display:none;
+
     align-items:center;
+
     justify-content:center;
+
     z-index:500;
+
     padding:20px;
+
+    touch-action:auto;
 }
 
 .modal.active{
+
     display:flex;
 }
 
 .modal-box{
-    width:min(90%,450px);
+
+    width:
+        min(90%,470px);
+
+    max-height:
+        85vh;
+
+    overflow-y:auto;
+
     background:
-        linear-gradient(145deg,
-        rgba(5,20,42,.97),
-        rgba(1,5,15,.98));
-    border:1px solid #168cff;
+        linear-gradient(
+            145deg,
+            rgba(5,20,42,.97),
+            rgba(1,5,15,.98)
+        );
+
+    border:
+        1px solid #168cff;
+
     border-radius:22px;
-    padding:30px 25px;
+
+    padding:
+        30px 25px;
+
     text-align:center;
+
     box-shadow:
-        0 0 20px rgba(0,120,255,.7),
-        inset 0 0 30px rgba(0,90,255,.12);
-    animation:modalIn .35s ease;
+        0 0 20px
+        rgba(0,120,255,.7),
+
+        inset 0 0 30px
+        rgba(0,90,255,.12);
+
+    animation:
+        modalIn .35s ease;
 }
 
 @keyframes modalIn{
+
     from{
         opacity:0;
-        transform:scale(.8) translateY(20px);
+
+        transform:
+            scale(.8)
+            translateY(20px);
     }
+
     to{
         opacity:1;
-        transform:scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
+
+}
+
+.modal-box.special-modal{
+
+    border-color:#55b7ff;
+
+    box-shadow:
+        0 0 30px
+        rgba(0,130,255,.85),
+
+        0 0 70px
+        rgba(0,100,255,.3),
+
+        inset 0 0 40px
+        rgba(0,90,255,.18);
+}
+
+.modal-brand{
+
+    color:#62b7ff;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    margin-bottom:10px;
 }
 
 .modal-box h2{
-    color:#62b7ff;
-    font-size:25px;
-    margin-bottom:7px;
-    text-shadow:0 0 12px #168cff;
+
+    color:white;
+
+    font-size:27px;
+
+    margin-bottom:8px;
+
+    text-shadow:
+        0 0 12px #168cff;
 }
 
 .modal-box h3{
-    color:white;
+
+    color:#b6dcff;
+
     margin-bottom:20px;
-    font-size:17px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+.modal-reason{
+
+    display:inline-block;
+
+    color:#62b7ff;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+    padding:
+        6px 12px;
+
+    border:
+        1px solid
+        rgba(80,170,255,.35);
+
+    border-radius:20px;
 }
 
 .modal-box p{
-    line-height:1.7;
+
+    line-height:1.8;
+
     color:#d9eaff;
-    font-size:15px;
+
+    font-size:14px;
+
+    white-space:pre-line;
 }
 
 .close{
+
     margin-top:25px;
-    border:1px solid #168cff;
+
+    border:
+        1px solid #168cff;
+
     background:#06152b;
+
     color:#9bd2ff;
-    padding:10px 25px;
+
+    padding:
+        10px 25px;
+
     border-radius:30px;
+
     cursor:pointer;
+
+    font-size:11px;
+
+    letter-spacing:1px;
 }
 
-/* =========================
-   CELULAR
-========================= */
+.modal-action{
+
+    display:none;
+
+    margin-top:12px;
+
+    border:
+        1px solid #62b7ff;
+
+    background:
+        rgba(0,80,170,.25);
+
+    color:white;
+
+    padding:
+        10px 20px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   MENSAJE DE SECRETO
+========================================================= */
+
+.secret-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:800;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        rgba(0,2,10,.9);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.secret-overlay.active{
+
+    display:flex;
+}
+
+.secret-box{
+
+    max-width:440px;
+
+    text-align:center;
+
+    padding:35px 28px;
+
+    border:
+        1px solid #55b7ff;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #061a36,
+            #010611
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(0,120,255,.8);
+
+    animation:
+        secretAppear .8s ease;
+}
+
+@keyframes secretAppear{
+
+    from{
+        opacity:0;
+        transform:
+            scale(.7)
+            rotateX(20deg);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1)
+            rotateX(0);
+    }
+
+}
+
+.secret-icon{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+    filter:
+        drop-shadow(
+            0 0 15px #168cff
+        );
+}
+
+.secret-box h2{
+
+    color:#73c3ff;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+}
+
+.secret-box p{
+
+    color:#d9eaff;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    white-space:pre-line;
+}
+
+.secret-close{
+
+    margin-top:25px;
+
+    border:
+        1px solid #168cff;
+
+    background:#06152b;
+
+    color:#a9d9ff;
+
+    padding:
+        10px 24px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   BOTÓN FINAL ESCONDIDO
+========================================================= */
+
+.final-button{
+
+    position:fixed;
+
+    left:50%;
+    bottom:48px;
+
+    transform:
+        translateX(-50%);
+
+    z-index:250;
+
+    display:none;
+
+    border:
+        1px solid #168cff;
+
+    background:
+        rgba(2,15,35,.85);
+
+    color:#a8d9ff;
+
+    padding:
+        12px 24px;
+
+    border-radius:30px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,120,255,.35);
+
+    animation:
+        finalButtonPulse 2s infinite;
+}
+
+.final-button.show{
+
+    display:block;
+}
+
+@keyframes finalButtonPulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 15px
+            rgba(0,120,255,.25);
+    }
+
+    50%{
+        box-shadow:
+            0 0 30px
+            rgba(0,120,255,.7);
+    }
+
+}
+
+
+/* =========================================================
+   MODO FINAL
+========================================================= */
+
+.space.final-mode .motorcycle{
+
+    opacity:0;
+
+    transition:
+        opacity 1.5s ease,
+        filter 1.5s ease;
+
+    filter:
+        blur(5px);
+}
+
+.space.final-mode .bouquet{
+
+    animation:
+        finalBouquet 2s ease-in-out infinite;
+}
+
+@keyframes finalBouquet{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:900;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(3,30,65,.78),
+            rgba(0,2,10,.94)
+        );
+
+    backdrop-filter:
+        blur(4px);
+}
+
+.final-overlay.active{
+
+    display:flex;
+}
+
+.final-content{
+
+    max-width:600px;
+
+    animation:
+        finalAppear 2s ease;
+}
+
+@keyframes finalAppear{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.9);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+.final-small{
+
+    color:#62b7ff;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    margin-bottom:22px;
+}
+
+.final-content h2{
+
+    font-size:
+        clamp(25px,7vw,48px);
+
+    letter-spacing:3px;
+
+    line-height:1.3;
+
+    text-shadow:
+        0 0 15px #168cff,
+        0 0 40px #006cff;
+
+    margin-bottom:25px;
+}
+
+.final-content p{
+
+    color:#d9eaff;
+
+    font-size:
+        clamp(13px,3vw,17px);
+
+    line-height:1.9;
+
+    white-space:pre-line;
+}
+
+.final-love{
+
+    margin-top:30px;
+
+    color:#82caff;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+}
+
+
+/* =========================================================
+   CORAZONES FINALES
+========================================================= */
+
+.heart{
+
+    position:fixed;
+
+    z-index:950;
+
+    pointer-events:none;
+
+    color:#63baff;
+
+    text-shadow:
+        0 0 12px #168cff;
+
+    animation:
+        heartRise 4s linear forwards;
+}
+
+@keyframes heartRise{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(0)
+            scale(.5);
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+        transform:
+            translateY(-100vh)
+            scale(1.2);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:600px){
 
@@ -328,14 +1467,25 @@ body{
 
     .title h1{
         letter-spacing:3px;
+        font-size:21px;
     }
 
     .title p{
-        font-size:9px;
+        font-size:8px;
+    }
+
+    .progress{
+        top:60px;
+        font-size:7px;
     }
 
     .instruction{
         bottom:12px;
+        font-size:8px;
+    }
+
+    .center-hint{
+        top:calc(50% + 105px);
         font-size:8px;
     }
 
@@ -350,188 +1500,883 @@ body{
     .bouquet{
         width:180px;
     }
+
+    .intro-date{
+        font-size:9px;
+        letter-spacing:4px;
+    }
+
+    .intro h2{
+        letter-spacing:3px;
+    }
+
+    .intro-text{
+        font-size:13px;
+    }
+
+    .modal-box{
+        padding:26px 20px;
+    }
+
 }
+
+
+/* =========================================================
+   RESPETO A REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="space">
+
+<!-- =====================================================
+     UNIVERSO
+====================================================== -->
+
+<div class="space" id="space">
 
     <div class="nebula one"></div>
     <div class="nebula two"></div>
     <div class="nebula three"></div>
+    <div class="nebula four"></div>
 
     <div class="stars" id="stars"></div>
 
+    <div id="shootingStars"></div>
+
+
+    <!-- =================================================
+         TÍTULO
+    ================================================== -->
+
     <div class="title">
+
         <h1>NUESTRO UNIVERSO</h1>
-        <p>Un pequeño lugar hecho para ti ❤️</p>
+
+        <p>
+            Un pequeño lugar hecho para ti, mi amor ❤️
+        </p>
+
     </div>
+
+
+    <div class="progress" id="progress">
+
+        0 / 15 estrellas descubiertas
+
+    </div>
+
+
+    <!-- =================================================
+         FRASES FLOTANTES
+    ================================================== -->
+
+    <div id="phraseLayer"></div>
+
+
+    <!-- =================================================
+         UNIVERSO 3D
+    ================================================== -->
 
     <div class="universe" id="universe">
 
         <div class="world" id="world">
 
-            <!-- =====================
-                 RAMO CENTRAL
-            ====================== -->
 
-            <div class="bouquet" onclick="openBouquet()">
-                <img src="ramo.png" alt="Nuestro ramo">
+            <!-- =========================================
+                 RAMO
+            ========================================== -->
+
+            <div
+                class="bouquet"
+                onclick="openBouquet()"
+            >
+
+                <img
+                    src="ramo.png"
+                    alt="Nuestro ramo"
+                >
+
             </div>
 
 
-            <!-- =====================
-                 MOTOS
-            ====================== -->
+            <!-- =========================================
+                 MOTO 1
+            ========================================== -->
 
-            <div class="motorcycle"
-                 style="left:4%;top:20%;transform:translateZ(100px) rotate(-8deg)"
-                 onclick="openBike('CFMOTO','675SR-R','Una de tus motos soñadas ❤️')">
+            <div
+                class="motorcycle"
+                style="
+                    left:4%;
+                    top:20%;
+                    transform:
+                    translateZ(100px)
+                    rotate(-8deg);
+                "
+                onclick="
+                    openBike(
+                        'CFMOTO',
+                        '675SR-R',
+                        messages['675SR-R'],
+                        1
+                    )
+                "
+            >
 
-                <img src="motos/cf moto 675.png">
+                <img
+                    src="motos/cf moto 675.png"
+                    alt="CFMOTO 675SR-R"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:70%;top:15%;transform:translateZ(-250px) rotate(7deg)"
-                 onclick="openBike('CFMOTO','750SR-R','Otra de esas motos que algún día quiero verte conducir ❤️')">
+            <!-- =========================================
+                 MOTO 2
+            ========================================== -->
 
-                <img src="motos/cf moto 750.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:70%;
+                    top:15%;
+                    transform:
+                    translateZ(-250px)
+                    rotate(7deg);
+                "
+                onclick="
+                    openBike(
+                        'CFMOTO',
+                        '750SR-R',
+                        messages['750SR-R'],
+                        2
+                    )
+                "
+            >
+
+                <img
+                    src="motos/cf moto 750.png"
+                    alt="CFMOTO 750SR-R"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:18%;top:62%;transform:translateZ(-180px) rotate(-5deg)"
-                 onclick="openBike('Honda','CBR500R','Una de tus motos soñadas. Y yo quiero estar ahí para verte cumplir tus sueños.')">
+            <!-- =========================================
+                 MOTO 3
+            ========================================== -->
 
-                <img src="motos/cbr500r.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:18%;
+                    top:62%;
+                    transform:
+                    translateZ(-180px)
+                    rotate(-5deg);
+                "
+                onclick="
+                    openBike(
+                        'HONDA',
+                        'CBR500R',
+                        messages['CBR500R'],
+                        3
+                    )
+                "
+            >
+
+                <img
+                    src="motos/cbr500r.png"
+                    alt="Honda CBR500R"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:76%;top:65%;transform:translateZ(180px) rotate(8deg)"
-                 onclick="openBike('Honda','NX500 E-Clutch','Una aventura más que algún día podremos compartir ❤️')">
+            <!-- =========================================
+                 MOTO 4
+            ========================================== -->
 
-                <img src="motos/nx500.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:76%;
+                    top:65%;
+                    transform:
+                    translateZ(180px)
+                    rotate(8deg);
+                "
+                onclick="
+                    openBike(
+                        'HONDA',
+                        'NX500 E-Clutch',
+                        messages['NX500'],
+                        4
+                    )
+                "
+            >
+
+                <img
+                    src="motos/nx500.png"
+                    alt="Honda NX500"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:3%;top:43%;transform:translateZ(-350px) rotate(-12deg)"
-                 onclick="openBike('Kawasaki','Ninja 300 ABS','Una de tus motos soñadas 🖤💙')">
+            <!-- =========================================
+                 MOTO 5
+            ========================================== -->
 
-                <img src="motos/ninja300.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:3%;
+                    top:43%;
+                    transform:
+                    translateZ(-350px)
+                    rotate(-12deg);
+                "
+                onclick="
+                    openBike(
+                        'KAWASAKI',
+                        'Ninja 300 ABS',
+                        messages['Ninja300'],
+                        5
+                    )
+                "
+            >
+
+                <img
+                    src="motos/ninja300.png"
+                    alt="Kawasaki Ninja 300"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:82%;top:40%;transform:translateZ(-100px) rotate(10deg)"
-                 onclick="openBike('Kawasaki','Ninja 500 SE ABS','Una de esas máquinas que hacen brillar tus ojos.')">
+            <!-- =========================================
+                 MOTO 6
+            ========================================== -->
 
-                <img src="motos/ninja500.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:82%;
+                    top:40%;
+                    transform:
+                    translateZ(-100px)
+                    rotate(10deg);
+                "
+                onclick="
+                    openBike(
+                        'KAWASAKI',
+                        'Ninja 500 SE ABS',
+                        messages['Ninja500'],
+                        6
+                    )
+                "
+            >
+
+                <img
+                    src="motos/ninja500.png"
+                    alt="Kawasaki Ninja 500"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:42%;top:9%;transform:translateZ(-300px) rotate(-3deg)"
-                 onclick="openBike('Yamaha','R3','Pequeña, deportiva y hermosa… como una de tus grandes ilusiones.')">
+            <!-- =========================================
+                 MOTO 7
+            ========================================== -->
 
-                <img src="motos/r3.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:42%;
+                    top:9%;
+                    transform:
+                    translateZ(-300px)
+                    rotate(-3deg);
+                "
+                onclick="
+                    openBike(
+                        'YAMAHA',
+                        'R3',
+                        messages['R3'],
+                        7
+                    )
+                "
+            >
+
+                <img
+                    src="motos/r3.png"
+                    alt="Yamaha R3"
+                >
+
             </div>
 
 
-            <!-- MOTO ESPECIAL -->
+            <!-- =========================================
+                 MOTO ESPECIAL
+            ========================================== -->
 
-            <div class="motorcycle special"
-                 style="left:42%;top:73%;transform:translateZ(300px)"
-                 onclick="openBike('Honda','CB190R','❤️ La moto especial de tu universo. La que ya forma parte de tu historia.')">
+            <div
+                class="
+                    motorcycle
+                    special
+                "
+                style="
+                    left:42%;
+                    top:73%;
+                    transform:
+                    translateZ(300px);
+                "
+                onclick="
+                    openBike(
+                        'HONDA',
+                        'CB190R',
+                        messages['CB190R'],
+                        15,
+                        true
+                    )
+                "
+            >
 
-                <img src="motos/cb190r.png">
+                <img
+                    src="motos/cb190r.png"
+                    alt="Honda CB190R"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:27%;top:16%;transform:translateZ(250px) rotate(-5deg)"
-                 onclick="openBike('Yamaha','YZF-R1','Porque incluso las máquinas más increíbles tienen un lugar en este universo.')">
+            <!-- =========================================
+                 MOTO 9
+            ========================================== -->
 
-                <img src="motos/r1.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:27%;
+                    top:16%;
+                    transform:
+                    translateZ(250px)
+                    rotate(-5deg);
+                "
+                onclick="
+                    openBike(
+                        'YAMAHA',
+                        'YZF-R1',
+                        messages['R1'],
+                        8
+                    )
+                "
+            >
+
+                <img
+                    src="motos/r1.png"
+                    alt="Yamaha R1"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:58%;top:24%;transform:translateZ(150px) rotate(6deg)"
-                 onclick="openBike('Kawasaki','Ninja ZX-6R','Otra joya dentro de nuestro pequeño universo.')">
+            <!-- =========================================
+                 MOTO 10
+            ========================================== -->
 
-                <img src="motos/zx6r.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:58%;
+                    top:24%;
+                    transform:
+                    translateZ(150px)
+                    rotate(6deg);
+                "
+                onclick="
+                    openBike(
+                        'KAWASAKI',
+                        'Ninja ZX-6R',
+                        messages['ZX6R'],
+                        9
+                    )
+                "
+            >
+
+                <img
+                    src="motos/zx6r.png"
+                    alt="Kawasaki ZX-6R"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:25%;top:42%;transform:translateZ(-250px) rotate(-7deg)"
-                 onclick="openBike('Suzuki','GSX-R1000','Una máquina que merece su propio lugar entre las estrellas.')">
+            <!-- =========================================
+                 MOTO 11
+            ========================================== -->
 
-                <img src="motos/gsxr1000.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:25%;
+                    top:42%;
+                    transform:
+                    translateZ(-250px)
+                    rotate(-7deg);
+                "
+                onclick="
+                    openBike(
+                        'SUZUKI',
+                        'GSX-R1000',
+                        messages['GSXR1000'],
+                        10
+                    )
+                "
+            >
+
+                <img
+                    src="motos/gsxr1000.png"
+                    alt="Suzuki GSX-R1000"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:63%;top:47%;transform:translateZ(-350px) rotate(8deg)"
-                 onclick="openBike('BMW','S 1000 RR','Una de esas motos que simplemente no pueden pasar desapercibidas.')">
+            <!-- =========================================
+                 MOTO 12
+            ========================================== -->
 
-                <img src="motos/s1000rr.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:63%;
+                    top:47%;
+                    transform:
+                    translateZ(-350px)
+                    rotate(8deg);
+                "
+                onclick="
+                    openBike(
+                        'BMW',
+                        'S 1000 RR',
+                        messages['S1000RR'],
+                        11
+                    )
+                "
+            >
+
+                <img
+                    src="motos/s1000rr.png"
+                    alt="BMW S1000RR"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:8%;top:73%;transform:translateZ(50px) rotate(-6deg)"
-                 onclick="openBike('Ducati','Panigale V4','Potencia, velocidad y belleza en una sola máquina.')">
+            <!-- =========================================
+                 MOTO 13
+            ========================================== -->
 
-                <img src="motos/panigale.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:8%;
+                    top:73%;
+                    transform:
+                    translateZ(50px)
+                    rotate(-6deg);
+                "
+                onclick="
+                    openBike(
+                        'DUCATI',
+                        'Panigale V4',
+                        messages['Panigale'],
+                        12
+                    )
+                "
+            >
+
+                <img
+                    src="motos/panigale.png"
+                    alt="Ducati Panigale V4"
+                    onerror="
+                        this.onerror=null;
+                        this.src='motos/panigalev4.png';
+                    "
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:70%;top:76%;transform:translateZ(-250px) rotate(5deg)"
-                 onclick="openBike('Honda','CBR1000RR-R Fireblade','Otra de las máquinas que podrían vivir perfectamente en este universo.')">
+            <!-- =========================================
+                 MOTO 14
+            ========================================== -->
 
-                <img src="motos/fireblade.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:70%;
+                    top:76%;
+                    transform:
+                    translateZ(-250px)
+                    rotate(5deg);
+                "
+                onclick="
+                    openBike(
+                        'HONDA',
+                        'CBR1000RR-R Fireblade',
+                        messages['Fireblade'],
+                        13
+                    )
+                "
+            >
+
+                <img
+                    src="motos/fireblade.png"
+                    alt="Honda Fireblade"
+                >
+
             </div>
 
 
-            <div class="motorcycle"
-                 style="left:48%;top:55%;transform:translateZ(-400px) rotate(-4deg)"
-                 onclick="openBike('Aprilia','RSV4','Y todavía quedan muchas máquinas por descubrir…')">
+            <!-- =========================================
+                 MOTO 15
+            ========================================== -->
 
-                <img src="motos/rsv4.png">
+            <div
+                class="motorcycle"
+                style="
+                    left:48%;
+                    top:55%;
+                    transform:
+                    translateZ(-400px)
+                    rotate(-4deg);
+                "
+                onclick="
+                    openBike(
+                        'APRILIA',
+                        'RSV4',
+                        messages['RSV4'],
+                        14
+                    )
+                "
+            >
+
+                <img
+                    src="motos/rsv4.png"
+                    alt="Aprilia RSV4"
+                >
+
             </div>
+
 
         </div>
     </div>
 
-    <div class="instruction">
-        ✦ DESLIZA PARA VIAJAR POR NUESTRO UNIVERSO ✦
+
+    <div class="center-hint">
+        ✦ HAY COSAS QUE SOLO SE DESCUBREN AL BUSCAR ✦
     </div>
+
+
+    <div class="instruction">
+
+        ✦ DESLIZA PARA VIAJAR · TOCA PARA DESCUBRIR ✦
+
+    </div>
+
+
 </div>
 
 
-<!-- =====================
-     MODAL
-====================== -->
+<!-- =====================================================
+     ENTRADA
+====================================================== -->
 
-<div class="modal" id="modal">
+<div
+    class="intro"
+    id="intro"
+>
 
-    <div class="modal-box">
+    <div class="intro-content">
 
-        <h2 id="modalBrand"></h2>
-        <h3 id="modalModel"></h3>
+        <div class="intro-date">
 
-        <p id="modalText"></p>
+            30 DE SEPTIEMBRE
 
-        <button class="close" onclick="closeModal()">
-            CERRAR ❤️
+        </div>
+
+        <h2>
+
+            PARA TI, SEBAS ❤️
+
+        </h2>
+
+        <div class="intro-text">
+
+            Hay millones de estrellas en el universo...
+
+            <br>
+
+            pero yo siempre termino encontrándote a ti.
+
+            <br><br>
+
+            Hice este pequeño lugar para que no solamente
+            lo mires.
+
+            <br>
+
+            Quiero que lo recorras.
+
+        </div>
+
+
+        <button
+            class="enter-button"
+            onclick="enterUniverse()"
+        >
+
+            ✦ TOCA PARA ENTRAR ✦
+
         </button>
+
+
+        <div class="intro-small">
+
+            Hay cosas aquí que tendrás que descubrir tú mismo...
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div
+        class="modal-box"
+        id="modalBox"
+    >
+
+        <div
+            class="modal-brand"
+            id="modalBrand"
+        ></div>
+
+
+        <h2
+            id="modalModel"
+        ></h2>
+
+
+        <h3
+            id="modalSubtitle"
+        ></h3>
+
+
+        <div
+            class="modal-reason"
+            id="modalReason"
+        ></div>
+
+
+        <p
+            id="modalText"
+        ></p>
+
+
+        <button
+            class="modal-action"
+            id="modalAction"
+            onclick="showFinal()"
+        >
+
+            DESCUBRIR LO QUE SIGUE ✨
+
+        </button>
+
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+
+            CERRAR ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SECRETO
+====================================================== -->
+
+<div
+    class="secret-overlay"
+    id="secretOverlay"
+>
+
+    <div class="secret-box">
+
+        <div class="secret-icon">
+            ✦
+        </div>
+
+        <h2>
+            SECRETO DESBLOQUEADO
+        </h2>
+
+        <p>
+
+Hay algo que no puse entre las estrellas.
+
+Porque no quería que todos pudieran verlo.
+
+Solo tú.
+
+Y si llegaste hasta aquí, significa que realmente estabas buscando.
+
+Así que aquí tienes algo que quiero que recuerdes:
+
+No importa cuántos sueños tengas,
+cuántas motos quieras conocer,
+ni cuántos lugares todavía nos falten.
+
+Yo quiero seguir descubriendo la vida contigo.
+
+Mi amor, gracias por existir en mi universo. ❤️
+
+        </p>
+
+        <button
+            class="secret-close"
+            onclick="closeSecret()"
+        >
+
+            GUARDAR ESTE SECRETO ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOTÓN FINAL
+====================================================== -->
+
+<button
+    class="final-button"
+    id="finalButton"
+    onclick="showFinal()"
+>
+
+    ✦ CREO QUE YA DESCUBRISTE BASTANTE... ✦
+
+</button>
+
+
+<!-- =====================================================
+     FINAL
+====================================================== -->
+
+<div
+    class="final-overlay"
+    id="finalOverlay"
+>
+
+    <div class="final-content">
+
+        <div class="final-small">
+
+            DESPUÉS DE RECORRER ESTE UNIVERSO...
+
+        </div>
+
+
+        <h2>
+
+            MI PARTE FAVORITA<br>
+            SIEMPRE FUISTE TÚ. ❤️
+
+        </h2>
+
+
+        <p>
+
+No necesitaba 15 motos.
+
+Ni millones de estrellas.
+
+Ni siquiera un universo entero.
+
+Porque después de recorrer todo esto,
+sigo llegando al mismo lugar:
+
+a ti, Sebas.
+
+        </p>
+
+
+        <div class="final-love">
+
+            FELIZ 30 DE SEPTIEMBRE, MI AMOR ❤️
+
+        </div>
+
+
+        <p style="margin-top:25px;">
+
+Gracias por formar parte de mi vida,
+de mis recuerdos
+y de todos esos sueños que todavía nos quedan por vivir.
+
+Nuestro universo todavía no termina.
+
+Porque todavía nos quedan lugares por conocer,
+cosas por vivir,
+sueños por cumplir
+y recuerdos que todavía no existen.
+
+        </p>
+
+
+        <div class="final-love">
+
+            TE AMO, CARIÑO. ❤️
+
+        </div>
 
     </div>
 
@@ -540,140 +2385,1057 @@ body{
 
 <script>
 
-/* =========================
+/* =========================================================
+   MENSAJES DE LAS 15 MOTOS
+========================================================= */
+
+const messages = {
+
+
+    "675SR-R":
+
+        "Porque me encanta verte emocionarte cuando hablas de las cosas que amas.\n\nY quiero seguir viendo esa emoción en tus ojos, cariño.",
+
+
+    "750SR-R":
+
+        "Porque admiro que siempre tengas sueños y cosas que quieras alcanzar.\n\nNunca dejes de soñar tan grande, amor.",
+
+
+    "CBR500R":
+
+        "Porque quiero verte cumplir cada una de esas metas que alguna vez me contaste.\n\nY si algún día llegas hasta ellas, quiero poder decir: yo estuve ahí viendo cómo lo lograste.",
+
+
+    "NX500":
+
+        "Porque todavía nos quedan demasiados lugares por conocer.\n\nQuizás algún día podamos convertir alguno de esos viajes que imaginamos en un recuerdo real.",
+
+
+    "Ninja300":
+
+        "Porque incluso las cosas que parecen pequeñas pueden terminar formando parte de una historia enorme.\n\nComo muchas de las cosas que hemos vivido tú y yo.",
+
+
+    "Ninja500":
+
+        "Porque me gusta escucharte hablar de lo que te apasiona.\n\nPodría no saber todo sobre motos, pero me encanta escucharte cuando tú sí sabes exactamente de qué estás hablando.",
+
+
+    "R3":
+
+        "Porque contigo aprendí que no siempre se necesita algo enorme para sentir algo enorme.\n\nA veces basta una persona.",
+
+
+    "CB190R":
+
+        "Esta no pertenece a mis sueños.\nEsta pertenece a tu historia.\n\nTu CB190R ❤️\n\nDe todas las motos que podían estar aquí, esta tenía que estar.\n\nPorque cuando pienso en ti, no pienso solamente en lo que sueñas tener.\nTambién pienso en todo lo que ya has conseguido.\n\nY sí...\ntambién me encanta verte feliz sobre ella.\n\nEsta moto no está aquí solamente porque sé que es tuya.\nEstá aquí porque forma parte de ti.\nY cualquier universo que haga para ti tenía que guardar un lugar para ella.",
+
+
+    "R1":
+
+        "Porque me gusta esa parte de ti que siempre quiere llegar un poquito más lejos.\n\nY quiero que nunca pierdas esa manera de mirar hacia adelante.",
+
+
+    "ZX6R":
+
+        "Porque hay cosas que hacen brillar tus ojos.\n\nY aunque a veces no sepa cómo explicarlo, me encanta ser testigo de esa felicidad.",
+
+
+    "GSXR1000":
+
+        "Porque me importan tus sueños incluso cuando todavía están muy lejos.\n\nQuiero verte conseguirlos uno por uno.",
+
+
+    "S1000RR":
+
+        "Porque eres una de esas personas que dejan huella.\n\nY, aunque quizás no te lo diga todos los días, tú dejaste una muy grande en mí.",
+
+
+    "Panigale":
+
+        "Porque hay momentos en los que simplemente miro todo lo que hemos vivido y pienso:\n\nqué bonito que nuestras historias hayan terminado encontrándose.",
+
+
+    "Fireblade":
+
+        "Porque todavía hay muchas cosas que no hemos vivido.\n\nY una de mis partes favoritas es saber que todavía existen recuerdos nuestros que ni siquiera conocemos.",
+
+
+    "RSV4":
+
+        "Porque todavía quedan muchas estrellas aquí.\n\nY si este pequeño universo representa nuestra historia, entonces espero que todavía nos queden muchísimas por descubrir juntos."
+
+};
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+const space =
+    document.getElementById("space");
+
+const intro =
+    document.getElementById("intro");
+
+const world =
+    document.getElementById("world");
+
+const modal =
+    document.getElementById("modal");
+
+const modalBox =
+    document.getElementById("modalBox");
+
+const modalBrand =
+    document.getElementById("modalBrand");
+
+const modalModel =
+    document.getElementById("modalModel");
+
+const modalSubtitle =
+    document.getElementById("modalSubtitle");
+
+const modalReason =
+    document.getElementById("modalReason");
+
+const modalText =
+    document.getElementById("modalText");
+
+const modalAction =
+    document.getElementById("modalAction");
+
+const progress =
+    document.getElementById("progress");
+
+const finalButton =
+    document.getElementById("finalButton");
+
+const finalOverlay =
+    document.getElementById("finalOverlay");
+
+const secretOverlay =
+    document.getElementById("secretOverlay");
+
+
+let started = false;
+
+let dragging = false;
+
+let startX = 0;
+let startY = 0;
+
+let lastX = 0;
+let lastY = 0;
+
+let rotationX = 0;
+let rotationY = 0;
+
+let discovered =
+    new Set();
+
+let secretClicks = 0;
+
+let secretTimer = null;
+
+let audioContext = null;
+
+
+/* =========================================================
    ESTRELLAS
-========================= */
+========================================================= */
 
-const stars = document.getElementById("stars");
+const stars =
+    document.getElementById("stars");
 
-for(let i=0;i<180;i++){
+for(
+    let i = 0;
+    i < 180;
+    i++
+){
 
-    const star=document.createElement("div");
+    const star =
+        document.createElement("div");
 
-    star.className="star";
+    star.className =
+        "star";
 
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
+    star.style.left =
+        Math.random()*100 + "%";
 
-    star.style.animationDelay=(Math.random()*3)+"s";
+    star.style.top =
+        Math.random()*100 + "%";
 
-    const size=Math.random()*2+1;
+    star.style.animationDelay =
+        Math.random()*3 + "s";
 
-    star.style.width=size+"px";
-    star.style.height=size+"px";
+    const size =
+        Math.random()*2 + 1;
+
+    star.style.width =
+        size + "px";
+
+    star.style.height =
+        size + "px";
 
     stars.appendChild(star);
 }
 
 
-/* =========================
-   ROTACIÓN DEL UNIVERSO
-========================= */
+/* =========================================================
+   ESTRELLAS GRANDES
+========================================================= */
 
-const world=document.getElementById("world");
+for(
+    let i = 0;
+    i < 25;
+    i++
+){
 
-let rotationX=0;
-let rotationY=0;
+    const star =
+        document.createElement("div");
 
-let dragging=false;
-let startX=0;
-let startY=0;
+    star.className =
+        "big-star";
 
-let lastX=0;
-let lastY=0;
+    star.style.left =
+        Math.random()*100 + "%";
+
+    star.style.top =
+        Math.random()*100 + "%";
+
+    star.style.animationDelay =
+        Math.random()*4 + "s";
+
+    document
+        .getElementById("stars")
+        .appendChild(star);
+}
 
 
-/* TOUCH / MOUSE */
+/* =========================================================
+   ESTRELLAS FUGACES
+========================================================= */
 
-document.addEventListener("pointerdown",(e)=>{
+const shootingStars =
+    document.getElementById("shootingStars");
 
-    if(e.target.closest(".motorcycle") || e.target.closest(".bouquet")){
+for(
+    let i = 0;
+    i < 4;
+    i++
+){
+
+    const shooting =
+        document.createElement("div");
+
+    shooting.className =
+        "shooting-star";
+
+    shooting.style.left =
+        Math.random()*80 + "%";
+
+    shooting.style.top =
+        Math.random()*60 + "%";
+
+    shooting.style.animationDelay =
+        i*3 + "s";
+
+    shootingStars.appendChild(
+        shooting
+    );
+}
+
+
+/* =========================================================
+   ENTRAR AL UNIVERSO
+========================================================= */
+
+function enterUniverse(){
+
+    if(started){
         return;
     }
 
-    dragging=true;
+    started = true;
 
-    startX=e.clientX;
-    startY=e.clientY;
+    intro.classList.add("hide");
 
-    lastX=e.clientX;
-    lastY=e.clientY;
-});
+    setTimeout(
+        () => {
 
+            showPhrase(
+                "Bienvenido a nuestro pequeño universo, Sebas. ❤️"
+            );
 
-document.addEventListener("pointermove",(e)=>{
+        },
+        1200
+    );
 
-    if(!dragging)return;
+    playChime();
 
-    const dx=e.clientX-lastX;
-    const dy=e.clientY-lastY;
-
-    rotationY += dx*.35;
-    rotationX -= dy*.18;
-
-    rotationX=Math.max(-30,Math.min(30,rotationX));
-
-    world.style.transform=
-        `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
-
-    lastX=e.clientX;
-    lastY=e.clientY;
-});
-
-
-document.addEventListener("pointerup",()=>{
-    dragging=false;
-});
-
-document.addEventListener("pointercancel",()=>{
-    dragging=false;
-});
-
-
-/* =========================
-   MODAL MOTO
-========================= */
-
-function openBike(brand,model,message){
-
-    document.getElementById("modalBrand").textContent=brand;
-
-    document.getElementById("modalModel").textContent=model;
-
-    document.getElementById("modalText").textContent=message;
-
-    document.getElementById("modal").classList.add("active");
 }
 
+
+/* =========================================================
+   FRASES ROMÁNTICAS ALEATORIAS
+========================================================= */
+
+const phrases = [
+
+    "Qué suerte la mía haberte encontrado. ❤️",
+
+    "De todas las coincidencias de mi vida, tú eres mi favorita.",
+
+    "No necesito otro universo si puedo encontrarte en este.",
+
+    "Tú haces que hasta mis días normales tengan algo extraordinario.",
+
+    "Si el destino tuviera una forma, probablemente se parecería a haberte conocido.",
+
+    "Hay personas que llegan a tu vida y se convierten en hogar.",
+
+    "Y entre tantas estrellas, siempre hay una que reconocería: tú.",
+
+    "Mi lugar favorito sigue siendo donde estás tú.",
+
+    "Algunas historias se escriben. La nuestra se vive.",
+
+    "Todavía nos quedan demasiados recuerdos por crear.",
+
+    "Amarte también es emocionarme por tus sueños.",
+
+    "Si pudiera guardar un momento para siempre, guardaría muchos de nosotros.",
+
+    "Mi amor, todavía hay mucho universo por recorrer contigo."
+
+];
+
+
+function showPhrase(text){
+
+    if(!started){
+        return;
+    }
+
+    const layer =
+        document.getElementById(
+            "phraseLayer"
+        );
+
+    const phrase =
+        document.createElement("div");
+
+    phrase.className =
+        "phrase";
+
+    phrase.textContent =
+        text;
+
+    phrase.style.left =
+        (10 + Math.random()*70) + "%";
+
+    phrase.style.top =
+        (20 + Math.random()*55) + "%";
+
+    layer.appendChild(
+        phrase
+    );
+
+    setTimeout(
+        () => {
+            phrase.remove();
+        },
+        6000
+    );
+}
+
+
+setInterval(
+    () => {
+
+        if(
+            started &&
+            !modal.classList.contains("active") &&
+            !finalOverlay.classList.contains("active") &&
+            !secretOverlay.classList.contains("active")
+        ){
+
+            const random =
+                phrases[
+                    Math.floor(
+                        Math.random() *
+                        phrases.length
+                    )
+                ];
+
+            showPhrase(random);
+        }
+
+    },
+    9000
+);
+
+
+/* =========================================================
+   ROTACIÓN DEL UNIVERSO
+========================================================= */
+
+document.addEventListener(
+    "pointerdown",
+    (e) => {
+
+        if(!started){
+            return;
+        }
+
+        if(
+            e.target.closest(
+                ".motorcycle," +
+                ".bouquet," +
+                ".modal," +
+                ".intro," +
+                ".secret-overlay," +
+                ".final-overlay," +
+                "button"
+            )
+        ){
+
+            return;
+
+        }
+
+        dragging = true;
+
+        startX =
+            e.clientX;
+
+        startY =
+            e.clientY;
+
+        lastX =
+            e.clientX;
+
+        lastY =
+            e.clientY;
+
+        world.style.transition =
+            "none";
+
+    }
+);
+
+
+document.addEventListener(
+    "pointermove",
+    (e) => {
+
+        if(!dragging){
+            return;
+        }
+
+        const dx =
+            e.clientX -
+            lastX;
+
+        const dy =
+            e.clientY -
+            lastY;
+
+        rotationY +=
+            dx * .35;
+
+        rotationX -=
+            dy * .18;
+
+        rotationX =
+            Math.max(
+                -30,
+                Math.min(
+                    30,
+                    rotationX
+                )
+            );
+
+        world.style.transform =
+            `
+            rotateX(${rotationX}deg)
+            rotateY(${rotationY}deg)
+            `;
+
+        lastX =
+            e.clientX;
+
+        lastY =
+            e.clientY;
+
+    }
+);
+
+
+document.addEventListener(
+    "pointerup",
+    () => {
+
+        dragging = false;
+
+        world.style.transition =
+            "transform .15s ease-out";
+
+    }
+);
+
+
+document.addEventListener(
+    "pointercancel",
+    () => {
+
+        dragging = false;
+
+    }
+);
+
+
+/* =========================================================
+   ROTACIÓN AUTOMÁTICA MUY SUAVE
+========================================================= */
+
+function automaticRotation(){
+
+    if(
+        started &&
+        !dragging &&
+        !modal.classList.contains("active") &&
+        !finalOverlay.classList.contains("active") &&
+        !secretOverlay.classList.contains("active")
+    ){
+
+        rotationY += .018;
+
+        world.style.transform =
+            `
+            rotateX(${rotationX}deg)
+            rotateY(${rotationY}deg)
+            `;
+
+    }
+
+    requestAnimationFrame(
+        automaticRotation
+    );
+}
+
+automaticRotation();
+
+
+/* =========================================================
+   ABRIR MOTO
+========================================================= */
+
+function openBike(
+    brand,
+    model,
+    message,
+    reason,
+    special = false
+){
+
+    discovered.add(model);
+
+    updateProgress();
+
+    modalBrand.textContent =
+        brand;
+
+    modalModel.textContent =
+        model;
+
+    modalText.textContent =
+        message;
+
+    modalReason.textContent =
+        special
+            ? "HAY ALGO ESPECIAL AQUÍ"
+            : "RAZÓN " + reason;
+
+    modalSubtitle.textContent =
+        special
+            ? "La moto que ya forma parte de tu historia ❤️"
+            : "Una pequeña razón por la que te quiero";
+
+    modalAction.style.display =
+        "none";
+
+    modalBox.classList.toggle(
+        "special-modal",
+        special
+    );
+
+    modal.classList.add(
+        "active"
+    );
+
+    playChime();
+
+    if(special){
+
+        secretClicks++;
+
+        clearTimeout(
+            secretTimer
+        );
+
+        secretTimer =
+            setTimeout(
+                () => {
+                    secretClicks = 0;
+                },
+                2500
+            );
+
+        if(
+            secretClicks >= 3
+        ){
+
+            secretClicks = 0;
+
+            setTimeout(
+                () => {
+
+                    closeModal();
+
+                    openSecret();
+
+                },
+                500
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   ABRIR RAMO / CARTA
+========================================================= */
 
 function openBouquet(){
 
-    document.getElementById("modalBrand").textContent="PARA TI ❤️";
+    modalBrand.textContent =
+        "PARA TI, MI AMOR ❤️";
 
-    document.getElementById("modalModel").textContent="Nuestro pequeño universo";
+    modalModel.textContent =
+        "Una carta escondida";
 
-    document.getElementById("modalText").textContent=
-    "Entre todas las motos, las estrellas y todo este universo, hay algo que siempre va a estar en el centro: tú. Este ramo representa todo el cariño que puse en este pequeño lugar solamente para ti. ❤️";
+    modalSubtitle.textContent =
+        "Esta no es una razón. Es todo lo que no cabe en una sola.";
 
-    document.getElementById("modal").classList.add("active");
+    modalReason.textContent =
+        "HAS ENCONTRADO LA CARTA";
+
+    modalText.textContent =
+
+`Mi amor:
+
+No sé si existe una cantidad suficiente de palabras para explicar cuánto te amo.
+
+Por eso hice esto.
+
+Porque quería construirte un pequeño universo donde pudieras encontrar algunas de las cosas que siento por ti.
+
+Puse estrellas porque hay muchísimas cosas bonitas en la vida, pero ninguna se siente igual que encontrarte a ti.
+
+Puse motos porque sé cuánto te gustan y porque quería llenar este lugar con algunas de esas cosas que hacen brillar tus ojos.
+
+Y puse flores porque quería regalarte algo bonito, aunque fuera dentro de una pantalla.
+
+Pero sobre todo, puse una parte de mí en cada detalle.
+
+Sebas, quizá no siempre sé decirte todo lo que siento de la manera perfecta.
+
+Pero quiero que sepas algo:
+
+Me importas muchísimo.
+
+Me importan tus sueños.
+Me importa verte feliz.
+Me importa escucharte hablar de las cosas que amas.
+Me importa cada recuerdo que hemos construido.
+
+Y todavía me importan mucho más todos esos recuerdos que todavía no existen.
+
+Si algún día miras atrás y recuerdas este pequeño universo, quiero que recuerdes que hubo una chica que se sentó a hacerlo pensando solamente en ti.
+
+Todo esto lo hice pensando en ti, cariño.
+
+Y si pudiera regalarte algo más grande que este pequeño universo, lo haría.
+
+Pero mientras tanto...
+
+quédate con mi amor.
+
+Porque ese sí es completamente tuyo. ❤️`;
+
+    modalAction.textContent =
+        "DESCUBRIR EL FINAL ✨";
+
+    modalAction.style.display =
+        "inline-block";
+
+    modalBox.classList.remove(
+        "special-modal"
+    );
+
+    modal.classList.add(
+        "active"
+    );
+
+    playChime();
+
 }
 
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
 
 function closeModal(){
 
-    document.getElementById("modal").classList.remove("active");
+    modal.classList.remove(
+        "active"
+    );
+
 }
 
 
-/* CERRAR TOCANDO AFUERA */
+/* =========================================================
+   CERRAR TOCANDO AFUERA
+========================================================= */
 
-document.getElementById("modal").addEventListener("click",(e)=>{
+modal.addEventListener(
+    "click",
+    (e) => {
 
-    if(e.target.id==="modal"){
-        closeModal();
+        if(
+            e.target === modal
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+function updateProgress(){
+
+    const count =
+        discovered.size;
+
+    progress.textContent =
+        count +
+        " / 15 estrellas descubiertas";
+
+    if(
+        count >= 5 &&
+        !finalButton.classList.contains("show")
+    ){
+
+        showPhrase(
+            "Parece que estás empezando a descubrirlo todo..."
+        );
+
     }
 
-});
+    if(
+        count >= 15
+    ){
+
+        progress.textContent =
+            "✦ HAS DESCUBIERTO LAS 15 ✦";
+
+        finalButton.classList.add(
+            "show"
+        );
+
+        showPhrase(
+            "Encontraste todas las estrellas, Sebas. ❤️"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SECRETO
+========================================================= */
+
+function openSecret(){
+
+    secretOverlay.classList.add(
+        "active"
+    );
+
+    playChime();
+
+    vibrate();
+
+}
+
+
+function closeSecret(){
+
+    secretOverlay.classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+function showFinal(){
+
+    closeModal();
+
+    closeSecret();
+
+    finalButton.classList.remove(
+        "show"
+    );
+
+    space.classList.add(
+        "final-mode"
+    );
+
+    setTimeout(
+        () => {
+
+            finalOverlay.classList.add(
+                "active"
+            );
+
+            createHearts();
+
+            playChime();
+
+        },
+        1000
+    );
+
+}
+
+
+/* =========================================================
+   CORAZONES
+========================================================= */
+
+function createHearts(){
+
+    for(
+        let i = 0;
+        i < 18;
+        i++
+    ){
+
+        setTimeout(
+            () => {
+
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+                heart.className =
+                    "heart";
+
+                heart.textContent =
+                    Math.random() > .4
+                        ? "❤️"
+                        : "✦";
+
+                heart.style.left =
+                    Math.random()*100 +
+                    "%";
+
+                heart.style.bottom =
+                    "-20px";
+
+                heart.style.animationDuration =
+                    (3 + Math.random()*3) +
+                    "s";
+
+                document.body.appendChild(
+                    heart
+                );
+
+                setTimeout(
+                    () => {
+                        heart.remove();
+                    },
+                    6000
+                );
+
+            },
+            i * 180
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SONIDO SUAVE
+   No necesita ningún archivo de audio.
+========================================================= */
+
+function playChime(){
+
+    try{
+
+        if(
+            !audioContext
+        ){
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+        if(
+            audioContext.state ===
+            "suspended"
+        ){
+
+            audioContext.resume();
+
+        }
+
+        const now =
+            audioContext.currentTime;
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type =
+            "sine";
+
+        oscillator.frequency.setValueAtTime(
+            523.25,
+            now
+        );
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            783.99,
+            now + .45
+        );
+
+        gain.gain.setValueAtTime(
+            .0001,
+            now
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .08,
+            now + .04
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            now + .7
+        );
+
+        oscillator.connect(
+            gain
+        );
+
+        gain.connect(
+            audioContext.destination
+        );
+
+        oscillator.start(
+            now
+        );
+
+        oscillator.stop(
+            now + .7
+        );
+
+    }catch(error){
+
+        /* Si el navegador no permite sonido,
+           la experiencia continúa normalmente. */
+
+    }
+
+}
+
+
+/* =========================================================
+   VIBRACIÓN SUAVE
+========================================================= */
+
+function vibrate(){
+
+    if(
+        navigator.vibrate
+    ){
+
+        navigator.vibrate(
+            25
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCAPE PARA CERRAR
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (e) => {
+
+        if(
+            e.key ===
+            "Escape"
+        ){
+
+            closeModal();
+
+            closeSecret();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+updateProgress();
 
 </script>
 
