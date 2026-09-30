@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
 
-<title>Nuestro Universo ❤️</title>
+<title>Para ti, Sebas ❤️</title>
 
 <style>
 
@@ -20,33 +19,245 @@
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html,
 body{
     width:100%;
     height:100%;
+    margin:0;
     overflow:hidden;
-    background:#01030a;
-    font-family:Arial, sans-serif;
+    background:#02030a;
     color:white;
-    touch-action:none;
-}
-
-body{
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            #071b35 0%,
-            #020713 38%,
-            #010208 78%
-        );
+    font-family:Georgia,"Times New Roman",serif;
 }
 
 button{
     font-family:inherit;
+}
+
+button:focus{
+    outline:none;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(40,65,170,.20),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(180,35,45,.10),
+            transparent 28%
+        ),
+        #010208;
+
+    transition:
+        opacity 1.1s ease,
+        visibility 1.1s ease;
+}
+
+#intro.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:min(700px,94%);
+}
+
+.intro-racing{
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:5px;
+    color:#ff5a43;
+    margin-bottom:18px;
+    text-shadow:0 0 14px rgba(255,70,40,.5);
+}
+
+.intro-date{
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    letter-spacing:6px;
+    color:#b8c5ff;
+    margin-bottom:26px;
+}
+
+.intro h1{
+    margin:0;
+
+    font-size:
+        clamp(40px,10vw,82px);
+
+    font-weight:normal;
+    letter-spacing:3px;
+
+    text-shadow:
+        0 0 20px rgba(100,130,255,.3);
+}
+
+.intro h2{
+    margin:18px 0 25px;
+
+    font-size:
+        clamp(19px,5vw,31px);
+
+    font-weight:normal;
+}
+
+.intro-text{
+    color:#d9ddff;
+
+    font-size:
+        clamp(16px,4vw,22px);
+
+    line-height:1.75;
+
+    margin-bottom:35px;
+}
+
+.start-engine{
+    font-family:Arial,sans-serif;
+
+    border:1px solid rgba(255,80,55,.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,50,35,.18),
+            rgba(30,50,130,.18)
+        );
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:30px;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px rgba(255,50,35,.12);
+
+    touch-action:manipulation;
+}
+
+.start-engine:active{
+    transform:scale(.95);
+}
+
+
+/* =========================================================
+   SEMÁFORO
+========================================================= */
+
+#traffic{
+    position:fixed;
+    inset:0;
+    z-index:1100;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#010208;
+
+    opacity:0;
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.5s ease;
+}
+
+#traffic.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.traffic-box{
+    text-align:center;
+}
+
+.traffic-light{
+    width:80px;
+    padding:12px 10px;
+
+    border-radius:25px;
+
+    background:#08090f;
+
+    border:2px solid #222;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,.8);
+}
+
+.light{
+    width:43px;
+    height:43px;
+
+    margin:8px auto;
+
+    border-radius:50%;
+
+    background:#151515;
+
+    box-shadow:
+        inset 0 0 10px #000;
+}
+
+.light.active.red{
+    background:#ff2d25;
+    box-shadow:
+        0 0 25px #ff2d25;
+}
+
+.light.active.yellow{
+    background:#ffc928;
+    box-shadow:
+        0 0 25px #ffc928;
+}
+
+.light.active.green{
+    background:#32ed65;
+    box-shadow:
+        0 0 25px #32ed65;
+}
+
+.traffic-text{
+    margin-top:22px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+
+    letter-spacing:5px;
 }
 
 
@@ -54,45 +265,77 @@ button{
    UNIVERSO
 ========================================================= */
 
-.space{
+#space{
     position:fixed;
     inset:0;
+
     overflow:hidden;
+
+    touch-action:none;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(40,55,140,.14),
+            transparent 43%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(90,20,120,.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(25,70,150,.12),
+            transparent 30%
+        ),
+        #02030b;
 }
 
 .nebula{
     position:absolute;
+
     border-radius:50%;
-    filter:blur(70px);
+
+    filter:blur(75px);
+
     pointer-events:none;
-    z-index:0;
+
+    opacity:.20;
 }
 
 .nebula.one{
-    width:450px;
-    height:300px;
-    background:#0066ff;
-    left:-150px;
-    top:10%;
-    opacity:.25;
+    width:340px;
+    height:190px;
+
+    left:-100px;
+    top:18%;
+
+    background:#24439c;
+
+    transform:rotate(-25deg);
 }
 
 .nebula.two{
-    width:500px;
-    height:350px;
-    background:#174cff;
-    right:-180px;
-    bottom:5%;
-    opacity:.23;
+    width:410px;
+    height:220px;
+
+    right:-140px;
+    bottom:12%;
+
+    background:#6a214f;
+
+    transform:rotate(25deg);
 }
 
 .nebula.three{
-    width:300px;
-    height:300px;
-    background:#008cff;
+    width:280px;
+    height:190px;
+
     left:35%;
-    top:35%;
-    opacity:.10;
+    top:-80px;
+
+    background:#2452a9;
 }
 
 
@@ -103,191 +346,237 @@ button{
 .stars{
     position:absolute;
     inset:0;
+
     pointer-events:none;
-    z-index:1;
+
+    background-image:
+        radial-gradient(circle,#fff 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1.5px),
+        radial-gradient(circle,rgba(130,165,255,.8) 1px,transparent 1.5px);
+
+    background-size:
+        97px 97px,
+        151px 151px,
+        211px 211px;
+
+    background-position:
+        10px 20px,
+        60px 80px,
+        30px 40px;
+
+    opacity:.52;
 }
 
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    box-shadow:0 0 7px #5aa9ff;
-    animation:twinkle 2s infinite alternate;
-}
 
-.big-star{
+/* =========================================================
+   DETALLES HOT WHEELS / RACING
+========================================================= */
+
+.racing-glow{
     position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
+
+    width:380px;
+    height:380px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
     border-radius:50%;
+
+    border:
+        1px dashed
+        rgba(255,70,45,.12);
+
     box-shadow:
-        0 0 8px white,
-        0 0 18px #168cff,
-        0 0 30px #168cff;
-    animation:twinkleBig 3s infinite alternate;
-}
+        0 0 80px rgba(255,55,35,.05),
+        inset 0 0 70px rgba(40,60,180,.05);
 
-@keyframes twinkle{
-
-    from{
-        opacity:.2;
-        transform:scale(.7);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.5);
-    }
-
-}
-
-@keyframes twinkleBig{
-
-    from{
-        opacity:.35;
-        transform:scale(.7);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.5);
-    }
-
-}
-
-
-/* =========================================================
-   FRASES FLOTANTES
-========================================================= */
-
-.floating-phrase{
-    position:absolute;
-    z-index:3;
-    color:rgba(180,220,255,.68);
-    font-size:11px;
-    letter-spacing:1px;
-    text-align:center;
     pointer-events:none;
-    text-shadow:
-        0 0 8px #168cff,
-        0 0 18px rgba(0,110,255,.5);
-    animation:floatPhrase 8s ease-in-out infinite;
 }
 
-.phrase1{
-    left:5%;
-    top:28%;
+.racing-line{
+    position:absolute;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,65,45,.45),
+            transparent
+        );
+
+    opacity:.25;
+
+    pointer-events:none;
+
+    transform:rotate(-18deg);
 }
 
-.phrase2{
-    right:4%;
+.line-one{
+    width:350px;
+    left:-80px;
     top:32%;
-    animation-delay:2s;
 }
 
-.phrase3{
-    left:7%;
-    bottom:27%;
-    animation-delay:4s;
-}
-
-.phrase4{
-    right:6%;
+.line-two{
+    width:300px;
+    right:-80px;
     bottom:30%;
-    animation-delay:1s;
+    transform:rotate(18deg);
 }
 
-.phrase5{
-    left:50%;
-    top:14%;
-    transform:translateX(-50%);
-    animation-delay:3s;
+.checker{
+    position:absolute;
+
+    width:80px;
+    height:30px;
+
+    opacity:.14;
+
+    background:
+        linear-gradient(
+            45deg,
+            white 25%,
+            transparent 25%,
+            transparent 75%,
+            white 75%
+        ),
+        linear-gradient(
+            45deg,
+            white 25%,
+            transparent 25%,
+            transparent 75%,
+            white 75%
+        );
+
+    background-size:20px 20px;
+
+    background-position:
+        0 0,
+        10px 10px;
+
+    pointer-events:none;
+
+    transform:rotate(-12deg);
 }
 
-@keyframes floatPhrase{
+.checker.one{
+    left:5%;
+    top:18%;
+}
 
-    0%,100%{
-        transform:translateY(0);
-        opacity:.45;
-    }
-
-    50%{
-        transform:translateY(-10px);
-        opacity:.9;
-    }
-
+.checker.two{
+    right:5%;
+    bottom:20%;
+    transform:rotate(14deg);
 }
 
 
 /* =========================================================
-   TITULO
+   INTERFAZ SUPERIOR
 ========================================================= */
 
-.title{
+#top-ui{
     position:absolute;
-    top:18px;
+
+    z-index:20;
+
+    top:17px;
+
     left:50%;
+
     transform:translateX(-50%);
-    z-index:100;
+
+    width:min(92%,600px);
+
     text-align:center;
-    width:100%;
+
     pointer-events:none;
 }
 
-.title h1{
-    font-size:clamp(22px,5vw,42px);
-    letter-spacing:6px;
-    text-shadow:
-        0 0 10px #168cff,
-        0 0 25px #006cff;
+.top-racing{
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#ff624e;
+
+    margin-bottom:5px;
 }
 
-.title p{
-    margin-top:5px;
-    color:#9acbff;
-    font-size:12px;
-    letter-spacing:2px;
+.top-title{
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#aebdff;
 }
-
-
-/* =========================================================
-   PROGRESO
-========================================================= */
 
 .progress{
-    position:absolute;
-    top:92px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:100;
-    color:#8fc8ff;
-    font-size:11px;
-    letter-spacing:2px;
-    text-shadow:0 0 8px #168cff;
-    pointer-events:none;
+    margin-top:9px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    color:#fff;
+}
+
+.progress-bar{
+    width:180px;
+
+    height:3px;
+
+    margin:8px auto 0;
+
+    background:rgba(255,255,255,.14);
+
+    border-radius:10px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3c2f,
+            #ff8b38,
+            #9bb4ff
+        );
+
+    transition:width .5s ease;
 }
 
 
 /* =========================================================
-   UNIVERSO 3D
+   MUNDO 3D
 ========================================================= */
 
-.universe{
+#world{
     position:absolute;
-    inset:0;
-    perspective:1100px;
-    z-index:10;
-}
 
-.world{
-    position:absolute;
-    width:100%;
-    height:100%;
+    left:50%;
+    top:50%;
+
+    width:0;
+    height:0;
+
     transform-style:preserve-3d;
-    will-change:transform;
+
+    perspective:1100px;
 }
 
 
@@ -297,74 +586,93 @@ button{
 
 .motorcycle{
     position:absolute;
-    width:clamp(115px,17vw,230px);
-    cursor:pointer;
+
+    width:145px;
+    height:105px;
+
     transform-style:preserve-3d;
+
+    cursor:pointer;
+
     user-select:none;
     -webkit-user-select:none;
-    -webkit-user-drag:none;
+
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
-    z-index:20;
+
+    z-index:5;
 }
 
 .motorcycle img{
     width:100%;
-    display:block;
+    height:100%;
+
     object-fit:contain;
+
     pointer-events:none;
+
     user-select:none;
+
     -webkit-user-drag:none;
 
     filter:
         drop-shadow(
             0 0 8px
-            rgba(0,130,255,.55)
+            rgba(100,130,255,.32)
+        );
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+
+.motorcycle:active img{
+    transform:scale(.91);
+}
+
+.motorcycle.main-bike img{
+    filter:
+        drop-shadow(
+            0 0 9px
+            rgba(110,145,255,.5)
         )
         drop-shadow(
             0 0 22px
-            rgba(0,100,255,.25)
+            rgba(60,80,255,.15)
         );
-}
-
-.motorcycle:hover img{
-
-    filter:
-        drop-shadow(
-            0 0 12px
-            rgba(50,160,255,.9)
-        )
-        drop-shadow(
-            0 0 35px
-            rgba(0,100,255,.7)
-        );
-
-}
-
-
-/* =========================================================
-   MOTOS ESPECIALES
-========================================================= */
-
-.motorcycle.special{
-    width:clamp(150px,22vw,290px);
-    z-index:40;
 }
 
 .motorcycle.special img{
-
     filter:
-        drop-shadow(0 0 10px #168cff)
-        drop-shadow(0 0 30px #0066ff)
         drop-shadow(
-            0 0 55px
-            rgba(0,130,255,.55)
+            0 0 10px
+            rgba(255,80,50,.85)
+        )
+        drop-shadow(
+            0 0 25px
+            rgba(255,130,50,.35)
+        )
+        drop-shadow(
+            0 0 32px
+            rgba(110,100,255,.25)
         );
-
 }
 
-.motorcycle.main-bike{
-    width:clamp(135px,19vw,250px);
+.bike-number{
+    position:absolute;
+
+    left:50%;
+    bottom:-5px;
+
+    transform:translateX(-50%);
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    color:
+        rgba(230,235,255,.65);
+
+    pointer-events:none;
 }
 
 
@@ -372,305 +680,335 @@ button{
    RAMO
 ========================================================= */
 
-.bouquet{
+#bouquet{
     position:absolute;
+
+    width:150px;
+    height:150px;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
-    width:clamp(180px,25vw,310px);
-    z-index:50;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:10;
+
     cursor:pointer;
+
     touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
-    animation:bloom 4s ease-in-out infinite;
+
+    user-select:none;
 }
 
-.bouquet img{
+#bouquet img{
     width:100%;
-    display:block;
+    height:100%;
+
+    object-fit:contain;
+
     pointer-events:none;
 
     filter:
-        drop-shadow(0 0 12px #168cff)
         drop-shadow(
-            0 0 35px
-            rgba(0,110,255,.75)
+            0 0 12px
+            rgba(255,150,210,.48)
+        )
+        drop-shadow(
+            0 0 30px
+            rgba(100,110,255,.2)
         );
+
+    animation:breathe 3s ease-in-out infinite;
 }
 
-@keyframes bloom{
-
+@keyframes breathe{
     0%,100%{
-        transform:
-            translate(-50%,-50%)
-            scale(1);
+        transform:scale(1);
     }
 
     50%{
-        transform:
-            translate(-50%,-50%)
-            scale(1.035);
+        transform:scale(1.04);
+    }
+}
+
+.bouquet-label{
+    position:absolute;
+
+    left:50%;
+    top:100%;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+
+    font-size:11px;
+
+    color:#e3e6ff;
+
+    opacity:.75;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   FRASES
+========================================================= */
+
+.float-phrase{
+    position:absolute;
+
+    z-index:3;
+
+    max-width:180px;
+
+    color:
+        rgba(220,225,255,.53);
+
+    font-size:13px;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    animation:
+        floatPhrase
+        7s
+        ease-in-out
+        infinite;
+}
+
+.p1{
+    left:7%;
+    top:25%;
+}
+
+.p2{
+    right:5%;
+    top:35%;
+    animation-delay:1s;
+}
+
+.p3{
+    left:8%;
+    bottom:28%;
+    animation-delay:2s;
+}
+
+.p4{
+    right:8%;
+    bottom:27%;
+    animation-delay:3s;
+}
+
+.p5{
+    left:50%;
+    top:14%;
+
+    transform:
+        translateX(-50%);
+
+    animation-delay:4s;
+}
+
+@keyframes floatPhrase{
+    0%,100%{
+        opacity:.22;
+        transform:translateY(0);
     }
 
+    50%{
+        opacity:.7;
+        transform:translateY(-10px);
+    }
 }
 
 
 /* =========================================================
-   INSTRUCCION
+   PISTAS
 ========================================================= */
 
-.instruction{
+.hint{
     position:absolute;
-    bottom:20px;
+
+    z-index:25;
+
     left:50%;
-    transform:translateX(-50%);
-    z-index:100;
-    color:#8fc8ff;
-    font-size:11px;
-    letter-spacing:2px;
+    bottom:18px;
+
+    transform:
+        translateX(-50%);
+
+    width:min(88%,520px);
+
+    padding:12px 18px;
+
     text-align:center;
-    text-shadow:0 0 8px #168cff;
-    pointer-events:none;
-}
 
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #071b35 0%,
-            #020713 35%,
-            #000106 80%
-        );
-
-    transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
-}
-
-.intro.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.intro-content{
-    width:min(90%,600px);
-    text-align:center;
-    padding:30px;
-}
-
-.intro-date{
-    color:#62b7ff;
     font-size:13px;
-    letter-spacing:5px;
-    margin-bottom:25px;
-    text-shadow:0 0 15px #168cff;
-}
 
-.intro h2{
-    font-size:clamp(28px,8vw,54px);
-    letter-spacing:4px;
-    margin-bottom:28px;
+    line-height:1.5;
 
-    text-shadow:
-        0 0 12px #168cff,
-        0 0 35px #006cff;
-}
+    color:#e7e9ff;
 
-.intro-text{
-    color:#d9eaff;
-    font-size:15px;
-    line-height:1.8;
-}
-
-.enter-button{
-    margin-top:35px;
-
-    border:1px solid #168cff;
     background:
-        linear-gradient(
-            145deg,
-            rgba(8,35,70,.9),
-            rgba(1,8,20,.95)
-        );
+        rgba(5,8,25,.72);
 
-    color:#bfe3ff;
+    border:
+        1px solid
+        rgba(255,70,45,.25);
 
-    padding:14px 28px;
+    border-radius:20px;
 
-    border-radius:40px;
+    backdrop-filter:blur(9px);
 
-    font-size:12px;
-    letter-spacing:2px;
+    pointer-events:none;
 
-    cursor:pointer;
+    opacity:0;
 
-    box-shadow:
-        0 0 18px
-        rgba(0,120,255,.45);
-
-    touch-action:manipulation;
-
-    -webkit-tap-highlight-color:transparent;
+    transition:opacity .6s ease;
 }
 
-.enter-button:active{
-    transform:scale(.96);
+.hint.show{
+    opacity:1;
 }
 
-.intro-small{
-    margin-top:18px;
-    color:#6489ad;
-    font-size:10px;
-    letter-spacing:1px;
+.hint-label{
+    display:block;
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#ff604c;
+
+    margin-bottom:4px;
 }
 
 
 /* =========================================================
-   MODAL
+   MODALES
 ========================================================= */
 
 .modal{
     position:fixed;
+
     inset:0;
 
-    background:
-        rgba(0,0,8,.78);
+    z-index:500;
 
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-
-    display:none;
+    display:flex;
 
     align-items:center;
     justify-content:center;
 
-    z-index:500;
+    padding:22px;
 
-    padding:20px;
+    background:
+        rgba(0,0,10,.77);
 
-    touch-action:auto;
+    backdrop-filter:blur(9px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.35s ease;
 }
 
-.modal.active{
-    display:flex;
+.modal.open{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
 }
 
 .modal-box{
+    width:min(92%,650px);
 
-    width:min(90%,470px);
-    max-height:85vh;
-    overflow-y:auto;
+    max-height:82vh;
+
+    overflow:auto;
+
+    padding:32px 26px;
+
+    border:
+        1px solid
+        rgba(190,205,255,.25);
+
+    border-radius:24px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(5,20,42,.97),
-            rgba(1,5,15,.98)
-        );
-
-    border:1px solid #168cff;
-
-    border-radius:22px;
-
-    padding:30px 25px;
-
-    text-align:center;
+        radial-gradient(
+            circle at top,
+            rgba(65,80,170,.18),
+            transparent 55%
+        ),
+        rgba(5,7,25,.96);
 
     box-shadow:
-        0 0 20px
-        rgba(0,120,255,.7),
+        0 0 70px
+        rgba(40,60,150,.2);
 
-        inset 0 0 30px
-        rgba(0,90,255,.12);
-
-    animation:modalIn .35s ease;
+    text-align:center;
 }
 
-@keyframes modalIn{
+.modal-number{
+    font-family:Arial,sans-serif;
 
-    from{
-        opacity:0;
-        transform:
-            scale(.8)
-            translateY(20px);
-    }
+    font-size:9px;
 
-    to{
-        opacity:1;
-        transform:
-            scale(1)
-            translateY(0);
-    }
+    letter-spacing:4px;
 
+    color:#ff604c;
+
+    margin-bottom:10px;
 }
 
-.modal-box h2{
-
-    color:#62b7ff;
-
+.modal-title{
     font-size:25px;
 
-    margin-bottom:7px;
+    font-weight:normal;
 
-    text-shadow:
-        0 0 12px #168cff;
-
+    margin:
+        0 0 20px;
 }
 
-.modal-box h3{
+.modal-message{
+    font-size:17px;
+
+    line-height:1.8;
+
+    color:#e4e5f5;
+
+    white-space:pre-line;
+}
+
+.close-btn{
+    margin-top:25px;
+
+    padding:11px 24px;
+
+    border:
+        1px solid
+        rgba(200,210,255,.3);
+
+    background:
+        rgba(255,255,255,.04);
 
     color:white;
 
-    margin-bottom:20px;
-
-    font-size:17px;
-
-}
-
-.modal-box p{
-
-    line-height:1.7;
-
-    color:#d9eaff;
-
-    font-size:15px;
-
-    white-space:pre-line;
-
-}
-
-.close{
-
-    margin-top:25px;
-
-    border:1px solid #168cff;
-
-    background:#06152b;
-
-    color:#9bd2ff;
-
-    padding:10px 25px;
-
-    border-radius:30px;
+    border-radius:20px;
 
     cursor:pointer;
 
     touch-action:manipulation;
-
 }
 
 
@@ -678,1020 +1016,487 @@ button{
    SECRETO
 ========================================================= */
 
-.secret-overlay{
-
-    position:fixed;
-    inset:0;
-
-    z-index:1500;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(10,45,90,.96),
-            rgba(0,0,8,.98)
-        );
-
-}
-
-.secret-overlay.active{
-    display:flex;
-}
-
 .secret-box{
-
-    width:min(90%,500px);
-
-    text-align:center;
-
-    padding:35px 25px;
-
-    border:1px solid #168cff;
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(5,20,42,.98),
-            rgba(1,5,15,.99)
-        );
+    border-color:
+        rgba(255,100,150,.35);
 
     box-shadow:
-        0 0 35px
-        rgba(0,120,255,.65);
-
-    animation:secretIn .7s ease;
-
+        0 0 60px
+        rgba(255,50,100,.10);
 }
 
-@keyframes secretIn{
-
-    from{
-        opacity:0;
-        transform:scale(.7);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-.secret-box .secret-small{
-
-    color:#62b7ff;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
-
-}
-
-.secret-box h2{
-
-    font-size:27px;
-
-    margin-bottom:20px;
-
-    color:white;
-
-    text-shadow:
-        0 0 15px #168cff;
-
-}
-
-.secret-box p{
-
-    color:#d9eaff;
-
-    line-height:1.8;
-
-    font-size:15px;
-
-    white-space:pre-line;
-
+.secret-box .modal-title{
+    color:#ffd7ec;
 }
 
 
 /* =========================================================
-   FINAL
+   FINAL 15/15
 ========================================================= */
 
-.final-overlay{
-
-    position:fixed;
-    inset:0;
-
-    z-index:1800;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(8,35,75,.95),
-            rgba(0,0,5,.99)
-        );
-
+.final-box{
+    width:min(92%,700px);
 }
 
-.final-overlay.active{
-    display:flex;
+.final-title{
+    font-size:
+        clamp(30px,7vw,52px);
+
+    font-weight:normal;
+
+    margin-bottom:25px;
 }
 
-.final-content{
+.final-text{
+    font-size:18px;
 
-    width:min(90%,650px);
+    line-height:1.8;
 
-    animation:finalIn 2s ease;
+    color:#e7e8f5;
 
+    white-space:pre-line;
 }
 
-@keyframes finalIn{
+.complete-race{
+    font-family:Arial,sans-serif;
 
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-.final-content .final-small{
-
-    color:#62b7ff;
+    font-size:10px;
 
     letter-spacing:4px;
 
-    font-size:11px;
+    color:#ff624e;
 
-    margin-bottom:25px;
-
+    margin-bottom:15px;
 }
 
-.final-content h2{
-
-    font-size:clamp(25px,6vw,42px);
-
-    line-height:1.3;
-
-    text-shadow:
-        0 0 15px #168cff,
-        0 0 35px #006cff;
-
-    margin-bottom:25px;
-
-}
-
-.final-content p{
-
-    color:#d9eaff;
-
-    line-height:1.9;
-
-    font-size:15px;
-
-    white-space:pre-line;
-
-}
-
-.last-button{
-
-    display:none;
-
+.surprise-btn{
     margin-top:30px;
 
-    border:1px solid #168cff;
+    padding:16px 26px;
 
-    background:#06152b;
+    border:
+        1px solid
+        rgba(255,90,60,.55);
 
-    color:#bfe3ff;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,55,40,.25),
+            rgba(80,60,160,.25)
+        );
 
-    padding:13px 25px;
+    color:white;
 
     border-radius:30px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
 
     cursor:pointer;
 
     touch-action:manipulation;
 
+    box-shadow:
+        0 0 28px
+        rgba(255,60,40,.12);
+}
+
+.surprise-btn:active{
+    transform:scale(.96);
 }
 
 
 /* =========================================================
-   ULTIMA SORPRESA
+   ÚLTIMA SORPRESA
 ========================================================= */
 
-.last-surprise{
-
+#last-surprise{
     position:fixed;
+
     inset:0;
 
-    z-index:1900;
+    z-index:900;
 
-    display:none;
+    display:flex;
 
     align-items:center;
     justify-content:center;
 
-    text-align:center;
-
     padding:25px;
+
+    text-align:center;
 
     background:
         radial-gradient(
             circle at center,
-            #082550,
-            #01030b 75%
-        );
+            rgba(70,60,170,.25),
+            transparent 50%
+        ),
+        #02030b;
 
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:1s ease;
 }
 
-.last-surprise.active{
-    display:flex;
+#last-surprise.show{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
 }
 
-.last-surprise-content{
-
-    width:min(90%,650px);
-
-    animation:finalIn 1.5s ease;
-
+.last-content{
+    max-width:680px;
 }
 
-.last-surprise-content .small{
+.final-edition{
+    font-family:Arial,sans-serif;
 
-    color:#62b7ff;
+    font-size:10px;
 
-    font-size:11px;
+    letter-spacing:5px;
 
-    letter-spacing:4px;
+    color:#ff604c;
 
-    margin-bottom:25px;
-
+    margin-bottom:15px;
 }
 
-.last-surprise-content h2{
+.last-content h2{
+    font-size:
+        clamp(28px,7vw,50px);
 
-    font-size:clamp(27px,7vw,48px);
+    font-weight:normal;
 
-    line-height:1.25;
-
-    margin-bottom:25px;
-
-    text-shadow:
-        0 0 15px #168cff,
-        0 0 35px #006cff;
-
+    margin-bottom:28px;
 }
 
-.last-surprise-content p{
-
-    color:#d9eaff;
-
-    font-size:16px;
+.last-content p{
+    font-size:18px;
 
     line-height:1.9;
 
-    white-space:pre-line;
+    color:#e6e7f5;
 
+    white-space:pre-line;
+}
+
+.heart{
+    font-size:35px;
+
+    margin-top:20px;
+
+    animation:
+        heartPulse
+        1.5s
+        infinite;
+}
+
+@keyframes heartPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   MÓVIL
 ========================================================= */
 
 @media(max-width:600px){
 
-    .title{
-        top:12px;
-    }
-
-    .title h1{
-        letter-spacing:3px;
-        font-size:22px;
-    }
-
-    .title p{
-        font-size:9px;
-    }
-
-    .progress{
-        top:67px;
-        font-size:8px;
-    }
-
-    .instruction{
-        bottom:12px;
-        font-size:8px;
-    }
-
     .motorcycle{
         width:115px;
+        height:82px;
     }
 
-    .motorcycle.special{
-        width:150px;
-    }
-
-    .motorcycle.main-bike{
-        width:130px;
-    }
-
-    .bouquet{
-        width:180px;
-    }
-
-    .floating-phrase{
-        font-size:8px;
-        max-width:110px;
+    #bouquet{
+        width:125px;
+        height:125px;
     }
 
     .modal-box{
-        padding:25px 20px;
-        max-height:82vh;
+        padding:27px 20px;
     }
 
-    .modal-box p{
-        font-size:14px;
+    .modal-message{
+        font-size:15px;
+        line-height:1.7;
     }
 
-    .intro-content{
-        padding:20px;
+    .float-phrase{
+        font-size:10px;
+        max-width:135px;
     }
 
-    .intro-text{
-        font-size:14px;
+    .hint{
+        font-size:12px;
+        bottom:14px;
     }
 
+    .racing-glow{
+        width:300px;
+        height:300px;
+    }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =======================================================
+<!-- =====================================================
      INTRO
-======================================================= -->
+===================================================== -->
 
-<div class="intro" id="intro">
+<section id="intro">
 
     <div class="intro-content">
+
+        <div class="intro-racing">
+            HOT WHEELS × SPACE EDITION
+        </div>
 
         <div class="intro-date">
             30 DE SEPTIEMBRE
         </div>
 
-        <h2>
+        <h1>
             PARA TI, SEBAS ❤️
+        </h1>
+
+        <h2>
+            Hay algo que quiero que descubras.
         </h2>
 
         <div class="intro-text">
 
             Hay millones de estrellas en el universo...
-
             <br>
-
             pero yo siempre termino encontrándote a ti.
-
             <br><br>
 
-            Hice este pequeño lugar para que no solamente lo mires.
+            Hice este pequeño universo para ti.
 
             <br>
 
-            Quiero que lo recorras.
+            No quiero que solamente lo mires.
+
+            <br>
+
+            Quiero que lo descubras.
 
         </div>
 
         <button
-            class="enter-button"
-            onclick="enterUniverse()"
-        >
-            ✦ TOCA PARA ENTRAR ✦
+            class="start-engine"
+            id="enterBtn">
+
+            🏁 START YOUR ENGINE
+
         </button>
 
-        <div class="intro-small">
+    </div>
 
-            Hay cosas aquí que tendrás que descubrir tú mismo...
+</section>
+
+
+<!-- =====================================================
+     SEMÁFORO
+===================================================== -->
+
+<section id="traffic">
+
+    <div class="traffic-box">
+
+        <div class="traffic-light">
+
+            <div
+                class="light red"
+                id="redLight">
+            </div>
+
+            <div
+                class="light yellow"
+                id="yellowLight">
+            </div>
+
+            <div
+                class="light green"
+                id="greenLight">
+            </div>
+
+        </div>
+
+        <div
+            class="traffic-text"
+            id="trafficText">
+
+            READY?
 
         </div>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- =======================================================
+<!-- =====================================================
      UNIVERSO
-======================================================= -->
+===================================================== -->
 
-<div class="space">
+<main id="space">
 
     <div class="nebula one"></div>
     <div class="nebula two"></div>
     <div class="nebula three"></div>
 
-    <div class="stars" id="stars"></div>
+    <div class="stars"></div>
+
+    <div class="racing-glow"></div>
+
+    <div class="racing-line line-one"></div>
+    <div class="racing-line line-two"></div>
+
+    <div class="checker one"></div>
+    <div class="checker two"></div>
 
 
-    <div class="floating-phrase phrase1">
-        Qué suerte la mía haberte encontrado ❤️
-    </div>
+    <!-- INTERFAZ -->
 
-    <div class="floating-phrase phrase2">
-        De todas las coincidencias de mi vida, tú eres mi favorita
-    </div>
+    <div id="top-ui">
 
-    <div class="floating-phrase phrase3">
-        No necesito otro universo si puedo encontrarte en este
-    </div>
+        <div class="top-racing">
+            SEBA'S COLLECTION
+        </div>
 
-    <div class="floating-phrase phrase4">
-        Tú haces que hasta mis días normales tengan algo extraordinario
-    </div>
+        <div class="top-title">
+            SPACE RACING EDITION
+        </div>
 
-    <div class="floating-phrase phrase5">
-        Si el destino tuviera una forma, probablemente se parecería a haberte conocido.
-    </div>
+        <div class="progress">
 
+            <span id="count">
+                0
+            </span>
 
-    <div class="title">
+            / 15 ESTRELLAS DESCUBIERTAS
 
-        <h1>
-            NUESTRO UNIVERSO
-        </h1>
+        </div>
 
-        <p>
-            Un pequeño lugar hecho para ti ❤️
-        </p>
-
-    </div>
-
-
-    <div
-        class="progress"
-        id="progress"
-    >
-        0 / 15 estrellas descubiertas
-    </div>
-
-
-    <div
-        class="universe"
-        id="universe"
-    >
-
-        <div
-            class="world"
-            id="world"
-        >
-
-
-            <!-- =================================================
-                 RAMO
-            ================================================== -->
+        <div class="progress-bar">
 
             <div
-                class="bouquet"
-                onclick="openBouquet()"
-            >
-
-                <img
-                    src="ramo.png"
-                    alt="Nuestro ramo"
-                >
-
+                class="progress-fill"
+                id="progressFill">
             </div>
-
-
-            <!-- =================================================
-                 MOTO 1 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:4%;
-                    top:20%;
-                    transform:
-                    translateZ(100px)
-                    rotate(-8deg)
-                "
-                onclick="
-                    openBike(
-                        1,
-                        'CFMOTO',
-                        '675SR-R',
-                        'Me encanta saber que tienes sueños tan grandes. Y más todavía imaginarte algún día cumpliéndolos. Me gusta cuando me cuentas sobre las motos que quieres, porque mientras hablas de ellas se nota cuánto te emocionan y hasta parece que tus ojos se iluminan. Quiero estar ahí para verte conseguir cada una de esas cosas que hoy solamente imaginas. ❤️'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/cf moto 675.png"
-                    alt="CFMOTO 675SR-R"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 2 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:70%;
-                    top:15%;
-                    transform:
-                    translateZ(-250px)
-                    rotate(7deg)
-                "
-                onclick="
-                    openBike(
-                        2,
-                        'CFMOTO',
-                        '750SR-R',
-                        'Hay algo muy bonito en la manera en la que hablas de las cosas que quieres tener algún día. No solamente quieres una moto: quieres vivir todo lo que significa conseguirla. Y me encanta escucharte soñar así, porque detrás de cada moto que nombras hay una parte de ti que quiere seguir creciendo, avanzar y cumplir sus metas. ❤️'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/cf moto 750.png"
-                    alt="CFMOTO 750SR-R"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 3 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:18%;
-                    top:62%;
-                    transform:
-                    translateZ(-180px)
-                    rotate(-5deg)
-                "
-                onclick="
-                    openBike(
-                        3,
-                        'Honda',
-                        'CBR500R',
-                        'Me gusta imaginar todos esos momentos que todavía no existen: tú llegando a casa con una moto nueva, contándome emocionado cada detalle y yo escuchándote como siempre. Quizás para ti sea solamente una máquina hermosa, pero para mí también representa todos esos sueños tuyos que quiero ver convertirse en realidad.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/cbr500r.png"
-                    alt="Honda CBR500R"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 4 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:76%;
-                    top:65%;
-                    transform:
-                    translateZ(180px)
-                    rotate(8deg)
-                "
-                onclick="
-                    openBike(
-                        4,
-                        'Honda',
-                        'NX500 E-Clutch',
-                        'Quizás esta moto representa algo diferente: aventura. Y cuando pienso en aventura, me gusta imaginarte conmigo, descubriendo lugares nuevos, perdiéndonos un poquito y luego riéndonos de eso. Me encantaría que algún día podamos mirar hacia atrás y decir: ¿te acuerdas de aquel viaje que hicimos juntos? ❤️'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/nx500.png"
-                    alt="Honda NX500"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 5 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:3%;
-                    top:43%;
-                    transform:
-                    translateZ(-350px)
-                    rotate(-12deg)
-                "
-                onclick="
-                    openBike(
-                        5,
-                        'Kawasaki',
-                        'Ninja 300 ABS',
-                        'Hay sueños que quizás parezcan pequeños para otras personas, pero que para quien los tiene significan muchísimo. Y yo sé que tus motos son así para ti. Por eso nunca quiero que sientas que tus sueños son una tontería. Me encanta conocer esa parte de ti que se emociona, imagina y quiere llegar cada vez más lejos.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/ninja300.png"
-                    alt="Kawasaki Ninja 300"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 6 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:82%;
-                    top:40%;
-                    transform:
-                    translateZ(-100px)
-                    rotate(10deg)
-                "
-                onclick="
-                    openBike(
-                        6,
-                        'Kawasaki',
-                        'Ninja 500 SE ABS',
-                        'A veces pienso que lo que más me gusta no es ninguna moto en particular. Es verte a ti hablando de ellas. Porque conozco esa emoción en tu voz, conozco la manera en la que empiezas a imaginar cómo sería tenerla y me encanta poder compartir contigo esa ilusión, aunque sea simplemente escuchándote hablar durante horas.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/ninja500.png"
-                    alt="Kawasaki Ninja 500"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 7 — ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle main-bike"
-                style="
-                    left:42%;
-                    top:9%;
-                    transform:
-                    translateZ(-300px)
-                    rotate(-3deg)
-                "
-                onclick="
-                    openBike(
-                        7,
-                        'Yamaha',
-                        'R3',
-                        'Pequeña, deportiva y hermosa. Pero lo especial aquí no es solamente la moto. Es pensar en todas las veces que te he escuchado hablar de modelos, cilindradas, diseños y detalles que quizás yo antes ni conocía. Me gusta aprender esas cosas porque vienen de ti, y porque cada vez que me cuentas algo nuevo siento que conozco un poquito más de tu mundo.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/r3.png"
-                    alt="Yamaha R3"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 8 — CB190R ESPECIAL
-            ================================================== -->
-
-            <div
-                class="motorcycle special"
-                style="
-                    left:42%;
-                    top:73%;
-                    transform:
-                    translateZ(300px)
-                "
-                onclick="
-                    openBike(
-                        15,
-                        'Honda',
-                        'CB190R ❤️',
-                        ''
-                    )
-                "
-            >
-
-                <img
-                    src="motos/cb190r.png"
-                    alt="Honda CB190R"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 9
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:27%;
-                    top:16%;
-                    transform:
-                    translateZ(250px)
-                    rotate(-5deg)
-                "
-                onclick="
-                    openBike(
-                        8,
-                        'Yamaha',
-                        'YZF-R1',
-                        'Porque hay máquinas que parecen hechas para llamar la atención desde lejos. Y me gusta pensar que, entre todas ellas, tú siempre encontrarías la que más te hace ilusión.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/r1.png"
-                    alt="Yamaha R1"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 10
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:58%;
-                    top:24%;
-                    transform:
-                    translateZ(150px)
-                    rotate(6deg)
-                "
-                onclick="
-                    openBike(
-                        9,
-                        'Kawasaki',
-                        'Ninja ZX-6R',
-                        'Hay cosas que simplemente tienen una presencia imposible de ignorar. Esta es una de ellas. Y quizás por eso tenía que formar parte de este pequeño universo que hice pensando en ti.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/zx6r.png"
-                    alt="Kawasaki ZX-6R"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 11
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:25%;
-                    top:42%;
-                    transform:
-                    translateZ(-250px)
-                    rotate(-7deg)
-                "
-                onclick="
-                    openBike(
-                        10,
-                        'Suzuki',
-                        'GSX-R1000',
-                        'Potencia, carácter y una historia propia. Quizás por eso encaja tan bien aquí: porque este universo también está lleno de pequeñas cosas que me recuerdan a ti.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/gsxr1000.png"
-                    alt="Suzuki GSX-R1000"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 12
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:63%;
-                    top:47%;
-                    transform:
-                    translateZ(-350px)
-                    rotate(8deg)
-                "
-                onclick="
-                    openBike(
-                        11,
-                        'BMW',
-                        'S 1000 RR',
-                        'Una de esas motos que parece pertenecer a otro mundo. Y supongo que por eso terminó aquí: porque quería que tu pequeño universo tuviera también algunas de esas cosas que hacen que te quedes mirando un rato más.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/s1000rr.png"
-                    alt="BMW S1000RR"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 13
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:8%;
-                    top:73%;
-                    transform:
-                    translateZ(50px)
-                    rotate(-6deg)
-                "
-                onclick="
-                    openBike(
-                        12,
-                        'Ducati',
-                        'Panigale V4',
-                        'Hay motos que parecen una obra de arte incluso antes de encenderse. Esta tenía que estar entre las estrellas porque sé que aprecias esas máquinas que combinan belleza, velocidad y personalidad.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/panigale.png"
-                    alt="Ducati Panigale V4"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 14
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:70%;
-                    top:76%;
-                    transform:
-                    translateZ(-250px)
-                    rotate(5deg)
-                "
-                onclick="
-                    openBike(
-                        13,
-                        'Honda',
-                        'CBR1000RR-R Fireblade',
-                        'Otra máquina increíble para alguien que disfruta tanto de este mundo. Quizás algún día tengas la oportunidad de cumplir muchos de esos sueños que hoy me cuentas. Y si algún día sucede, quiero ser una de las personas que te diga: yo sabía que lo ibas a conseguir.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/fireblade.png"
-                    alt="Honda Fireblade"
-                >
-
-            </div>
-
-
-            <!-- =================================================
-                 MOTO 15
-            ================================================== -->
-
-            <div
-                class="motorcycle"
-                style="
-                    left:48%;
-                    top:55%;
-                    transform:
-                    translateZ(-400px)
-                    rotate(-4deg)
-                "
-                onclick="
-                    openBike(
-                        14,
-                        'Aprilia',
-                        'RSV4',
-                        'Y todavía quedan muchas máquinas por descubrir, igual que todavía quedan muchísimas cosas de ti que quiero seguir conociendo. Porque enamorarse también es eso: descubrir una y otra vez a la misma persona.'
-                    )
-                "
-            >
-
-                <img
-                    src="motos/rsv4.png"
-                    alt="Aprilia RSV4"
-                >
-
-            </div>
-
 
         </div>
 
     </div>
 
 
-    <div class="instruction">
+    <!-- FRASES -->
 
-        ✦ DESLIZA PARA VIAJAR POR NUESTRO UNIVERSO ✦
+    <div class="float-phrase p1">
+        Qué suerte la mía haberte encontrado ❤️
+    </div>
+
+    <div class="float-phrase p2">
+        De todas las coincidencias de mi vida,
+        tú eres mi favorita.
+    </div>
+
+    <div class="float-phrase p3">
+        No necesito otro universo si puedo encontrarte en este.
+    </div>
+
+    <div class="float-phrase p4">
+        Tú haces que hasta mis días normales
+        tengan algo extraordinario.
+    </div>
+
+    <div class="float-phrase p5">
+        Si el destino tuviera una forma,
+        probablemente se parecería a haberte conocido.
+    </div>
+
+
+    <!-- MUNDO 3D -->
+
+    <div id="world"></div>
+
+
+    <!-- RAMO -->
+
+    <div id="bouquet">
+
+        <img
+            src="ramo.png"
+            alt="Ramo"
+            draggable="false">
+
+        <div class="bouquet-label">
+            SECRET ITEM
+        </div>
 
     </div>
 
-</div>
+
+    <!-- PISTA -->
+
+    <div
+        class="hint"
+        id="hint">
+
+    </div>
+
+</main>
 
 
-<!-- =======================================================
-     MODAL DE MOTOS
-======================================================= -->
+<!-- =====================================================
+     MODAL DE MOTOS / CARTA
+===================================================== -->
 
 <div
     class="modal"
-    id="modal"
->
+    id="modal">
 
     <div class="modal-box">
 
-        <h2 id="modalBrand"></h2>
+        <div
+            class="modal-number"
+            id="modalNumber">
+        </div>
 
-        <h3 id="modalModel"></h3>
+        <h2
+            class="modal-title"
+            id="modalTitle">
+        </h2>
 
-        <p id="modalText"></p>
+        <div
+            class="modal-message"
+            id="modalMessage">
+        </div>
 
         <button
-            class="close"
-            onclick="closeModal()"
-        >
+            class="close-btn"
+            id="closeBtn">
+
             CERRAR ❤️
+
         </button>
 
     </div>
@@ -1699,55 +1504,49 @@ button{
 </div>
 
 
-<!-- =======================================================
+<!-- =====================================================
      SECRETO
-======================================================= -->
+===================================================== -->
 
 <div
-    class="secret-overlay"
-    id="secretOverlay"
->
+    class="modal"
+    id="secretModal">
 
-    <div class="secret-box">
+    <div class="modal-box secret-box">
 
-        <div class="secret-small">
-            SOLO PARA TI
+        <div class="modal-number">
+            SECRET ITEM UNLOCKED
         </div>
 
-        <h2>
-            Encontraste algo que escondí... ❤️
+        <h2 class="modal-title">
+            Espera... ❤️
         </h2>
 
-        <p>
+        <div class="modal-message">
+
 Hay algo que no puse entre las estrellas.
 
 Porque no quería que todos pudieran verlo.
 
 Solo tú.
 
-Y quizás eso es lo bonito de algunos sentimientos:
-no necesitan estar expuestos para ser verdaderos.
-
 Hay una parte de mi corazón que guarda momentos,
-palabras, miradas y recuerdos que solamente tú y yo entendemos.
+recuerdos y pequeños detalles
+que quizá nunca sepa explicar completamente con palabras.
 
-Y aunque el mundo siga girando,
-aunque cambien los días,
-aunque la vida nos lleve por caminos diferentes...
+Y esta vez quería que fueras tú
+quien encontrara el camino hasta ellos.
 
-siempre voy a guardar con muchísimo cariño
-todo aquello que fue nuestro.
+❤️
 
-Gracias por haber sido,
-por ser
-y por formar parte de mi historia. ❤️
-        </p>
+        </div>
 
         <button
-            class="close"
-            onclick="closeSecret()"
-        >
+            class="close-btn"
+            id="closeSecret">
+
             GUARDAR ESTE SECRETO ❤️
+
         </button>
 
     </div>
@@ -1755,61 +1554,59 @@ y por formar parte de mi historia. ❤️
 </div>
 
 
-<!-- =======================================================
-     FINAL
-======================================================= -->
+<!-- =====================================================
+     COMPLETAR LAS 15
+===================================================== -->
 
 <div
-    class="final-overlay"
-    id="finalOverlay"
->
+    class="modal"
+    id="finalModal">
 
-    <div class="final-content">
+    <div class="modal-box final-box">
 
-        <div class="final-small">
-            DESPUÉS DE RECORRER TODO ESTE UNIVERSO...
+        <div class="complete-race">
+            🏁 RACE COMPLETE 🏁
         </div>
 
-        <h2>
-            ¿SABES QUÉ DESCUBRÍ? ❤️
-        </h2>
+        <div class="modal-number">
+            SEBA'S COLLECTION
+        </div>
 
-        <p>
+        <div class="final-title">
+            15 / 15 ❤️
+        </div>
+
+        <div class="final-text">
+
+¿SABES QUÉ DESCUBRÍ?
+
 Que no necesitaba 15 motos.
-
 Ni millones de estrellas.
-
 Ni siquiera un universo entero.
 
 Porque mi parte favorita de todo esto
 siempre fuiste tú.
 
-Y después de todo lo que has descubierto,
-de todas las motos,
-de todas las estrellas
-y de todas estas pequeñas palabras...
+Gracias por existir en mi vida.
 
-quiero que recuerdes algo:
+Gracias por todos los momentos,
+por las risas,
+por las conversaciones,
+por los sueños que me has contado
+y por dejarme conocer una parte de tu mundo.
 
-FELIZ 30 DE SEPTIEMBRE, MI AMOR. ❤️
+Pero espera...
 
-Gracias por formar parte de mi universo.
+Creo que todavía queda una cosa.
 
-Nuestro universo todavía no termina.
-
-Porque todavía nos quedan lugares por conocer,
-cosas por vivir,
-sueños por cumplir
-y recuerdos que todavía no existen.
-
-        </p>
+        </div>
 
         <button
-            class="last-button"
-            id="lastButton"
-            onclick="showLastSurprise()"
-        >
-            ✦ TODAVÍA FALTA ALGO ✦
+            class="surprise-btn"
+            id="surpriseBtn">
+
+            ✦ VER MI ÚLTIMA SORPRESA ✦
+
         </button>
 
     </div>
@@ -1817,50 +1614,53 @@ y recuerdos que todavía no existen.
 </div>
 
 
-<!-- =======================================================
-     ULTIMA SORPRESA
-======================================================= -->
+<!-- =====================================================
+     ÚLTIMA SORPRESA
+===================================================== -->
 
-<div
-    class="last-surprise"
-    id="lastSurprise"
->
+<section id="last-surprise">
 
-    <div class="last-surprise-content">
+    <div class="last-content">
 
-        <div class="small">
-            Y ESTA VEZ NO HAY MOTOS...
+        <div class="final-edition">
+            FINAL EDITION • NOT FOR SALE
         </div>
 
         <h2>
-            SOLO QUERÍA DECIRTE ALGO ❤️
+            Y ESTA VEZ NO HAY MOTOS... ❤️
         </h2>
 
         <p>
-De todas las cosas que podía haber puesto al final...
 
-elegí dejarte esto.
+Solo quería decirte algo.
 
 Gracias por existir en mi vida.
 
-Gracias por todos los momentos que hemos compartido.
+Me alegra muchísimo haber coincidido contigo,
+haber podido conocerte,
+escuchar cómo me cuentas de las motos
+y ver cómo se te iluminan los ojos
+cuando hablas de ellas.
 
-Gracias por las conversaciones,
-por las risas,
-por las pequeñas cosas
-y también por todos esos momentos que solamente nosotros sabemos entender.
+Me gusta cuando me cuentas de tus sueños.
 
-No sé qué forma tendrá nuestro futuro.
+Me gusta verte ilusionarte
+con las cosas que quieres conseguir.
 
-Pero sí sé que me alegra muchísimo
-haber coincidido contigo.
+Y quiero verte cumplirlas.
 
-Y si alguna vez vuelves a mirar este pequeño universo,
-quiero que recuerdes que alguien lo hizo pensando en ti,
-en tus sueños,
-en tus motos,
-en tus ilusiones
-y en esa sonrisa que aparece cuando hablas de las cosas que amas.
+Quiero verte alcanzar muchas de esas metas
+que hoy todavía están en tu cabeza
+y algún día poder mirarte
+y saber que lo lograste.
+
+Quizá no pueda regalarte
+todas las motos que algún día quieras.
+
+Pero sí puedo recordarte algo:
+
+siempre voy a querer verte feliz
+haciendo aquello que realmente amas.
 
 Feliz 30 de septiembre, cariño.
 
@@ -1868,534 +1668,352 @@ Te quiero muchísimo. ❤️
 
         </p>
 
+        <div class="heart">
+            ❤️
+        </div>
+
     </div>
 
-</div>
+</section>
 
 
 <script>
 
 /* =========================================================
-   ESTRELLAS
+   DATOS DE LAS 15 MOTOS
+
+   IMPORTANTE:
+   TODAS ESTÁN EN LA RAÍZ DEL REPOSITORIO.
+   NO EXISTE /motos/
 ========================================================= */
 
-const stars =
-    document.getElementById("stars");
+const bikes = [
 
-for(let i = 0; i < 180; i++){
+{
+    number:1,
+    brand:"CFMOTO",
+    model:"675SR-R",
+    image:"cf%20moto%20675.png",
+    main:true,
 
-    const star =
-        document.createElement("div");
+    message:`Hay algo que me gusta muchísimo de ti...
 
-    star.className = "star";
+Me gusta cuando empiezas a hablarme de motos y puedo notar cómo cambia tu mirada.
 
-    star.style.left =
-        Math.random() * 100 + "%";
+No importa si yo no conozco todos los detalles técnicos. Me gusta escucharte porque sé que detrás de cada explicación hay algo que realmente te apasiona.
 
-    star.style.top =
-        Math.random() * 100 + "%";
+Y esta moto me recuerda justamente a eso:
+a esa parte de ti que sueña, que imagina y que quiere llegar cada vez más lejos.
 
-    star.style.animationDelay =
-        Math.random() * 3 + "s";
+Ojalá algún día puedas mirar atrás y darte cuenta de que muchas de esas cosas que hoy sueñas tener, poco a poco se fueron convirtiendo en realidad.
 
-    const size =
-        Math.random() * 2 + 1;
+Y yo quiero verte conseguirlas. ❤️`
+},
 
-    star.style.width =
-        size + "px";
+{
+    number:2,
+    brand:"CFMOTO",
+    model:"750SR-R",
+    image:"cf%20moto%20750.png",
+    main:true,
 
-    star.style.height =
-        size + "px";
+    message:`Sé que tienes sueños que quizá todavía parecen lejanos.
 
-    stars.appendChild(star);
+Pero una de las cosas que más admiro de ti es que puedes ilusionarte con algo y comenzar a imaginar cómo sería tenerlo.
 
-}
+Me gusta escucharte contarme de las motos que te gustan.
 
+Me gusta cuando me explicas por qué una te llama la atención más que otra.
 
-/* =========================================================
-   SONIDO
-========================================================= */
+Porque detrás de todo eso veo tus ganas de conseguir cosas para ti.
 
-let audioContext = null;
+Y espero que nunca dejes de tener esa ilusión.
 
-function sound(){
+Quiero verte alcanzar tus metas y algún día escucharte decir:
 
-    try{
+"¿Te acuerdas cuando te contaba que quería esta?" ❤️`
+},
 
-        if(!audioContext){
+{
+    number:3,
+    brand:"HONDA",
+    model:"CBR500R",
+    image:"cbr500r.png",
+    main:true,
 
-            audioContext =
-                new (
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
+    message:`Hay personas que llegan a nuestra vida y simplemente están.
 
-        }
+Y hay otras que terminan formando parte de nuestros pequeños universos.
 
-        if(
-            audioContext.state ===
-            "suspended"
-        ){
+Tú terminaste siendo parte del mío.
 
-            audioContext.resume();
+Por eso también me gusta conocer las cosas que te hacen feliz.
 
-        }
+Tus motos.
+Tus sueños.
+Tus metas.
+Las cosas que imaginas para tu futuro.
 
-        const oscillator =
-            audioContext.createOscillator();
+Quizá para alguien más solo sean motos.
 
-        const gain =
-            audioContext.createGain();
+Pero cuando me las cuentas tú,
+yo veo mucho más.
 
-        oscillator.type =
-            "sine";
+Veo ilusión.
+Veo sueños.
+Veo una parte de ti que quiero seguir conociendo. ❤️`
+},
 
-        oscillator.frequency.setValueAtTime(
-            520,
-            audioContext.currentTime
-        );
+{
+    number:4,
+    brand:"HONDA",
+    model:"NX500 E-CLUTCH",
+    image:"nx500.png",
+    main:true,
 
-        oscillator.frequency.exponentialRampToValueAtTime(
-            850,
-            audioContext.currentTime + .18
-        );
+    message:`Me gusta cuando me cuentas algo que realmente te apasiona.
 
-        gain.gain.setValueAtTime(
-            .0001,
-            audioContext.currentTime
-        );
+Porque aunque no siempre pueda entender cada detalle,
+sí puedo entender algo:
 
-        gain.gain.exponentialRampToValueAtTime(
-            .07,
-            audioContext.currentTime + .03
-        );
+lo feliz que te hace hablar de ello.
 
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            audioContext.currentTime + .3
-        );
+Y me encanta ver tus ojos cuando algo realmente te emociona.
 
-        oscillator.connect(gain);
+Ojalá nunca pierdas esa capacidad de emocionarte por tus sueños.
 
-        gain.connect(
-            audioContext.destination
-        );
+Y cuando algún día tengas la oportunidad de cumplirlos,
+quiero que recuerdes que hubo una persona que siempre quiso verte conseguirlos.
 
-        oscillator.start();
+Yo. ❤️`
+},
 
-        oscillator.stop(
-            audioContext.currentTime + .3
-        );
+{
+    number:5,
+    brand:"KAWASAKI",
+    model:"NINJA 300 ABS",
+    image:"ninja300.png",
+    main:true,
 
-    }catch(e){}
+    message:`Quizá algún día tengas muchas motos.
 
-}
+Quizá algunas sean las que hoy solamente ves en fotos.
 
+Quizá otras todavía ni siquiera las conozcas.
 
-/* =========================================================
-   ENTRADA
-========================================================= */
+Pero espero que nunca olvides la emoción que sentías cuando empezaste a soñar con ellas.
 
-function enterUniverse(){
+Porque a mí me gusta esa parte de ti.
 
-    sound();
+La parte que mira algo y piensa:
 
-    document
-        .getElementById("intro")
-        .classList
-        .add("hide");
+"Algún día."
 
-}
+Y deseo que muchos de esos "algún día"
+terminen convirtiéndose en:
 
+"Lo logré." ❤️`
+},
 
-/* =========================================================
-   UNIVERSO
-========================================================= */
+{
+    number:6,
+    brand:"KAWASAKI",
+    model:"NINJA 500 SE ABS",
+    image:"ninja500.png",
+    main:true,
 
-const world =
-    document.getElementById("world");
+    message:`Hay algo muy bonito en escuchar a alguien hablar de lo que ama.
 
-let rotationX = 0;
+Y contigo me pasa eso.
 
-let rotationY = 0;
+Puedes empezar hablando de una moto
+y terminar contándome todos sus detalles.
 
-let velocityX = 0;
+Y yo quizá no recuerde cada especificación...
 
-let velocityY = 0;
+pero sí recuerdo tu emoción.
 
-let dragging = false;
+Eso es lo que me gusta.
 
-let pointerId = null;
+Porque cuando alguien habla con tanta ilusión de algo,
+es imposible no querer verlo conseguirlo.
 
-let lastX = 0;
+Así que sigue soñando, amor.
 
-let lastY = 0;
+Que yo quiero verte cumplir esos sueños. ❤️`
+},
 
-let startX = 0;
+{
+    number:7,
+    brand:"YAMAHA",
+    model:"R3",
+    image:"r3.png",
+    main:true,
 
-let startY = 0;
+    message:`Esta estrella es para esa parte de ti que todavía sueña.
 
-let moved = false;
+Para el Sebas que mira una moto y se imagina conduciéndola.
 
+Para el que compara modelos,
+mira videos,
+habla de motores
+y piensa en cuál sería la siguiente.
 
-/* =========================================================
-   RENDER
-========================================================= */
+Nunca me pareció aburrido escucharte.
 
-function renderWorld(){
+Al contrario.
 
-    world.style.transform =
-        "rotateX(" +
-        rotationX +
-        "deg) rotateY(" +
-        rotationY +
-        "deg)";
+Me gusta conocer aquello que te hace feliz.
 
-}
+Y me encanta imaginar que algún día voy a verte frente a una moto que antes solamente soñabas tener.
 
+Quiero estar para verlo. ❤️`
+},
 
-/* =========================================================
-   ANIMACION SUAVE
-========================================================= */
+{
+    number:8,
+    brand:"YAMAHA",
+    model:"YZF-R1",
+    image:"r1.png",
 
-function animate(){
+    message:`Hay sueños que empiezan siendo solamente una imagen en una pantalla.
 
-    if(!dragging){
+Y quién sabe...
 
-        rotationY += velocityX;
+quizá algún día alguno de esos sueños termine estacionado frente a ti.
 
-        rotationX += velocityY;
+Ojalá nunca dejes de perseguir aquello que realmente quieres.
 
-        velocityX *= .94;
+Porque verte feliz por algo que conseguiste con tu propio esfuerzo
+sería una de esas cosas que también me harían feliz a mí. ❤️`
+},
 
-        velocityY *= .94;
+{
+    number:9,
+    brand:"KAWASAKI",
+    model:"NINJA ZX-6R",
+    image:"zx6r.png",
 
-        if(
-            Math.abs(velocityX) < .002 &&
-            Math.abs(velocityY) < .002
-        ){
+    message:`Me gusta pensar que todavía hay muchísimas cosas de ti que voy a seguir descubriendo.
 
-            velocityX = 0;
+Nuevas metas.
+Nuevos sueños.
+Nuevas historias.
 
-            velocityY = 0;
+Y quizá también nuevas motos.
 
-        }
+Pero de todas esas cosas,
+hay algo que siempre quiero conservar:
 
-    }
+la oportunidad de escucharte hablar de lo que te apasiona. ❤️`
+},
 
-    rotationX =
-        Math.max(
-            -28,
-            Math.min(
-                28,
-                rotationX
-            )
-        );
+{
+    number:10,
+    brand:"SUZUKI",
+    model:"GSX-R1000",
+    image:"gsxr1000.png",
 
-    renderWorld();
+    message:`Si alguna vez consigues una de esas motos que hoy parecen un sueño,
+quiero que recuerdes algo:
 
-    requestAnimationFrame(
-        animate
-    );
+yo siempre quise verte llegar hasta ahí.
 
-}
+No porque una moto defina tus logros,
+sino porque sé lo feliz que te haría conseguir algo que realmente deseas.
 
-animate();
+Y me gusta imaginar tu sonrisa cuando finalmente puedas decir:
 
+"Lo conseguí." ❤️`
+},
 
-/* =========================================================
-   ELEMENTOS INTERACTIVOS
-========================================================= */
+{
+    number:11,
+    brand:"BMW",
+    model:"S 1000 RR",
+    image:"s1000rr.png",
 
-function isInteractive(target){
+    message:`A veces una persona se vuelve importante simplemente porque empiezas a querer conocer su mundo.
 
-    if(!target){
-        return false;
-    }
+Y yo quiero conocer el tuyo.
 
-    return Boolean(
-        target.closest(".motorcycle") ||
-        target.closest(".bouquet") ||
-        target.closest("button") ||
-        target.closest(".modal-box") ||
-        target.closest(".secret-box") ||
-        target.closest(".final-content") ||
-        target.closest(".last-surprise-content")
-    );
+Incluso esas partes que quizá al principio no entendía.
 
-}
+Porque si algo te hace feliz,
+quiero saber por qué.
 
+Quiero conocer tus sueños,
+escuchar tus planes
+y acompañarte mientras los vas construyendo. ❤️`
+},
 
-/* =========================================================
-   POINTER DOWN
-   FUNCIONA EN:
-   - iPhone
-   - iPad
-   - Android
-   - Samsung
-   - tablet
-   - mouse
-========================================================= */
+{
+    number:12,
+    brand:"DUCATI",
+    model:"PANIGALE V4",
+    image:"panigalev4.png",
 
-document.addEventListener(
-    "pointerdown",
-    function(e){
+    message:`Esta moto representa algo que me gusta mucho de ti:
 
-        if(
-            e.pointerType === "mouse" &&
-            e.button !== 0
-        ){
+tu capacidad de soñar en grande.
 
-            return;
+No sé cuántos de esos sueños terminarás cumpliendo,
+pero sí sé que quiero verte intentarlo.
 
-        }
+Y cuando consigas uno,
+quiero poder decirte:
 
+"Te lo dije. Sabía que podías." ❤️`
+},
 
-        /* Si toca una moto, NO mover universo */
+{
+    number:13,
+    brand:"HONDA",
+    model:"CBR1000RR-R FIREBLADE",
+    image:"fireblade.png",
 
-        if(
-            e.target.closest(".motorcycle") ||
-            e.target.closest(".bouquet")
-        ){
+    message:`Hay cosas que uno desea porque sí.
 
-            dragging = false;
+Y hay otras que tienen detrás años de ilusión.
 
-            moved = false;
+Por eso espero que algún día puedas tener aquello que tanto has imaginado.
 
-            return;
+No importa cuánto tarde.
 
-        }
+Lo importante es que nunca dejes de trabajar por aquello que te hace ilusión.
 
+Y que cuando llegue,
+lo disfrutes muchísimo. ❤️`
+},
 
-        if(
-            e.target.closest("button") ||
-            e.target.closest(".modal-box") ||
-            e.target.closest(".secret-box") ||
-            e.target.closest(".final-content") ||
-            e.target.closest(".last-surprise-content")
-        ){
+{
+    number:14,
+    brand:"APRILIA",
+    model:"RSV4",
+    image:"rsv4.png",
 
-            return;
+    message:`Ya casi llegamos al final de este pequeño universo...
 
-        }
+Pero antes quería dejarte una última cosa:
 
+Nunca pienses que tus sueños son demasiado grandes.
 
-        dragging = true;
+Quizá algunos tarden.
+Quizá otros cambien.
 
-        pointerId = e.pointerId;
+Pero siempre habrá algo nuevo por lo que emocionarte.
 
-        moved = false;
+Y espero que sigas teniendo esa mirada que tienes cuando hablas de las cosas que amas. ❤️`
+},
 
-        startX = e.clientX;
+{
+    number:15,
+    brand:"HONDA",
+    model:"CB190R",
+    image:"cb190r.png",
+    special:true,
 
-        startY = e.clientY;
-
-        lastX = e.clientX;
-
-        lastY = e.clientY;
-
-        velocityX = 0;
-
-        velocityY = 0;
-
-        try{
-
-            document
-                .setPointerCapture(
-                    pointerId
-                );
-
-        }catch(err){}
-
-    },
-    true
-);
-
-
-/* =========================================================
-   POINTER MOVE
-========================================================= */
-
-document.addEventListener(
-    "pointermove",
-    function(e){
-
-        if(
-            !dragging ||
-            e.pointerId !== pointerId
-        ){
-
-            return;
-
-        }
-
-
-        const dx =
-            e.clientX - lastX;
-
-        const dy =
-            e.clientY - lastY;
-
-
-        if(
-            Math.abs(
-                e.clientX - startX
-            ) > 5 ||
-            Math.abs(
-                e.clientY - startY
-            ) > 5
-        ){
-
-            moved = true;
-
-        }
-
-
-        rotationY +=
-            dx * .32;
-
-        rotationX -=
-            dy * .16;
-
-
-        velocityX =
-            dx * .012;
-
-        velocityY =
-            -dy * .006;
-
-
-        lastX =
-            e.clientX;
-
-        lastY =
-            e.clientY;
-
-
-        renderWorld();
-
-    },
-    true
-);
-
-
-/* =========================================================
-   POINTER UP
-========================================================= */
-
-function stopDragging(e){
-
-    if(
-        e.pointerId !== pointerId
-    ){
-
-        return;
-
-    }
-
-    dragging = false;
-
-    try{
-
-        document.releasePointerCapture(
-            pointerId
-        );
-
-    }catch(err){}
-
-    pointerId = null;
-
-}
-
-
-document.addEventListener(
-    "pointerup",
-    stopDragging,
-    true
-);
-
-document.addEventListener(
-    "pointercancel",
-    stopDragging,
-    true
-);
-
-document.addEventListener(
-    "pointerleave",
-    function(e){
-
-        if(
-            e.pointerType === "mouse" &&
-            dragging
-        ){
-
-            dragging = false;
-
-        }
-
-    },
-    true
-);
-
-
-/* =========================================================
-   DESCUBRIMIENTOS
-========================================================= */
-
-const discovered =
-    new Set();
-
-let secretClicks = 0;
-
-let secretTimer = null;
-
-
-/* =========================================================
-   ABRIR MOTO
-========================================================= */
-
-function openBike(
-    number,
-    brand,
-    model,
-    message
-){
-
-    dragging = false;
-
-    velocityX = 0;
-
-    velocityY = 0;
-
-    sound();
-
-
-    discovered.add(number);
-
-
-    document
-        .getElementById("progress")
-        .textContent =
-        discovered.size +
-        " / 15 estrellas descubiertas";
-
-
-    document
-        .getElementById("modalBrand")
-        .textContent =
-        brand;
-
-
-    document
-        .getElementById("modalModel")
-        .textContent =
-        model;
-
-
-    if(number === 15){
-
-        message =
-`ESPERA...
+    message:`ESPERA...
 
 Esta no pertenece a mis sueños.
 
@@ -2411,127 +2029,469 @@ no pienso solamente en lo que sueñas tener.
 
 También pienso en todo lo que ya has conseguido.
 
-Esta moto ya forma parte de tu historia.
+Esta moto representa algo diferente.
 
-Ya tiene recuerdos tuyos.
+No es solamente una moto que te gusta.
 
-Ya tiene momentos que viviste.
+Es una parte de tu camino.
+Una parte de las cosas que ya lograste.
+Una prueba de que algunos sueños sí dejan de ser sueños.
 
-Y me encanta saber que existe algo que te hace feliz
-y que puedo verte disfrutarlo.
+Y eso me encanta.
 
-Quizás no siempre sepa cómo decirlo,
-pero me gusta verte feliz haciendo algo que realmente amas.
+Porque cuando me cuentas lo que quieres conseguir algún día,
+yo también pienso en todo lo que ya has sido capaz de conseguir.
 
 Esta no representa un sueño que todavía está lejos.
 
 Representa uno que ya alcanzaste.
 
-Y yo tuve la suerte de poder verlo.
-
-Por eso tenía que estar aquí.
+Y por eso tenía que estar aquí.
 
 No como una moto soñada.
 
-Sino como una parte de ti. ❤️`;
+Sino como una parte de ti. ❤️`
+}
 
+];
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const intro =
+    document.getElementById("intro");
+
+const enterBtn =
+    document.getElementById("enterBtn");
+
+const traffic =
+    document.getElementById("traffic");
+
+const redLight =
+    document.getElementById("redLight");
+
+const yellowLight =
+    document.getElementById("yellowLight");
+
+const greenLight =
+    document.getElementById("greenLight");
+
+const trafficText =
+    document.getElementById("trafficText");
+
+const space =
+    document.getElementById("space");
+
+const world =
+    document.getElementById("world");
+
+const modal =
+    document.getElementById("modal");
+
+const modalNumber =
+    document.getElementById("modalNumber");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalMessage =
+    document.getElementById("modalMessage");
+
+const closeBtn =
+    document.getElementById("closeBtn");
+
+const bouquet =
+    document.getElementById("bouquet");
+
+const secretModal =
+    document.getElementById("secretModal");
+
+const closeSecret =
+    document.getElementById("closeSecret");
+
+const finalModal =
+    document.getElementById("finalModal");
+
+const surpriseBtn =
+    document.getElementById("surpriseBtn");
+
+const lastSurprise =
+    document.getElementById("last-surprise");
+
+const countElement =
+    document.getElementById("count");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const hint =
+    document.getElementById("hint");
+
+
+/* =========================================================
+   CREAR LAS MOTOS
+========================================================= */
+
+const bikeElements = [];
+
+bikes.forEach((bike,index)=>{
+
+    const el =
+        document.createElement("div");
+
+    el.className =
+        "motorcycle";
+
+    if(bike.main){
+        el.classList.add("main-bike");
     }
 
+    if(bike.special){
+        el.classList.add("special");
+    }
 
-    document
-        .getElementById("modalText")
-        .textContent =
-        message;
+    el.dataset.number =
+        bike.number;
+
+    el.innerHTML = `
+        <img
+            src="${bike.image}"
+            alt="${bike.brand} ${bike.model}"
+            draggable="false">
+
+        <div class="bike-number">
+            #${String(bike.number).padStart(2,"0")}
+        </div>
+    `;
+
+    world.appendChild(el);
+
+    bikeElements.push({
+        el,
+        bike,
+        index
+    });
 
 
-    document
-        .getElementById("modal")
-        .classList
-        .add("active");
+    /*
+       IMPORTANTE:
+
+       Cada moto tiene su propio CLICK.
+
+       Esto permite que el toque funcione
+       en iPad, Android y computadora
+       sin que el movimiento del universo
+       se coma el toque.
+    */
+
+    el.addEventListener("click",(event)=>{
+
+        event.stopPropagation();
+
+        openBike(bike);
+
+    });
+
+});
 
 
-    /* =====================================================
-       SECRETO
-    ===================================================== */
+/* =========================================================
+   DISTRIBUCIÓN ORIGINAL EN EL ESPACIO
 
-    if(number === 15){
+   NO SON TARJETAS.
+   NO SE QUEDAN EN FILA.
+   SIGUEN FLOTANDO EN 3D.
+========================================================= */
 
-        secretClicks++;
+function positionBikes(){
 
-        clearTimeout(
-            secretTimer
-        );
+    const total =
+        bikeElements.length;
 
-        secretTimer =
-            setTimeout(
-                function(){
+    bikeElements.forEach((item,i)=>{
 
-                    secretClicks = 0;
-
-                },
-                3500
+        const phi =
+            Math.acos(
+                -1 +
+                (2*i)/total
             );
 
+        const theta =
+            Math.sqrt(
+                total*Math.PI
+            ) * phi;
+
+        const radius =
+            window.innerWidth < 600
+            ? 280
+            : 390;
+
+        const x =
+            radius *
+            Math.cos(theta) *
+            Math.sin(phi);
+
+        const y =
+            radius *
+            Math.sin(theta) *
+            Math.sin(phi);
+
+        const z =
+            radius *
+            Math.cos(phi);
+
+        item.x=x;
+        item.y=y;
+        item.z=z;
+
+        item.el.style.transform =
+            `translate3d(${x}px,${y}px,${z}px)`;
+
+    });
+
+}
+
+positionBikes();
+
+window.addEventListener(
+    "resize",
+    positionBikes
+);
+
+
+/* =========================================================
+   MOVIMIENTO DEL UNIVERSO
+========================================================= */
+
+let rotX=-8;
+let rotY=0;
+
+let velocityX=0;
+let velocityY=0;
+
+let dragging=false;
+
+let lastX=0;
+let lastY=0;
+
+
+/*
+   SOLO EL FONDO INICIA EL ARRASTRE.
+   LAS MOTOS NO.
+*/
+
+space.addEventListener(
+    "pointerdown",
+    (e)=>{
 
         if(
-            secretClicks >= 3
+            e.target.closest(".motorcycle") ||
+            e.target.closest("#bouquet") ||
+            e.target.closest("button")
         ){
+            return;
+        }
 
-            secretClicks = 0;
+        dragging=true;
 
-            setTimeout(
-                function(){
+        lastX=e.clientX;
+        lastY=e.clientY;
 
-                    closeModal();
-
-                    setTimeout(
-                        function(){
-
-                            document
-                                .getElementById(
-                                    "secretOverlay"
-                                )
-                                .classList
-                                .add("active");
-
-                        },
-                        400
-                    );
-
-                },
-                500
+        try{
+            space.setPointerCapture(
+                e.pointerId
             );
+        }catch(err){}
 
+    }
+);
+
+
+space.addEventListener(
+    "pointermove",
+    (e)=>{
+
+        if(!dragging){
+            return;
+        }
+
+        const dx =
+            e.clientX-lastX;
+
+        const dy =
+            e.clientY-lastY;
+
+        rotY += dx*.28;
+
+        rotX -= dy*.28;
+
+        velocityY =
+            dx*.012;
+
+        velocityX =
+            -dy*.012;
+
+        lastX=e.clientX;
+        lastY=e.clientY;
+
+    }
+);
+
+
+function stopDragging(){
+    dragging=false;
+}
+
+space.addEventListener(
+    "pointerup",
+    stopDragging
+);
+
+space.addEventListener(
+    "pointercancel",
+    stopDragging
+);
+
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+function renderWorld(){
+
+    world.style.transform =
+        `rotateX(${rotX}deg)
+         rotateY(${rotY}deg)`;
+
+    if(!dragging){
+
+        rotY += velocityY;
+        rotX += velocityX;
+
+        velocityX *= .94;
+        velocityY *= .94;
+
+        if(Math.abs(velocityX)<.001){
+            velocityX=0;
+        }
+
+        if(Math.abs(velocityY)<.001){
+            velocityY=0;
         }
 
     }
 
+    requestAnimationFrame(
+        renderWorld
+    );
+}
 
-    /* =====================================================
-       TODAS LAS MOTOS DESCUBIERTAS
-    ===================================================== */
+renderWorld();
 
-    if(
-        discovered.size === 15
-    ){
 
-        setTimeout(
-            function(){
+/* =========================================================
+   ENTRADA + SEMÁFORO
+========================================================= */
 
-                closeModal();
+enterBtn.addEventListener(
+    "click",
+    startRace
+);
 
-                setTimeout(
-                    function(){
+function startRace(){
 
-                        showFinal();
+    intro.classList.add("hidden");
 
-                    },
-                    700
-                );
+    traffic.classList.add("show");
 
-            },
-            900
+    redLight.classList.add("active");
+
+    trafficText.textContent=
+        "READY?";
+
+    setTimeout(()=>{
+
+        redLight.classList.remove("active");
+
+        yellowLight.classList.add("active");
+
+        trafficText.textContent=
+            "SET...";
+
+    },1000);
+
+
+    setTimeout(()=>{
+
+        yellowLight.classList.remove("active");
+
+        greenLight.classList.add("active");
+
+        trafficText.textContent=
+            "GO! 🏁";
+
+        playEngine();
+
+    },2000);
+
+
+    setTimeout(()=>{
+
+        traffic.classList.remove("show");
+
+        showHint(
+            "Explora el universo... hay 15 pequeñas estrellas esperando que las descubras. ❤️"
         );
+
+    },2800);
+
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+const discovered =
+    new Set();
+
+let cb190rTaps=0;
+
+let cb190rLastTap=0;
+
+
+function updateProgress(){
+
+    const total =
+        discovered.size;
+
+    countElement.textContent =
+        total;
+
+    progressFill.style.width =
+        `${(total/15)*100}%`;
+
+
+    /*
+       CUANDO LLEGA A 15:
+
+       NO SE ABRE LA ÚLTIMA SORPRESA.
+
+       SOLAMENTE APARECE EL BOTÓN
+       DE FINALIZACIÓN.
+    */
+
+    if(total===15){
+
+        setTimeout(()=>{
+
+            finalModal.classList.add("open");
+
+            playChime();
+
+        },700);
 
     }
 
@@ -2539,101 +2499,291 @@ Sino como una parte de ti. ❤️`;
 
 
 /* =========================================================
-   RAMO
+   ABRIR MOTO
 ========================================================= */
 
-function openBouquet(){
+function openBike(bike){
 
-    dragging = false;
+    if(
+        !discovered.has(
+            bike.number
+        )
+    ){
 
-    velocityX = 0;
+        discovered.add(
+            bike.number
+        );
 
-    velocityY = 0;
+        updateProgress();
 
-    sound();
+        showDiscoveryHint(
+            bike.number
+        );
 
-
-    document
-        .getElementById("modalBrand")
-        .textContent =
-        "PARA TI ❤️";
-
-
-    document
-        .getElementById("modalModel")
-        .textContent =
-        "Una carta para ti";
+    }
 
 
-    document
-        .getElementById("modalText")
-        .textContent =
+    /* =====================================
+       SECRETO CB190R
 
-`Mi amor:
+       Tres toques relativamente rápidos.
+    ===================================== */
 
-No sé si existe una cantidad suficiente de palabras para explicar cuánto puede llegar a significar una persona.
+    if(bike.number===15){
+
+        const now =
+            Date.now();
+
+        if(
+            now-cb190rLastTap
+            <3500
+        ){
+
+            cb190rTaps++;
+
+        }else{
+
+            cb190rTaps=1;
+
+        }
+
+        cb190rLastTap=now;
+
+
+        if(cb190rTaps>=3){
+
+            cb190rTaps=0;
+
+            secretModal.classList.add(
+                "open"
+            );
+
+            playChime();
+
+            return;
+        }
+
+    }
+
+
+    modalNumber.textContent =
+        `SPECIAL EDITION • #${String(bike.number).padStart(2,"0")}`;
+
+    modalTitle.textContent =
+        `${bike.brand} ${bike.model}`;
+
+    modalMessage.textContent =
+        bike.message;
+
+    modal.classList.add("open");
+
+    playEngine();
+
+}
+
+
+/* =========================================================
+   PISTAS
+========================================================= */
+
+function showDiscoveryHint(number){
+
+    let message="";
+
+    if(number===1){
+
+        message=`
+        <span class="hint-label">
+        🏁 RACING TIP #01
+        </span>
+
+        Primera estrella encontrada...
+        pero esta colección es mucho más grande. ❤️
+        `;
+
+    }
+
+    else if(number===3){
+
+        message=`
+        <span class="hint-label">
+        🌹 SECRET ITEM
+        </span>
+
+        No todo lo importante tiene ruedas...
+        mira cerca del centro de la pista.
+        `;
+
+    }
+
+    else if(number===5){
+
+        message=`
+        <span class="hint-label">
+        🔧 GARAGE TIP #02
+        </span>
+
+        Hay algo aquí que no necesita combustible
+        para hacerte sonreír. ❤️
+        `;
+
+    }
+
+    else if(number===7){
+
+        message=`
+        <span class="hint-label">
+        🏁 RACING TIP #03
+        </span>
+
+        Ya encontraste varias...
+        pero todavía no has descubierto todo
+        lo que preparé para ti.
+        `;
+
+    }
+
+    else if(number===9){
+
+        message=`
+        <span class="hint-label">
+        🔥 RACING TIP #04
+        </span>
+
+        Algunas cosas no se descubren
+        a la primera.
+
+        A veces vale la pena dar otra vuelta. 👀
+        `;
+
+    }
+
+    else if(number===11){
+
+        message=`
+        <span class="hint-label">
+        🏆 SPECIAL EDITION
+        </span>
+
+        Hay una pieza de esta colección
+        que pertenece a una historia real...
+        no solamente a un sueño.
+        `;
+
+    }
+
+    else if(number===14){
+
+        message=`
+        <span class="hint-label">
+        🏁 FINAL LAP
+        </span>
+
+        Ya casi...
+
+        Pero recuerda:
+        el último descubrimiento
+        podría esconder algo más. ❤️
+        `;
+
+    }
+
+    else{
+        return;
+    }
+
+
+    showHint(
+        message
+    );
+
+}
+
+
+/* =========================================================
+   MOSTRAR PISTA
+========================================================= */
+
+function showHint(text){
+
+    hint.innerHTML =
+        text;
+
+    hint.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        window.hintTimer
+    );
+
+    window.hintTimer =
+        setTimeout(()=>{
+
+            hint.classList.remove(
+                "show"
+            );
+
+        },6500);
+
+}
+
+
+/* =========================================================
+   RAMO + CARTA
+========================================================= */
+
+bouquet.addEventListener(
+    "click",
+    (e)=>{
+
+        e.stopPropagation();
+
+        modalNumber.textContent =
+            "SECRET ITEM • FOR YOU ❤️";
+
+        modalTitle.textContent =
+            "Mi amor:";
+
+        modalMessage.textContent =
+`No sé si existe una cantidad suficiente de palabras para explicar cuánto puede llegar a significar una persona.
 
 Por eso hice esto.
 
-Porque quería regalarte algo que no fuera solamente un mensaje.
+Quería construirte un pequeño lugar que fuera solamente tuyo.
 
-Quería construirte un pequeño lugar.
-
-Uno donde pudieran estar algunas de las cosas que te gustan, algunos de tus sueños y un poquito de todo lo que siento por ti.
-
-Mientras hacía cada parte de esto pensé muchas veces en ti.
-
-Pensé en las cosas que te emocionan.
-
-En las cosas que te hacen sonreír.
-
-En la manera en la que hablas cuando algo realmente te apasiona.
-
-Y también pensé en lo bonito que es conocer a una persona lo suficiente como para saber qué cosas hacen que sus ojos se iluminen.
-
-Quizás esto no sea el regalo más grande que alguien pueda hacer.
-
-Pero sí está hecho pensando completamente en ti.
+Un lugar donde pudieras encontrar algunas de las cosas que me recuerdan a ti.
 
 Cada moto.
-
 Cada estrella.
-
 Cada palabra.
 
-Cada pequeño detalle.
+No están aquí solamente porque sé que te gustan las motos.
 
-Todo comenzó con una sola persona en mi cabeza:
+Están aquí porque me gusta escucharte hablar de ellas.
 
-tú.
+Me gusta cuando me cuentas cuál te gusta,
+por qué te gusta
+y cómo algún día te gustaría tener ciertas motos.
 
-Y quería que cuando lo vieras supieras que detrás de cada detalle hubo alguien que se sentó a construirlo pensando:
+Y sobre todo me gusta cuando se te iluminan los ojos cuando hablas de ellas.
 
-"Esto le gustaría."
+Quiero que sigas teniendo sueños.
 
-"Esto le haría sonreír."
+Quiero verte conseguirlos.
 
-"Esto tiene que estar porque es muy él."
+Y quiero que algún día puedas mirar atrás y sentir orgullo de todo lo que lograste.
 
-No sé qué nos traerá el futuro.
+Este pequeño universo no alcanza para guardar todo lo que siento por ti.
 
-No sé qué sueños vamos a cumplir.
+Pero hice lo que pude para convertir un poquito de ese cariño en algo que pudieras descubrir.
 
-No sé qué lugares vamos a conocer.
+Nuestra historia todavía tiene páginas en blanco.
 
-Ni cuántas cosas todavía nos quedan por aprender.
-
-Pero sí sé que todavía existen recuerdos que no hemos vivido.
-
-Lugares que no conocemos.
-
-Fotografías que todavía no existen.
-
-Conversaciones que todavía no hemos tenido.
-
-Y eso me parece bonito.
-
-Porque significa que nuestra historia todavía tiene páginas en blanco.
+Todavía nos quedan lugares por conocer,
+cosas por vivir,
+sueños por cumplir
+y recuerdos que todavía no existen.
 
 Si pudiera regalarte algo más grande que este pequeño universo, lo haría.
 
@@ -2641,133 +2791,265 @@ Pero mientras tanto...
 
 quédate con mi amor.
 
-Porque ese sí es completamente tuyo. ❤️
+Porque ese sí es completamente tuyo. ❤️`;
 
-Gracias por ser parte de mi vida.
+        modal.classList.add(
+            "open"
+        );
 
-Con todo mi cariño,
+        playChime();
 
-yo.`;
-
-
-    document
-        .getElementById("modal")
-        .classList
-        .add("active");
-
-}
+    }
+);
 
 
 /* =========================================================
    CERRAR MODAL
 ========================================================= */
 
-function closeModal(){
+closeBtn.addEventListener(
+    "click",
+    ()=>{
+        modal.classList.remove(
+            "open"
+        );
+    }
+);
 
-    document
-        .getElementById("modal")
-        .classList
-        .remove("active");
+modal.addEventListener(
+    "click",
+    (e)=>{
+
+        if(e.target===modal){
+
+            modal.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CERRAR SECRETO
+========================================================= */
+
+closeSecret.addEventListener(
+    "click",
+    ()=>{
+
+        secretModal.classList.remove(
+            "open"
+        );
+
+    }
+);
+
+secretModal.addEventListener(
+    "click",
+    (e)=>{
+
+        if(e.target===secretModal){
+
+            secretModal.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BOTÓN FINAL
+========================================================= */
+
+surpriseBtn.addEventListener(
+    "click",
+    ()=>{
+
+        finalModal.classList.remove(
+            "open"
+        );
+
+        setTimeout(()=>{
+
+            lastSurprise.classList.add(
+                "show"
+            );
+
+            playChime();
+
+        },450);
+
+    }
+);
+
+
+/* =========================================================
+   SONIDO DE MOTOR
+========================================================= */
+
+function playEngine(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AudioContext){
+            return;
+        }
+
+        const ctx =
+            new AudioContext();
+
+        const osc =
+            ctx.createOscillator();
+
+        const gain =
+            ctx.createGain();
+
+        osc.type="sawtooth";
+
+        osc.frequency.setValueAtTime(
+            90,
+            ctx.currentTime
+        );
+
+        osc.frequency.exponentialRampToValueAtTime(
+            180,
+            ctx.currentTime+.18
+        );
+
+        osc.frequency.exponentialRampToValueAtTime(
+            80,
+            ctx.currentTime+.38
+        );
+
+        gain.gain.setValueAtTime(
+            .0001,
+            ctx.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .045,
+            ctx.currentTime+.03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            ctx.currentTime+.4
+        );
+
+        osc.connect(gain);
+
+        gain.connect(
+            ctx.destination
+        );
+
+        osc.start();
+
+        osc.stop(
+            ctx.currentTime+.42
+        );
+
+    }catch(err){}
 
 }
 
 
 /* =========================================================
-   CERRAR AL TOCAR FUERA
+   SONIDO CHIME
+========================================================= */
+
+function playChime(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AudioContext){
+            return;
+        }
+
+        const ctx =
+            new AudioContext();
+
+        const osc =
+            ctx.createOscillator();
+
+        const gain =
+            ctx.createGain();
+
+        osc.type="sine";
+
+        osc.frequency.setValueAtTime(
+            520,
+            ctx.currentTime
+        );
+
+        osc.frequency.exponentialRampToValueAtTime(
+            760,
+            ctx.currentTime+.35
+        );
+
+        gain.gain.setValueAtTime(
+            .0001,
+            ctx.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .07,
+            ctx.currentTime+.03
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            ctx.currentTime+.45
+        );
+
+        osc.connect(gain);
+
+        gain.connect(
+            ctx.destination
+        );
+
+        osc.start();
+
+        osc.stop(
+            ctx.currentTime+.5
+        );
+
+    }catch(err){}
+
+}
+
+
+/* =========================================================
+   EVITAR ARRASTRE DE IMÁGENES
 ========================================================= */
 
 document
-    .getElementById("modal")
-    .addEventListener(
-        "pointerup",
-        function(e){
+.querySelectorAll("img")
+.forEach(img=>{
 
-            if(
-                e.target.id === "modal"
-            ){
-
-                closeModal();
-
-            }
-
+    img.addEventListener(
+        "dragstart",
+        (e)=>{
+            e.preventDefault();
         }
     );
 
-
-/* =========================================================
-   SECRETO
-========================================================= */
-
-function closeSecret(){
-
-    document
-        .getElementById("secretOverlay")
-        .classList
-        .remove("active");
-
-}
-
-
-/* =========================================================
-   FINAL
-========================================================= */
-
-function showFinal(){
-
-    document
-        .getElementById("finalOverlay")
-        .classList
-        .add("active");
-
-    sound();
-
-
-    setTimeout(
-        function(){
-
-            document
-                .getElementById("lastButton")
-                .style.display =
-                "inline-block";
-
-        },
-        6500
-    );
-
-}
-
-
-/* =========================================================
-   ULTIMA SORPRESA
-========================================================= */
-
-function showLastSurprise(){
-
-    sound();
-
-
-    document
-        .getElementById("finalOverlay")
-        .classList
-        .remove("active");
-
-
-    setTimeout(
-        function(){
-
-            document
-                .getElementById("lastSurprise")
-                .classList
-                .add("active");
-
-        },
-        700
-    );
-
-}
+});
 
 </script>
 
 </body>
-
 </html>
